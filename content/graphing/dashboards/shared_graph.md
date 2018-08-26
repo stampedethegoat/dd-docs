@@ -18,7 +18,7 @@ further_reading:
 
 ## Overview
 
-Shared Graphs and Screenboards allow you to display metric, trace, and log visualizations outside of Datadog while being able to apply access restriction to your Embeds.
+Shared Graphs and Screenboards allow you to display metric, trace, and log visualizations outside of Datadog.
 
 ## Sharing a particular Graph
 
