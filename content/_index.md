@@ -8,39 +8,59 @@ aliases:
 disable_toc: true
 ---
 
-# Welcome to Datadog Docs!
+# Docs Homepage
 
-*If you're new here, read below for a high-level view of Datadog.*
+[//]: <> ({{< partial name="tile-nav/tile-nav.html" >}})
 
-{{< partial name="tile-nav/tile-nav.html" >}}
+Your application stack is trying to tell a story.
 
-Your application stack is teeming with unused metadata that's trying to tell a story: things aren't humming along as well as they should be.
+Exceptions; DB queries; cache misses; upstream services flapping; error logs growing. 
 
-Exceptions thrown; database queries slowing; cache misses rising; upstream services flapping; error logs growing. Each of these tells a part of the story, but it's hard to make sense of-or act on meaningfully-when taken separately from the others.
+Each of these tells a part of the story but it's hard to understand them when they are separate.
 
-Datadog lets you collect all these metrics, events, and service states in one place. Then, visualize and correlate the data with beautiful graphs, and set flexible alerting conditions on it-all without running any storage or monitoring infrastructure yourself.
+Datadog lets you collect metrics, events, and service states in one place. 
+
+Visualize the data with graphs and set alerts on it all from the Datadog app.
 
 ## Collect Everything
 
-Collect a wealth of already-available data without writing any code. [Install the Datadog Agent][1] everywhere-every server, instance, VM, node, [container-running host][2]-and then enable and configure any of our 200+ out-of-the-box [integrations][3] to start the metrics flowing to Datadog's backend.
+[Install the Agent][1] on servers, instances, VMs, nodes, [container-running host][2]. 
 
-Submit custom application metrics by writing a little code. Instrument your own gauges, counters, timers, and histograms with [DogStatsD][4], or use [APM][5] to trace the execution time of any code path to see how it impacts overall request-response times. The [client libraries][6] send your [custom metrics][7] and trace data to the Datadog Agent, which then ships them off to Datadog.
+Configure 200+ [integrations][3] to start the metrics flowing to Datadog's backend.
 
-Some of your stack may be SaaS, not servers. Datadog can [poll many of these services](/integrations), and the integrations for them are the easiest of all to install-no Agent required.
+Use [DogStatsD][4] to instrument custom metrics like gauges, counters, timers, histograms 
+
+Use [APM][5] to trace execution time of code paths and see how it impacts req-resp times. 
+
+The [client libraries][6] send your [custom metrics][7] to the Agent which then ships them off to Datadog.
+
+Datadog can [poll many services](/integrations) without having to install the Agent.
 
 ## Visualize It
+Use the Metrics Explorer to search and observe a given metric. 
 
-As soon as the data is captured, you'll see it immediately in the Datadog web application. Use the Metrics Explorer to search for a given metric and watch it ebb and flow. View and comment on events, such as an application deployment, as they pour into your [Event Stream][8]. Filter for a group of hosts in the [Infrastructure Map][9]. Get an overall picture of how a given service (say, MySQL) is running via its default dashboard.
+Use the Dashboard to get an overall picture of how a given service is running.
 
-Before long, you'll create custom [Screenboards][10] that combine all the graphs, numbers, events, and service states you care about the most. You can customize the graphs in whatever way helps you discover problems: skewing their metric values using other metrics, applying [anomaly][11], [outlier][12], or [forecasts][13] detection, overlaying events onto them, and more.
+Use the [Event Stream][8] to view and comment on events, such as app deployment. 
+
+Use the [Infrastructure Map][9] to filter for a group of hosts. 
+
+Use the [Screenboard][10] to combine all graphs, events, service states to discover patterns.
+
+Apply an [anomaly][11], [outlier][12], or [forecast][13] to skew metric values using other metrics.
 
 ## Monitor It
+Use the [Monitors][14] to set up alerting conditions on your metrics.
 
-Once your graphs have exposed the problem areas, you'll set up alerting conditions on your metrics using [Monitors][14]. You'll [get emails][15] when the alerts fire, or set up the [Slack][16] or [HipChat][17] integrations for a dedicated, in-app notifications.
+You can get [Emails][15], [Slack][16] or [HipChat][17] notifications when the alerts fire.
 
-When you're well aware of an ongoing problem, [silence its alerts][18]. When you're about to bring a service down for maintenance, [schedule a downtime][19] so you won't get spammed with alerts. When you can't define some alert-worthy condition in terms of a single host, event, metric, or service, then create a [composite monitor][20] instead.
+You can [silence][18] the alerts if you are aware of an ongoing problem.
 
-{{< partial name="support/support.html" >}}
+You can [schedule a downtime][19] if you're about to bring a service down for maintenance.
+
+You can create a [composite monitor][20] when you want to define alerts for multiple hosts.
+
+<!--{{< partial name="support/support.html" >}}-->
 
 [1]: /agent
 [2]: https://github.com/DataDog/datadog-agent/tree/master/Dockerfiles/agent
