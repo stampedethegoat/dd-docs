@@ -211,7 +211,7 @@ languages:
 
         # INTEGRATIONS
         - identifier: menu_references_integrations
-          name: "Integrations"
+          name: "Integrations 101"
           url: "integrations/"
           pre: "nav_integrations"
           weight: 50
@@ -220,14 +220,14 @@ languages:
 
         # Watchdog
         - identifier: customnav_watchdog
-          name: "Watchdog"
+          name: "Watchdog 101"
           url: "watchdog/"
           pre: "nav_watchdog"
           weight: 55
 
         # GRAPHING
         - identifier: menu_references_graphing
-          name: "Graphing"
+          name: "Graphing 101"
           url: "graphing/"
           pre: "nav_graphing"
           weight: 60
