@@ -20,7 +20,7 @@ further_reading:
 
 Shared Graphs and Screenboards allow you to display metric, trace, and log visualizations outside of Datadog.
 
-## Sharing a particular Graph
+## Sharing Graphs
 
 To share a Graph from a [Timeboard][5] or a [Screenboard][6]:
 
@@ -46,15 +46,23 @@ Share a Screenboard entirely with the following process:
 
 ### Applying restrictions
 
-You can restrict access on a per-IP address basis to your Embed. Email [the Datadog support team][1] to enable the IP address white listing feature that allows administrators to provide a list of IP addresses that have access to shared dashboards.
+You can restrict access on a per-IP address basis to your Embed. 
 
-These shared graphs can be embedded in external-facing tools using the provided iframe as well as shared directly using the source URL provided in the text box. This can be used externally without additional authorization required for access. Once enabled, manage your restrictions on [your organisation security page][14].
+Email [the support team][1] to enable IP address whitelisting that allows admins to provide a list of IPs that have access to shared dashboards.
 
-**Note**: If you have enabled [Dashboard Template Variables][13], the template variable drop-downs will not be present in the shared views. We advise to avoid using these if you intend on sharing the views outside of your organization.
+These shared graphs can be embedded in external tools using iframe as well as shared directly with the source URL. 
 
-## Revoking shared graphs/Screenboard
+This can be used externally without additional authorization required for access. 
 
-### Revoking an embedded graphs
+Once enabled, manage your restrictions on [your organization security page][14].
+
+**Note**: If you have enabled [Template Variables][13], the template variable drop-downs will not be present in the shared views. 
+
+We advise to avoid using these if you intend on sharing the views outside of your organization.
+
+## Revoking Shared Graphs/Screenboard
+
+### Revoke Embedded Graphs
 To revoke the keys used to share your graphs:
 
 1. [Navigate to **Integrations -> Embeds**][3] to find a list of all the graphs that are shared.
@@ -63,7 +71,7 @@ To revoke the keys used to share your graphs:
 
 {{< img src="graphing/dashboards/shared_graph/embedded_graphs.png" alt="Embedded graph" responsive="true" style="width:75%;">}}
 
-### Revoking a Screenboard
+### Revoke Screenboard
 
 To revoke a shared Screenboard:
 
