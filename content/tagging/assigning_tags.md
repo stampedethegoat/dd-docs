@@ -7,23 +7,62 @@ aliases:
 further_reading:
 - link: "tagging"
   tag: "Documentation"
-  text: Getting started with tags
+  text: Tagging 101
 - link: "tagging/using_tags"
   tag: "Documentation"
-  text: Learn how to use tags in Datadog
+  text: Using Tags
 ---
 
-Tagging is used throughout the Datadog product to make it easier to subset and query the machines and metrics that you have to monitor. Without the ability to assign and filter based on tags, finding the problems that exist in your environment and narrowing them down enough to discover the true causes would be extremely difficult. [Discover our tagging best practices before going further][61].
+Tagging is used to make it easier to subset and query machines and metrics that you want to monitor. 
 
-## How to assign tags
-There are four primary ways to assign tags: inherited from the [integration][1], in the configuration, in the UI, and using the API, though the UI and API only allow you to assign tags at the host level. The recommended method is to rely on the [integrations][1] or via the configuration files.
+Without the ability to assign and filter based on tags, finding the problems that exist in your environment and narrowing them down enough to discover the causes would be difficult. 
 
-### Inheriting tags from an integration
+There are 4 primary ways to assign tags:   
+* [Integrations][1] (Recommended)  
+* Configuration Files (Recommended)  
+* UI (only at host level)     
+* API, (only at host level)  
 
-The easiest method for assigning tags is to rely on the integration. Tags assigned to your Amazon Web Services instances, Chef recipes, and more are all automatically assigned to the hosts and metrics when they are brought in to Datadog.
+### From Integrations
 
-The following [integrations][1] sources create tags automatically in Datadog:
+The easiest method for assigning tags is to rely on the integration. Tags assigned to your AWS instances, Chef recipes, etc are automatically assigned to the hosts and metrics when they are brought into Datadog.
 
+### From Configuration Files
+[The Datadog integrations][1] are configured via the yaml files located in **conf.d**. Location of configuration files [here][59]. 
+
+In YAML files, there is a **tag dictionary** with a list of tags you want assigned at that level. 
+
+Any tag you assign to the Agent is applied to every integration on that Agent's host.
+
+Dictionaries with lists of values have two different yet functionally equivalent forms:
+
+    tags: region:east, application:database, database:primary, role:sobotka
+
+or
+
+    tags:
+      - region      : east
+      - application : database
+      - database    : primary
+      - role        : sobotka
+
+In the yaml configuration files both forms are valid, but for `datadog.yaml` you can only use the 1st one.
+
+We recommend using `key:value` pairs. Keys could represent the role, function, region, or application.   
+The value is the instance of that role, function, region, or application. 
+
+### From the UI (Host tags only)
+
+To assign tags in the UI, go to the **Infrastructure List** page. 
+
+Click on any **host**, then the **Update Host Tags** button. Click **Edit Tags** and make the changes you wish.
+
+### From the API (Host tags only)
+[Tags API Documentation][60]
+
+The endpoints you want to work with are `/tags/hosts` and depending on whether you PUT, POST, or DELETE you update, add, or delete tags for the chosen host. 
+
+### Automatically created Tags from Integrations
 |                                                                       ||
 | :-------------------------------------                                | :------------------------------------------------------------------------------|
 | [Amazon CloudFront][2]                  | Distribution|
@@ -80,43 +119,6 @@ The following [integrations][1] sources create tags automatically in Datadog:
 | [VSphere][56]                                       | Host, Datacenter, Server, Instance|
 | [Win32 Events][57]                                     | Event ID|
 | [Windows Services][58]                         | Service Name|
-
-### Assigning tags using the configuration files
-[The Datadog integrations][1] are all configured via the yaml configuration files located in the **conf.d** directory in your Agent install. For more about where to look for your configuration files, refer [to this article][59].
-
-Define tags in the configuration file for the overall Agent as well as for each integration.
-In YAML files, there is a tag dictionary with a list of tags you want assigned at that level. Any tag you assign to the Agent is applied to every integration on that Agent's host.
-
-Dictionaries with lists of values have two different yet functionally equivalent forms:
-
-    tags: key_first_tag:value_1, key_second_tag:value_2, key_third_tag:value_3
-
-or
-
-    tags:
-      - key_first_tag:value_1
-      - key_second_tag:value_2
-      - key_third_tag:value_3
-
-You see both forms in the yaml configuration files, but for the `datadog.yaml` init file only the first form is valid.
-
-Each tag can be anything you like but you have the best success with tagging if your tags are `key:value` pairs. Keys could represent the role, or function, or region, or application and the value is the instance of that role, function, region, or application. Here are some examples of good tags:
-
-    region:east
-    region:nw
-    application:database
-    database:primary
-    role:sobotka
-
-The reason why you should use key value pairs instead of values becomes apparent when you start using the tags to filter and group metrics and machines. That said, you are not required to use key value pairs and simple values are valid.
-
-### Assigning host tags in the UI
-
-You can also assign tags to hosts, but not to [integration][1] in the UI. To assign tags in the UI, start by going to the Infrastructure List page. Click on any host and then click the Update Host Tags button. In the host overlay that appears, click Edit Tags and make the changes you wish.
-
-### Assigning host tags using the API
-
-You can also assign tags to hosts, but not to [integration][1] using the API. The endpoints you want to work with are /tags/hosts and depending on whether you PUT, POST, or DELETE you update, add, or delete tags for the chosen host. For more details on using the Tags endpoints in the API, [review this document][60]
 
 ## Further Reading
 
