@@ -51,7 +51,6 @@ languages:
           weight: 351
           parent: menu_references_tagging
 
-
         # AGENT
         - identifier: menu_references_agent
           name: "The Agent 101"

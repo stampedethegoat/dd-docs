@@ -2,7 +2,7 @@
 [x] Tagging 101   : Main & Sub
 [x] The Agent 101 : Main
 [x] Watchdog      : Main
-[ ] Graphing      : Main
+[x] Graphing      : Main
 [ ] Graphing      : Subsidiaries
 [ ] The Agent 101 : Subsidiaries
 [ ] Proxy ?
