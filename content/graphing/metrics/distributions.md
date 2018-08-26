@@ -11,29 +11,38 @@ further_reading:
     text: Using Distributions in DogStatsD
 ---
 
-<div class="alert alert-warning">
-This is documentation for a beta feature. Please <a href="https://docs.datadoghq.com/help/">contact support</a> to enable distribution metrics for your account.
-</div>
-             
 ## Overview
+Distributions are a [metric type][1] that can be thought of as a global version of the [Histogram metric][2]. 
 
-Distributions are a [metric type][1] that can be thought of as a global version of the [Histogram metric][2], which measures the statistical distribution of discrete values on a single host. Distributions observe the values that are sent from multiple hosts to measure statistical distributions across your entire infrastructure, allowing you to compute global percentiles across your entire dataset.
+Histogram metric measures the statistical distribution of discrete values on a single host. 
 
-Global distributions are designed to instrument logical objects, like services, independently from the underlying hosts and provide insight into metric behavior across your infrastructure .
+Distributions observe values that are sent from multiple hosts to measure statistical distributions across your entire infrastructure.
 
-Check out the [Developer Tools section][5] for more information on the internals of this metric type. Otherwise, read on to learn how to manipulate and visualize Distributions in the interface.
+This allows you to compute global percentiles across your entire dataset.
+
+Global distributions are designed to instrument logical objects (services) independently from the underlying hosts and **provide insight into metric behavior across your infrastructure**.
+
+Read on to learn how to manipulate and visualize Distributions in the interface.
+
+Check out the [Developer Tools section][5] for more information on the internals of this metric type. 
 
 ## Aggregations 
 
-The new tagging workflow for Distributions allows you to define which aggregations are available in queries. Initially, Datadog maintain a single timeseries, for `*` (all points), and otherwise ignore all tags.  Manually aggregate your metric based on sets of tags, chosen from the list of tags normally available. For convenience, Datadog also creates aggregations for every combination of the first four custom tags applied to each metric.
+The new tagging workflow for Distributions allows you to define which aggregations are available in queries.
 
-With the [distribution UI][3], create additional aggregate timeseries by applying sets of tags to a metric, for which a timeseries is created for every combination of tag values within the set. 
+Initially, Datadog maintains a single timeseries, for `*` (all points), and otherwise ignore all tags. 
+
+Manually aggregate your metric based on sets of tags, chosen from the list of tags normally available. 
+
+For convenience, Datadog also creates aggregations for every combination of the first 4 custom tags applied to each metric.
+
+With the [distribution UI][3], create additional aggregate timeseries by applying sets of tags to a metric for which a timeseries is created for every combination of tag values within the set. 
 
 **Sets of tags are limited to groups of four.**
 
 {{< img src="graphing/metrics/distributions/distribution_metric.png" alt="Distribution metric" responsive="true" >}}
 
-When creating your own graph, Distribution metrics automatically have additional space aggregations available in the UI:
+When creating your own graph, Distribution metrics automatically have additional space aggregations available:
 
 {{< img src="graphing/metrics/distributions/dogweb_latency_bis.png" alt="Distribution metric bis" responsive="true" >}}
 
@@ -41,9 +50,13 @@ When creating your own graph, Distribution metrics automatically have additional
 
 `my.service.latency` is a metric that is being submitted on 500 hosts.  
 
-Each host is tagged with one of 3 `Availability Zones` (as tagged by the AWS integration) and 20 `Roles` by Chef, our provisioning system.  
+Each host is tagged with 1 of 3 `Availability Zones` (as tagged by the AWS integration) and 20 `Roles` by Chef, our provisioning system.  
 
-Additionally, this metric has been tagged with `Status`, which has 2 values: `Status:Success` or `Status:Fail`, and `Result`, which also has 2 values: `Result:Open` or `Result:Close`.
+This metric has been tagged with 
+
+* `Status`, which has 2 values: `Status:Success` or `Status:Fail`
+
+* `Result`, which has 2 values: `Result:Open` or `Result:Close`.
 
 ##### Scenario 1
 
@@ -56,6 +69,7 @@ This creates (2+1) * (2+1) * 10 = 90 timeseries.
 ##### Scenario 2
 
 You aggregate on `{Status, Result, Host}` instead of the defaults.
+
 Available queries include, eg,:
 
 * `{my.service.latency for Status:success, Result:closed, Host: i-deadbeef}`
