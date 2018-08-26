@@ -1,10 +1,23 @@
 ---
-title: High Level Overview
+title: Datadog 101
 kind: documentation
 aliases:
   - /overview
   - /guides/overview/
 ---
+## Events
+
+<!--{{< img src="getting_started/event_stream.png" alt="Event stream" responsive="true" >}}-->
+
+* [The Event Stream](/graphing/event_stream) can be [filtered][8] by `user`, `src`, `tag`, `host`, `status`, `priority`, `incident`
+* Great for [teams](/account_management/team) and maintain the focus of an investigation.
+
+For each incident, users can:  
+* Claim it, +/- priority, comment, see similar incidents, [@ notify team members](/graphing/event_stream/#@-notifications), who receive emails  
+* `@support-datadog` to ask for [help](/help)
+
+{{< img src="getting_started/event_stream_event.png" alt="event stream event" responsive="true" style="width:70%;">}}
+
 ## Host Map
 
 [The Host Map](/graphing/infrastructure/hostmap) offers the ability to:  
@@ -22,19 +35,6 @@ aliases:
 * [Tagging][15] allows you to indicate machines have a certain purpose.
 
 {{< img src="getting_started/infrastructure.png" alt="infrastructure" responsive="true" >}}
-
-## Events
-
-<!--{{< img src="getting_started/event_stream.png" alt="Event stream" responsive="true" >}}-->
-
-* [The Event Stream](/graphing/event_stream) can be [filtered][8] by `user`, `src`, `tag`, `host`, `status`, `priority`, `incident`
-* Great for [teams](/account_management/team) and maintain the focus of an investigation.
-
-For each incident, users can:  
-* Claim it, +/- priority, comment, see similar incidents, [@ notify team members](/graphing/event_stream/#@-notifications), who receive emails  
-* `@support-datadog` to ask for [help](/help)
-
-{{< img src="getting_started/event_stream_event.png" alt="event stream event" responsive="true" style="width:70%;">}}
 
 ## Dashboards
 Dashboards contain [graphs][11] with real-time performance metrics
