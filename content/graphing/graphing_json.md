@@ -6,7 +6,9 @@ aliases:
   - /graphing/miscellaneous/graphingjson
 ---
 
-There are two ways to interact with the Graphing Editor: using the GUI (the default method) and writing JSON (the more complete method). This page covers using JSON. To learn more about the GUI editor, visit the main [Graphing Primer Page][1]
+There are 2 ways to interact with the Graphing Editor: the GUI (default method) and JSON (advanced method). 
+
+This page covers using JSON. To learn more about the GUI editor, visit the main [Graphing Primer Page][1]
 
 ## Graphing with the JSON editor
 
@@ -14,7 +16,7 @@ There are two ways to interact with the Graphing Editor: using the GUI (the defa
 
 ### Grammar
 
-The graph definition language is well-formed JSON and is structured in four parts:
+The graph definition language is well-formed JSON and is structured in 4 parts:
 
 1. Requests
 2. Events
@@ -35,8 +37,8 @@ Here is how they fit together in a JSON dictionary:
       "q": "search query"
     }
   ],
-  "viz": "visualization type",
-  "yaxis": {
+  "viz"   : "visualization type",
+  "yaxis" : {
     "yaxisoptionkey": "yaxisoptionvalue"
   }
 }
@@ -75,17 +77,21 @@ A few of these functions have been further explained in a series of examples. Vi
 
 #### Aggregation Method
 
-In most cases, the number of data points available outnumbers the maximum number that can be shown on screen. To overcome this, the data is aggregated using one of 4 available methods: average,  max, min, and sum.
+In most cases, the number of data points available outnumbers the maximum number that can be shown on screen. 
+
+To overcome this, the data is aggregated using one of 4 available methods: average,  max, min, and sum.
 
 #### Metrics
 
-The metric is the main focus of the graph. You can find the list of metrics available to you in the [Metrics Summary][3]. Click on any metric to see more detail about that metric, including the type of data collected, units, tags, hosts, and more.
+The metric is the main focus of the graph. 
+
+You can find the list of metrics available to you in the [Metrics Summary][3]. 
+
+Click on any metric to see more detail about that metric, including the type of data collected, units, tags, hosts, and more.
 
 #### Scope
 
-A scope lets you filter a Series. It can be a host, a device on a host
-or any arbitrary tag you can think of that contains only alphanumeric
-characters plus colons and underscores (`[a-zA-Z0-9:_]+`).
+A scope lets you filter a Series. It can be a host, a device on a host or any arbitrary tag you can think of that contains only alphanumeric characters plus colons and underscores (`[a-zA-Z0-9:_]+`).
 
 Examples of scope (meaning in parentheses):
 
@@ -98,12 +104,17 @@ Examples of scope (meaning in parentheses):
 
 #### Groups
 
-For any given metric, data may come from a number of hosts. The data is normally aggregated from all these hosts to a single value for each time slot. If you wish to split this out, you can by any tag. To include a data point separated out by each host,  use {host} for your group.
+For any given metric, data may come from a number of hosts. 
+
+The data is normally aggregated from all these hosts to a single value for each time slot. 
+
+If you wish to split this out, you can by any tag. To include a data point separated out by each host,  use {host} for your group.
 
 #### Arithmetic
 
-You can apply simple arithmetic to a Series (+, -, * and /). In this
-example we graph 5-minute load and its double:
+You can apply simple arithmetic to a Series (+, -, * and /). 
+
+In this example we graph 5-minute load and its double:
 
 ```json
 {
@@ -119,9 +130,9 @@ example we graph 5-minute load and its double:
 }
 ```
 
-You can also add, substract, multiply and divide a Series. Beware that
-Datadog does not enforce consistency at this point so you *can* divide
-apples by oranges.
+You can also add, substract, multiply and divide a Series. 
+
+Beware that Datadog does not enforce consistency at this point so you *can* divide apples by oranges.
 
 ```json
 {
@@ -212,9 +223,11 @@ Instead of one query per chart you can aggregate all queries into one and concat
 
 #### Slice-n-Stack
 
-A useful visualization is to represent a metric shared across
-hosts and stack the results. For instance, when selecting a tag that
-applies to more than 1 host you see that ingress and egress traffic is nicely stacked to give you the sum as well as the split per host. This is useful to spot wild swings in the distribution of network traffic.
+A useful visualization is to represent a metric shared across hosts and stack the results. 
+
+For instance, when selecting a tag that applies to more than 1 host you see that ingress and egress traffic is nicely stacked to give you the sum as well as the split per host. 
+
+This is useful to spot wild swings in the distribution of network traffic.
 
 Here's how to do it for any metric:
 
@@ -242,7 +255,7 @@ The Datadog y-axis controls (currently just via the JSON editor) allow you to:
 *   Filter series either by specifying a percentage or an absolute value
 *   Change y-axis scale from linear to log, sqrt or power scale
 
-There are four configuration settings:
+There are 4 configuration settings:
 
 *   `min` (optional): Specifies minimum value to show on y-axis. It takes a number, or "auto" for default behvior. Default value is "auto"
 *   `max` (optional): Specifies the maximum value to show on y-axis. It takes a number, or "auto" for default behavior. Default value is "auto"
@@ -252,19 +265,19 @@ There are four configuration settings:
 Examples:
 
     "yaxis": {
-        "min": "auto",
-        "max": 200,
-        "scale": "log"
+        "min"   : "auto",
+        "max"   : 200,
+        "scale" : "log"
     }
 
     "yaxis": {
-        "min": 200,
-        "scale": "sqrt"
+        "min"   : 200,
+        "scale" : "sqrt"
     }
 
     "yaxis": {
-        "min": 9000,
-        "max": 10000
+        "min" : 9000,
+        "max" : 10000
     }
 
     "yaxis": {
@@ -281,11 +294,15 @@ Examples:
 
 #### Filtering
 
-Filter configuration allows you to automatically change y-axis bounds based on a threshold. Thresholds can be a percentage or an absolute value, and it can apply to both both ends of the graph (lower and upper).
+Filter configuration allows you to automatically change y-axis bounds based on a threshold. 
 
-For y-axis filtering, there are two ways to set up the configuration.
+Thresholds can be a percentage or an absolute value, and it can apply to both both ends of the graph (lower and upper).
 
-To begin, there is a simple configuration where you specify an absolute value or a percentage. All top values or all values that sit within the top `X%` are cut off.
+For y-axis filtering, there are 2 ways to set up the configuration.
+
+To begin, there is a simple configuration where you specify an absolute value or a percentage. 
+
+All top values or all values that sit within the top `X%` are cut off.
 
 Examples:
 
@@ -297,12 +314,14 @@ Examples:
         "filter": "5%" // the top 5% of that data do not appear
     }
 
-Advanced configuration works the same way as simple configuration, with the added flexibility of configuring the lower or the upper or both parts of the graph. For example, the following configuration limits the graph to data points that are not in the bottom 10% nor in the top 30%.
+Advanced configuration works the same way as simple configuration, with the added flexibility of configuring the lower or the upper or both parts of the graph. 
+
+For example, the following configuration limits the graph to data points that are not in the bottom 10% nor in the top 30%.
 
     "yaxis": {
         "filter": {
-            "top": "30%",
-            "bottom": "10%"
+            "top"    : "30%",
+            "bottom" : "10%"
         }
     }
 
@@ -329,16 +348,16 @@ Here is a full JSON example:
   "viz": "timeseries",
   "requests": [
     {
-      "q": "system.cpu.idle{host:hostname}",
-      "stacked": false
+      "q"       : "system.cpu.idle{host : hostname}",
+      "stacked" : false
     }
   ],
   "events": [],
   "yaxis": {
     "scale": "log"
     "filter": {
-         "top": "5%",
-         "bottom": 15
+         "top"    : "5%",
+         "bottom" : 15
      }
   },
 }
@@ -346,15 +365,17 @@ Here is a full JSON example:
 
 #### Examples
 
-Here is an example using the ```rate()``` function, which takes only a single metric as a parameter.  Other functions, with the exception of ```top()``` and ```top_offset()```, have identical syntax.
+Here is an example using the ```rate()``` function, which takes only a single metric as a parameter. 
+
+Other functions, with the exception of ```top()``` and ```top_offset()```, have identical syntax.
 
 ```json
 {
   "viz": "timeseries",
   "requests": [
     {
-      "q": "rate(sum:system.load.5{role:intake-backend2} by {host})",
-      "stacked": false
+      "q"       : "rate(sum : system.load.5{role : intake-backend2} by {host})",
+      "stacked" : false
     }
   ]
 }
@@ -367,14 +388,14 @@ Here is an example using the ```top()``` function:
   "viz": "timeseries",
   "requests": [
     {
-      "q": "top(avg:system.cpu.iowait{*} by {host}, 5, 'max', 'desc')",
-      "stacked": false
+      "q"       : "top(avg : system.cpu.iowait{*} by {host}, 5, 'max', 'desc')",
+      "stacked" : false
     }
   ]
 }
 ```
 
-This shows the graphs for the five series with the highest peak ```system.cpu.iowait``` values in the query window.
+This shows the graphs for the 5 series with the highest peak ```system.cpu.iowait``` values in the query window.
 
 To look at the hosts with the 6th through 10th highest values (for example), use ```top_offset``` instead:
 
@@ -384,8 +405,8 @@ To look at the hosts with the 6th through 10th highest values (for example), use
   "viz": "timeseries",
   "requests": [
     {
-      "q": "top_offset(avg:system.cpu.iowait{*} by {host}, 5, 'max', 'desc', 5)",
-      "stacked": false
+      "q"       : "top_offset(avg : system.cpu.iowait{*} by {host}, 5, 'max', 'desc', 5)",
+      "stacked" : false
     }
   ]
 }
