@@ -22,7 +22,9 @@ further_reading:
 ## Overview 
 
 If your logs are JSON-formatted, Datadog automatically parses them, but for other formats, Datadog allows you to enrich your logs with the help of Grok Parser.    
+
 The Grok syntax provides an easier way to parse logs than pure regular expressions.  
+
 The main usage of the Grok Parser is to extract attributes from semi-structured text messages.
 
 Grok comes with a lot of reusable patterns to parse integers, ip addresses, hostnames, etc...
@@ -49,7 +51,9 @@ You would have at the end this structured log:
 
 {{< img src="logs/processing/parsing/parsing_example_1.png" alt="Parsing example 1" responsive="true" style="width:80%;">}}
 
-**Note**: If you have multiple parsing rules in a single Grok parser, only one can match any given log. The first one that matches from top to bottom is the one that does the parsing. 
+**Note**: If you have multiple parsing rules in a single Grok parser, only one can match any given log. 
+
+The first one that matches from top to bottom is the one that does the parsing. 
 
 ## Matcher
 
@@ -206,7 +210,9 @@ The date matcher transforms your timestamp in the EPOCH format.
 
 ### Conditional pattern
 
-You might have logs with two possible formats which differ in only one attribute. These cases can be handled with a single rule, using conditionals with `|`.
+You might have logs with 2 possible formats which differ in only 1 attribute. 
+
+These cases can be handled with a single rule, using conditionals with `|`.
 
 **Log**:
 ```

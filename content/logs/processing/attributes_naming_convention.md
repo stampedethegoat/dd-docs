@@ -29,10 +29,13 @@ One may ask, Why do we need a naming convention for log attributes?
 ## Overview
 
 Centralizing logs from various technologies and applications tends to generate tens or hundreds of different attributes in a Log Management environment- especially when many users, each one with their own personal usage patterns, are working within the same environment.
+
 This generates confusion. For instance, a client IP might have the following attributes within your logs: `clientIP`, `client_ip_address`, `remote_address`, `client.ip`, etc.
+
 In this context, it can be cumbersome to know which attributes correspond to the logs you are trying to filter on, or correlate proxy logs to web application logs.
 
 Even if technologies define their respective logs attributes differently, a URL, client IP, or duration have universally consistent meanings.
+
 This is why Datadog decided while implementing log integrations to rely on a subset of names for attributes that are commonly observed over log sources.
 
 But as Datadog integrations are not covering your custom formats and sources, we decided to make this Attribute Naming Convention (or [Taxonomy][1]) public to help you decide how to name your attributes in your own parsers.
