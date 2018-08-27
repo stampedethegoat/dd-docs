@@ -1,7 +1,7 @@
 left:
   - name: product
-    link: "http://localhost:1313/getting_started/"
-    title: "Overview"
+    link: "https://www.datadoghq.com/product/"
+    title: "Product"
     children:
           - name: product_features
             link: "https://www.datadoghq.com/product/"
@@ -33,7 +33,7 @@ left:
 right:
   - name: about
     link: "https://www.datadoghq.com/about/"
-    title: "Foo1"
+    title: "About"
     children:
           - name: about_contact
             link: "https://www.datadoghq.com/about/contact/"
@@ -52,7 +52,7 @@ right:
             title: "Careers"
   - name: blog
     link: "https://www.datadoghq.com/blog/"
-    title: "Foo2"
+    title: "Blog"
     children:
           - name: blog_themonitor
             link: "https://www.datadoghq.com/blog/"
@@ -65,4 +65,4 @@ right:
             title: "Pup Culture"
   - name: login
     link: "https://app.datadoghq.com/"
-    title: "Foo3"
+    title: "Login"

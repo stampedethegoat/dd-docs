@@ -29,7 +29,7 @@ languages:
       main:
         # GETTING STARTED
         - identifier: menu_references_getting_started
-          name: "Datadog 101"
+          name: "Overview 101"
           url: "getting_started/"
           pre: "nav_start"
           weight: 30
@@ -39,14 +39,14 @@ languages:
           name: "The Agent 101"
           url: "agent/"
           pre: "nav_agent"
-          weight: 40
+          weight: 35
 
         # TAGGING
         - identifier: menu_references_tagging
           name: "Tagging 101"
           url: "tagging/"
           pre: "nav_tagging"
-          weight: 35
+          weight: 40
         - identifier: customnav_getting_started_assigning_tags
           name: "Assigning tags"
           url: "tagging/assigning_tags"
