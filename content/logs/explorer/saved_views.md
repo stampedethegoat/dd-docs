@@ -14,6 +14,7 @@ further_reading:
 ## Overview
 
 When multiple teams share the same account, or when your logs have many different sources, it is critical to be able to promptly start investigating the right content.
+
 With Datadog, teams can define and share Log Explorer Views so everyone can start troubleshooting with the same predefined context.
 
 Datadog Saved Views allow you to save search customizations in the Log Explorer, including:
@@ -67,7 +68,9 @@ To update an existing Saved View, proceed exactly as if you were creating a new 
 
 ## Revert a modification to a Saved View
 
-After selecting a Saved View, you can continue to refine and modify your search as needed for your troubleshooting purposes. After changing the view, you can always revert to the most recent saved version of the Saved View by selecting the **Revert** button.
+After selecting a Saved View, you can continue to refine and modify your search as needed for your troubleshooting purposes. 
+
+After changing the view, you can always revert to the most recent saved version of the Saved View by selecting the **Revert** button.
 
 **Note**: The Revert button does not undo changes after they have been saved.
 

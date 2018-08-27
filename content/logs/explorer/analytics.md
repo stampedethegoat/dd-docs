@@ -62,6 +62,7 @@ Available visualizations:
 Visualize the evolution of a single [measure][1] (or a [facet][2] unique count of values) over a selected time frame, and (optionally) split by an available [facet][2].
 
 The following timeseries Log Analytics shows:
+
 The evolution of the **top 5 URL Paths** according to the number of **unique Client IPs** over the last month.
 
 {{< img src="logs/explorer/analytics/timeserie_example.png" alt="timeserie example" responsive="true" style="width:90%;">}}
@@ -71,6 +72,7 @@ The evolution of the **top 5 URL Paths** according to the number of **unique Cli
 Visualize the top values from a [facet][2] according to the chosen [measure][1]:
 
 The following Top List Log Analytics shows:
+
 The evolution of the **top 5 URL Paths** according to the number of **unique Client IPs** over the last month.
 
 {{< img src="logs/explorer/analytics/top_list_example.png" alt="top list example" responsive="true" style="width:90%;">}}
