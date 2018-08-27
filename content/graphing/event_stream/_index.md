@@ -9,8 +9,12 @@ aliases:
 
 ## Event Query Language
 
-You can narrow down your search by filtering on certain event properties. See the list of filters below for more details.
-Note that filters perform an exact match search and don't work with partial strings.
+You can narrow down your search by filtering on certain event properties. 
+
+Filters perform an exact match search and don't work with partial strings.
+
+See the list of filters below for more details.
+
 
 | Filter                                          | Description                                                                      |
 | --------                                        | -------------                                                                    |
@@ -23,17 +27,23 @@ Note that filters perform an exact match search and don't work with partial stri
 | priority:low                                    | Show only low-priority events. (supports: 'low' or 'normal'. defaults to 'all')  |
 | incident:claimed                                | Show only claimed incidents. (supports: 'open', 'claimed', 'resolved', or 'all') |
 
-Full text search works on all keywords provided in the search query after applying any filters. Full text search looks inside the event text, title, tags, users who commented on the event and host names and devices tied to the event for any related information.
+Full text search works on all keywords provided in the search query after applying any filters. 
 
-You can use full text search to find all events with the same key tags. For example, to show all events with the #service key you would search #service.
+Full text search looks inside the event text, title, tags, users who commented on the event and host names and devices tied to the event for any related information.
+
+You can use full text search to find all events with the same key tags. 
+
+For example, to show all events with the #service key you would search #service.
 
 In the example below, a full text search is performed to find all open chef or Nagios errors that mention one or more Redis instances that are currently down.
 
 `sources:nagios,chef status:error redis_* AND down`
 
-Note that some of the advanced query language features (e.g. boolean logic) work only in the event stream page, and do not work in graph tiles or in screen board widgets.
+Some of the advanced query language features (boolean logic) work only in the event stream page and do not work in graph tiles or in screenboard widgets.
 
-Prefixes can easily be combined to make much more complex searches.  For example, if you wanted to find all open chef or nagios errors that mention cassandra, you'd have a search like:
+Prefixes can easily be combined to make much more complex searches. 
+
+For example, if you wanted to find all open chef or nagios errors that mention cassandra, you'd have a search like:
 
 `sources:nagios,chef status:error cassandra`
 
@@ -42,26 +52,38 @@ Note: no spaces after the colon or commas in these lists and anything not attach
 ## Show events unaggregated
 
 Change the "aggregate_up" parameter in the url to `false`.
+
 To remove the top level aggregate event from appearing, change `use_date_happened` to true. [Here is an example link][3]
 
 ## Events Email
+When you need to integrate an application or system with Datadog, you have a few choices. 
 
-When you need to integrate an application or system with Datadog, you have a few choices. The first is using one of our many existing [integrations][integrations].
-This gets you access to a wide variety of metrics and events with minimal configuration effort on your part. If your application isn't one of the integrated applications, then you can opt to create [a check using the Agent][agentcheck].   This requires much more effort and potentially more knowledge on how the application and how Datadog work.
+The first is using one of our many existing [integrations][integrations].
 
-There is another option available if you aren't using an application that has an integration and you don't want to create an Agent check. You can rely on the application or system sending an email instead. There are two different ways to use Events via Email, depending mostly on whether the application offers you the ability to customize the format of the email body being sent.
+This gets you access to a wide variety of metrics and events with minimal configuration effort on your part. 
+
+If your application isn't one of the integrated applications, then you can opt to create [a check using the Agent][agentcheck]. 
+
+This requires much more effort and potentially more knowledge on how the application and how Datadog works.
+
+There is another option available if you aren't using an application that has an integration and you don't want to create an Agent check. 
+
+You can rely on the application or system sending an email instead. 
+
+There are 2 different ways to use Events via Email, depending mostly on whether the application offers you the ability to customize the format of the email body being sent.
 
 <div class="alert alert-info">
 <b>JSON-Formatted vs Plain Text:</b> <br>
 If you have complete control over the email sent by the application to Datadog, then you probably want to configure a JSON-formatted message to be sent.
-This allows you to set everything in the event that appears in the event
-stream. See below for examples of each.
+This allows you to set everything in the event that appears in the event stream. <br>
+
+See below for examples of each.
 </div>
 
 ### Plain Text Email
 #### Source Email
 
-In the source plain text email, you only have three fields you can control: sender email address (required), subject (required), and body (optional).
+In the source plain text email, you only have 3 fields you can control: sender email address (required), subject (required), and body.
 
 {{< img src="graphing/events/plain-email.png" alt="plain email" responsive="true" >}}
 
@@ -69,13 +91,20 @@ In the source plain text email, you only have three fields you can control: send
 
 {{< img src="graphing/events/plain-event.png" alt="plain event" responsive="true" >}}
 
-Note that the subject of the email becomes the title of the event and the body of the email becomes the body of the event. Although it looks like a tag appears at the end of the title and body of the event, neither instance are actually tags. The sender of the email also appears at the bottom of the event, so be sure to take advantage of that to help identify the sending application.
+The subject of the email becomes the title of the event and the body of the email becomes the body of the event. 
+
+Although it looks like a tag appears at the end of the title and body of the event, neither instance are actually tags. 
+
+The sender of the email also appears at the bottom of the event.
 
 ### JSON Email
 #### Source Email
 
-In the source JSON-formatted email, you have 10 fields you can control: sender email address, and up to 9 JSON keys. Those keys are title, text, priority, tags, alert type,  date happened,  host, aggregation key, and source type name.
-**Note: If your JSON is not properly formatted or if your email is sent with a subject, the event won't appear on your Event Stream.**
+In the source JSON-formatted email, you have 10 fields you can control: sender email address, and up to 9 JSON keys. 
+
+Those keys are title, text, priority, tags, alert type, date happened, host, aggregation key, and source type name.
+
+**Note: If your JSON is not properly formatted or if your email has a subject, the event won't appear on your stream.**
 
 {{< img src="graphing/events/json-email.png" alt="json email" responsive="true" >}}
 
@@ -83,14 +112,29 @@ In the source JSON-formatted email, you have 10 fields you can control: sender e
 
 {{< img src="graphing/events/json-event.png" alt="json event" responsive="true" >}}
 
-In a JSON-formatted email, the subject of the email message is irrelevant as it is replaced by the title in the JSON in the body of the email. All data that appears in the event is defined in the JSON in the body of the email. This JSON must be well-formed or the message is ignored. This means that not only should it look correct with commas separating key value pairs, it also must be pure JSON.
-If you are testing the email with a standard email client, the body may be converted to HTML as a convenience to the user. This causes the JSON to no longer be JSON and the email is ignored by Datadog.
+In a JSON-formatted email, the subject of the email message is irrelevant as it is replaced by the title in the JSON in the body of the email. 
+
+All data that appears in the event is defined in the JSON in the body of the email. 
+
+This JSON must be well-formed or the message is ignored. 
+
+This means that not only should it look correct with commas separating key value pairs, it also must be pure JSON.
+
+If you are testing the email with a standard email client, the body may be converted to HTML as a convenience to the user. 
+
+This causes the JSON to no longer be JSON and the email is ignored by Datadog.
 
 The allowable JSON keys can be found in the [events API documentation][eventsapi].
 
 ### Setting Up The Email Address
 
-To set up the email, first log in to your Datadog account at [https://app.datadoghq.com][dd-app]. From the *Integrations* menu, choose *APIs*, then scroll down to *Events API Emails*. This section shows you all the emails available for your applications and who created them. Choose the format for your messages from the Format: dropdown, then click *Create API Email*.
+To set up the email, first log in to your Datadog account at [https://app.datadoghq.com][dd-app].
+
+From the *Integrations* menu, choose *APIs*, then scroll down to *Events API Emails*. 
+
+This section shows you all the emails available for your applications and who created them. 
+
+Choose the format for your messages from the Format: dropdown, then click *Create API Email*.
 
 {{< img src="graphing/events/event-email-api.png" alt="JSON Event Email API" responsive="true" >}}
 
@@ -101,18 +145,19 @@ To set up the email, first log in to your Datadog account at [https://app.datado
 
 ## Markdown events
 Datadog event text supports markdown ([Detailed markdown syntax](http://daringfireball.net/projects/markdown/syntax#lin)).
-Note that embedding HTML in markdown is not supported with in Datadog.
+
+Embedding HTML in markdown is NOT supported within Datadog.
 
 To use Markdown in the event text, you need to begin the text block by `%%% \n` and end the text block with `\n %%%`
 
 An example below:
 ```json
 {
-      "title": "Did you hear the news today?",
-      "text": "%%% \n [an example link](http://catchpoint.com/session_id \"Title\") \n %%%",
-      "priority": "normal",
-      "tags": ["environment:test"],
-      "alert_type": "info"
+      "title"      : "Did you hear the news today?",
+      "text"       : "%%% \n [an example link](http  : //catchpoint.com/session_id \"Title\") \n %%%",
+      "priority"   : "normal",
+      "tags"       : ["environment : test"],
+      "alert_type" : "info"
 }
 ```
 

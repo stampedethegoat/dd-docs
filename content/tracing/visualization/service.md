@@ -20,7 +20,9 @@ further_reading:
 
 ## Overview 
 
-Selecting a service on the services page leads you to the detailed service page. A service is a set of processes that do the same job - for example a web framework or database (read more about how services are defined in [Getting Started with APM][5]). 
+Selecting a service on the services page leads you to the detailed service page. 
+
+A service is a set of processes that do the same job - for example a web framework or database (read more about how services are defined in [Getting Started with APM][5]). 
 
 Consult on this page:
 
@@ -76,7 +78,15 @@ Use the top right selector of this graph to zoom on a given percentile of latenc
 
 ## Resources
 
-See the list of resources associated with your service. Resources are particular actions for your services (typically individual endpoints or queries). Read more about resources in [Getting Started with APM][5]. Sort the resources for this service by requests, latency, errors, and time, to identify areas of high traffic or potential trouble. Note that the these metric columns are configurable (see image below).
+See the list of resources associated with your service. 
+
+Resources are particular actions for your services (typically individual endpoints or queries). 
+
+Read more about resources in [Getting Started with APM][5]. 
+
+Sort the resources for this service by requests, latency, errors, and time, to identify areas of high traffic or potential trouble. 
+
+Note that the these metric columns are configurable (see image below).
 
 {{< img src="tracing/visualization/service/resources.png" alt="Resources" responsive="true" style="width:90%;">}}
 
@@ -91,11 +101,11 @@ Filter your resources list with a query for basic text filtering:
 
 Choose what to display in your resources list:
 
-* **Requests**: Absolute amount of requests traced (per seconds)
-* **Avg/p75/p90/p95/p99/Max Latency**: The Avg/p75/p90/p95/p99/Max latency of your traced requests
-* **Total time**: Sum of all time spend in this resource 
-* **Error**: Absolute amount of error for a given resource
-* **Error Rate**: Percent of error for a given resource
+* **Requests**                        : Absolute amount of requests traced (per seconds)
+* **Avg/p75/p90/p95/p99/Max Latency** : The Avg/p75/p90/p95/p99/Max latency of your traced requests
+* **Total time**                      : Sum of all time spend in this resource
+* **Error**                           : Absolute amount of error for a given resource
+* **Error Rate**                      : Percent of error for a given resource
 
 {{< img src="tracing/visualization/service/resource_columns.png" alt="Resource columns" responsive="true" style="width:50%;">}}
 

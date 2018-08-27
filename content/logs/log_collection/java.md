@@ -21,7 +21,9 @@ further_reading:
   text: Log Collection Troubleshooting Guide
 ---
 
-Java logs are quite complex to handle, mainly because of stack traces. These stack traces are split into multiple lines which makes them difficult to associate to the original log event:
+Java logs are quite complex to handle, mainly because of stack traces. 
+
+These stack traces are split into multiple lines which makes them difficult to associate to the original log event:
 
 ```java
 //4 events generated when only one is expected!
@@ -99,12 +101,16 @@ Edit your `logback.xml` file:
 
 #### Log4j
 
-It can be difficult to log in JSON with log4j. Because of this, we advise you to use a slf4j ship with a module called log4j-over-slf4j and then use logback for the json format.
+It can be difficult to log in JSON with log4j. 
+
+Because of this, we advise you to use a slf4j ship with a module called log4j-over-slf4j and then use logback for the json format.
 
 To use log4j-over-slf4j in your own application, the first step is to locate and then replace `log4j.jar` with `log4j-over-slf4j.jar`.
+
 Note that you still need an slf4j binding and its dependencies for log4j-over-slf4j to work properly.
 
 In most situations, replacing a jar file is all it takes in order to migrate from log4j to SLF4J.
+
 Edit your `pom.xml` file:
 
 ```xml
@@ -135,7 +141,9 @@ There is a default log4j2 JSON Layout that can be used as shown in this [example
 
 #### Slf4j
 
-The JSON library we recommend for Logback is [logstash-logback-encoder](https://github.com/logstash/logstash-logback-encoder). One advantage is: it's inside the main Maven repository.
+The JSON library we recommend for Logback is [logstash-logback-encoder](https://github.com/logstash/logstash-logback-encoder). 
+
+One advantage is: it's inside the main Maven repository.
 
 To add it into your classpath, simply add the following dependency (version 4.5.1 on the example) in your `pom.xml` file:
 
@@ -172,19 +180,18 @@ Create a file `java.yaml` in the Agent's `conf.d/` directory with the following 
 
 #Log section
 logs:
-
-    ## - type : file (mandatory) type of log input source (tcp / udp / file)
-    ##   port / path : (mandatory) Set port if type is tcp or udp. Set path if type is file
-    ##   service : (mandatory) name of the service owning the log
-    ##   source : (mandatory) attribute that defines which integration is sending the logs
+    ## - type           : file (mandatory) type of log input source (tcp / udp / file)
+    ##   port / path    : (mandatory) Set port if type is tcp or udp. Set path if type is file
+    ##   service        : (mandatory) name of the service owning the log
+    ##   source         : (mandatory) attribute that defines which integration is sending the logs
     ##   sourcecategory : (optional) Multiple value attribute. Can be used to refine the source attribtue
-    ##   tags: (optional) add tags to each logs collected
+    ##   tags           : (optional) add tags to each logs collected
 
-  - type: file
-    path: /path/to/your/java/log.log
-    service: java
-    source: java
-    sourcecategory: sourcecode
+  - type           : file
+    path           : /path/to/your/java/log.log
+    service        : java
+    source         : java
+    sourcecategory : sourcecode
     # For multiline logs, if they start by the date with the format yyyy-mm-dd uncomment the following processing rule
     #log_processing_rules:
     #  - type: multi_line
@@ -195,7 +202,9 @@ logs:
 ## Getting further
 Enrich your log events with valuable attributes!
 
-Logging is great- It tells developers and administrators what is happening at specific moments in time. However, always remember to decorate them with contextual attributes.
+Logging is great- It tells developers and administrators what is happening at specific moments in time. 
+
+However, always remember to decorate them with contextual attributes.
 
 ### Using the Key/Value parser
 
@@ -220,10 +229,10 @@ With the [Key/Value parser][3] enabled, **Datadog** automatically extracts each 
 ```json
 {
     //...
-    "message" : "Emitted quantity=1001 messages during the last durationInMs=93180 ms for customer scope=prod30",
-    "scope" : "prod30",
+    "message"      : "Emitted quantity=1001 messages during the last durationInMs=93180 ms for customer scope=prod30",
+    "scope"        : "prod30",
     "durationInMs" : 93180,
-    "quantity" : 1001
+    "quantity"     : 1001
     //...
 }
 ```

@@ -54,6 +54,7 @@ For integration logs, we automatically install a [Integration Pipeline][21] that
 ### Custom logs
 
 However we know that log formats can be totally custom which is why you can define custom processing rules.
+
 With any log syntax, you can extract all your attributes and, when necessary, remap them to more global or canonical attributes.
 
 So for instance with custom processing rules you can transform this log:
@@ -68,7 +69,9 @@ Consult the dedicated [Pipelines documentation pages][7] to learn more on how to
 
 To discover the full list of Processors currently available, refer to the dedicated [Processor documentation page][14].
 
-If you want to learn more about pure parsing possibilities of the Datadog application, follow our [parsing training guide][11]. We also have a [parsing best practice][12] and a [parsing troubleshooting][13] guide that might be interesting for you.
+If you want to learn more about pure parsing possibilities of the Datadog application, follow our [parsing training guide][11]. 
+
+We also have a [parsing best practice][12] and a [parsing troubleshooting][13] guide that might be interesting for you.
 
 ## Reserved attributes
 
@@ -77,6 +80,7 @@ If your logs are formatted as JSON, be aware that some attributes are reserved f
 ### *date* attribute
 
 By default Datadog generates a timestamp and appends it in a date attribute when logs are received.
+
 However, if a JSON formatted log file includes one of the following attributes, Datadog interprets its value as the the log's official date:
 
 * `@timestamp`
@@ -98,11 +102,15 @@ The recognized date formats are: <a href="https://www.iso.org/iso-8601-date-and-
 
 ### *message* attribute
 
-By default, Datadog ingests the value of message as the body of the log entry. That value is then highlighted and displayed in the [logstream][16], where it is indexed for [full text search][17].
+By default, Datadog ingests the value of message as the body of the log entry. 
+
+That value is then highlighted and displayed in the [logstream][16], where it is indexed for [full text search][17].
 
 ### *status* attribute
 
-Each log entry may specify a status level which is made available for faceted search within Datadog. However, if a JSON formatted log file includes one of the following attributes, Datadog interprets its value as the the log's official status:
+Each log entry may specify a status level which is made available for faceted search within Datadog. 
+
+However, if a JSON formatted log file includes one of the following attributes, Datadog interprets its value as the the log's official status:
 
 * `status`
 * `severity`
@@ -113,7 +121,9 @@ If you would like to remap some status existing in the `status` attribute, you c
 
 ### *host* attribute
 
-Using the Datadog Agent or the RFC5424 format automatically sets the host value on your logs. However, if a JSON formatted log file includes the following attribute, Datadog interprets its value as the the log's host:
+Using the Datadog Agent or the RFC5424 format automatically sets the host value on your logs. 
+
+However, if a JSON formatted log file includes the following attribute, Datadog interprets its value as the the log's host:
 
 * `host`
 * `hostname`
@@ -121,14 +131,18 @@ Using the Datadog Agent or the RFC5424 format automatically sets the host value 
 
 ### *service* attribute
 
-Using the Datadog Agent or the RFC5424 format automatically sets the service value on your logs. However, if a JSON formatted log file includes the following attribute, Datadog interprets its value as the the log's service:
+Using the Datadog Agent or the RFC5424 format automatically sets the service value on your logs. 
+
+However, if a JSON formatted log file includes the following attribute, Datadog interprets its value as the the log's service:
 
 * `service`
 * `syslog.appname`
 
 ### Edit reserved attributes
 
-You can now control the global hostname, service, timestamp, and status main mapping that are applied before the processing Pipelines. This is particularly helpful if logs are sent in JSON or from an external Agent.
+You can now control the global hostname, service, timestamp, and status main mapping that are applied before the processing Pipelines. 
+
+This is particularly helpful if logs are sent in JSON or from an external Agent.
 
 {{< img src="logs/processing/reserved_attribute.png" alt="Reserved Attribute" responsive="true" style="width:80%;">}}
 

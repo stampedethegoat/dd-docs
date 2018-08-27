@@ -20,7 +20,10 @@ further_reading:
 
 ## Overview
 
-After you have [instrumented your application][1], your reporting services appear on [the APM services page][2]. The services list is a bird's eye view of all [services][3] reporting from your infrastructure.  
+After you have [instrumented your application][1], your reporting services appear on [the APM services page][2]. 
+
+The services list is a bird's eye view of all [services][3] reporting from your infrastructure.  
+
 Select an individual service to view detailed performance insights, [read our dedicated service documentation to learn more][3].
 
 ## Filtering the service list
@@ -36,9 +39,15 @@ Filter the services list depending on:
 
 ### Services types
 
-Every service monitored by your application is associated with a "type". This type is automatically determined by Datadog based on the `span.type` attribute attached to your [spans][5]. The "type" specified the name of the application/framework the Datadog Agent is integrating with.
+Every service monitored by your application is associated with a "type". 
 
-For example, if you are using the official Flask Integration, the "Type" is set to "Web". If you are monitoring a custom application, the "Type" appears as "Custom".
+This type is automatically determined by Datadog based on the `span.type` attribute attached to your [spans][5]. 
+
+The "type" specified the name of the application/framework the Datadog Agent is integrating with.
+
+For example, if you are using the official Flask Integration, the "Type" is set to "Web". 
+
+If you are monitoring a custom application, the "Type" appears as "Custom".
 
 The type of the service can be one of:
 
@@ -59,11 +68,11 @@ Service color is used in [trace visualizations][6]. Select your service color to
 
 Choose what to display in your services list:
 
-* **Requests**: Total amount of requests traced (per seconds)
-* **Avg/p75/p90/p95/p99/Max Latency**: Avg/p75/p90/p95/p99/Max latency of your traced requests
-* **Error Rate**: Amount of requests traced (per seconds) that ended with an error
-* **Apdex**: Apdex score of the service, [learn more on Apdex][7]
-* **Monitor status**: [Status of monitors][8] attached to a service
+* **Requests**                        : Total amount of requests traced (per seconds)
+* **Avg/p75/p90/p95/p99/Max Latency** : Avg/p75/p90/p95/p99/Max latency of your traced requests
+* **Error Rate**                      : Amount of requests traced (per seconds) that ended with an error
+* **Apdex**                           : Apdex score of the service, [learn more on Apdex][7]
+* **Monitor status**                  : [Status of monitors][8] attached to a service
 
 {{< img src="tracing/visualization/services_columns.png" alt="Services columns" responsive="true" style="width:40%;">}}
 

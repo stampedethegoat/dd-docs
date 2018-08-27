@@ -20,8 +20,9 @@ further_reading:
   tag: "FAQ"
   text: Log Collection Troubleshooting Guide
 ---
+To send your go logs to Datadog, we recommend logging to a file and then tailing that file with your Datadog Agent. 
 
-To send your go logs to Datadog, we recommend logging to a file and then tailing that file with your Datadog Agent. To achieve that we suggest the following setup with the open source logging library called [logrus][1]
+To achieve that we suggest the following setup with the open source logging library called [logrus][1]
 
 We strongly encourage setting up your logging library to produce your logs in JSON format to avoid the need for [custom parsing rules][2].
 
@@ -65,9 +66,9 @@ func main() {
     log.WithFields(log.Fields{"string": "foo", "int": 1, "float": 1.1 }).Info("My first event from golang to stdout")
   // For metadata, a common pattern is to re-use fields between logging statements  by re-using
   contextualizedLog := log.WithFields(log.Fields{
-    "hostname": "staging-1",
-    "appname": "foo-app",
-    "session": "1ce3f6v"
+    "hostname" : "staging-1",
+    "appname"  : "foo-app",
+    "session"  : "1ce3f6v"
   })
 
   contextualizedLog.Info("Simple event with global metadata")
@@ -82,19 +83,18 @@ Create a `go.d/conf.yaml` file in your `conf.d/` folder with the following conte
 ```yaml    
 ##Log section
 logs:
-
-    # - type : (mandatory) type of log input source (tcp / udp / file)
-    #   port / path : (mandatory) Set port if type is tcp or udp. Set path if type is file
-    #   service : (mandatory) name of the service owning the log
-    #   source : (mandatory) attribute that defines which integration is sending the logs
+    # - type           : (mandatory) type of log input source (tcp / udp / file)
+    #   port / path    : (mandatory) Set port if type is tcp or udp. Set path if type is file
+    #   service        : (mandatory) name of the service owning the log
+    #   source         : (mandatory) attribute that defines which integration is sending the logs
     #   sourcecategory : (optional) Multiple value attribute. Can be used to refine the source attribtue
-    #   tags: (optional) add tags to each logs collected
+    #   tags           : (optional) add tags to each logs collected
 
-  - type: file
-    path: /path/to/your/go/log.log
-    service: go
-    source: go
-    sourcecategory: sourcecode
+  - type           : file
+    path           : /path/to/your/go/log.log
+    service        : go
+    source         : go
+    sourcecategory : sourcecode
 ```
 
 ## Getting Further

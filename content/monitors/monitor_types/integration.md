@@ -18,7 +18,9 @@ further_reading:
 
 ## Overview
 
-On the integration tab you see a list of your installed integrations. Upon selection, you can choose to monitor either a "Status" or a "Metric".
+On the integration tab you see a list of your installed integrations. 
+
+Upon selection, you can choose to monitor either a "Status" or a "Metric".
 
 - Choosing **Integration Status** presents you with one or more service checks for each integration. Refer to the [custom monitors][1] section for details on the available options.
 

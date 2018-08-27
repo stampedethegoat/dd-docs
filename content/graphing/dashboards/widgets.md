@@ -13,19 +13,16 @@ further_reading:
   text: Enhance your Dashboards with Template Variables
 ---
 
-Use widgets through the [Screenboard API][1]:
-For [create][2]/[read][3]/[update][4] endpoints, the body is one JSON payload describing the Screenboard widgets:
+Use widgets through the [Screenboard API][1].
+
+For [create][2]/[read][3]/[update][4] endpoints, the body is one JSON payload:
 
 Base Payload :
-```
-# Replace the API and/or APP key below
-# with the ones for your account
-
+```js
+// Replace the API and/or APP key below with the one associated with your account
 {
   "board_title": "My Board",
-
   // Options, e.g.: height, width, etc.
-
   "widgets": [
     // Put a list of widgets here.
   ]
@@ -37,35 +34,39 @@ Each type of widget is described below:
 ## Timeseries
 *Supported on Screenboards and Timeboards*
 
-The Timeseries visualization is great for showing one or more metrics, Log events, or APM events over time. The time window depends on what is selected on the [Timeboard][5] or in the graph on a [Screenboard][6].
+The Timeseries visualization is great for showing metrics, logs, or APM events over time. 
+
+The time window depends on what is selected on the [Timeboard][5] or in the graph on a [Screenboard][6].
+
 Timeseries can be displayed as **lines**, **areas**, and **bars**.
 
-**Note**: Define log Analytics query (still in beta) exactly as in the [Log Explorer][11].
+**Note**: Define Log Analytics query (still in beta) exactly as in the [Log Explorer][11].
 
 {{< img src="graphing/dashboards/widgets/references-graphing-timeseries-example.png" alt="Timeseries" responsive="true" style="width:80%;">}}
 
 Example of Timeseries widget for the [API][1]
-```
+```js
 {
   "type": "timeseries",
 
   // Title
-  "title": true,
-  "title_size": 16,
-  "title_align": "left",
-  "title_text": "My Metric (m/s)",
+  "title"       : true,
+  "title_size"  : 16,
+  "title_align" : "left",
+  "title_text"  : "My Metric (m/s)",
 
   // Sizing
-  "height": 13,
-  "width": 47,
+  "height" : 13,
+  "width"  : 47,
 
   // Positioning
-  "y": 28,
-  "x": 32,
+  "y" : 28,
+  "x" : 32,
 
   // Widget Parameters
   "time": {
-    "live_span": "1h" // Choose from: [1m, 5m, 10m, 15m, 30m, 1h, 4h, 1d, 2d, 1w, 1mo, 3mo, 6mo, 1y]
+    // [1m, 5m, 10m, 15m, 30m, 1h, 4h, 1d, 2d, 1w, 1mo, 3mo, 6mo, 1y]
+    "live_span": "1h" 
   },
   "tile_def": {
     "viz": "timeseries",
@@ -85,7 +86,7 @@ Example of Timeseries widget for the [API][1]
 
 ### Overlay events on your graph
 
-You can correlate Events to Metrics on Dashboards thanks to the Event Overlay Feature.
+You can correlate Events to Metrics on Dashboards because of the Event Overlay Feature.
 
 #### Via the UI Editor
 
@@ -94,7 +95,11 @@ You can correlate Events to Metrics on Dashboards thanks to the Event Overlay Fe
 #### Via the JSON tab
 {{< img src="graphing/faq/event_overlay_json.png" alt="event_overlay_json" responsive="true" >}}
 
-In addition to being able to overlay events within the UI dashboard editor through the search field, you can also modify the JSON to add any event from Datadog. The general format is:
+You can overlay events within the UI dashboard editor through the search field.
+
+You can also modify the JSON to add any event from Datadog. 
+
+The general format is:
 
 * `"events": "search query"`
 
@@ -109,50 +114,55 @@ or if you're looking to display all errors:
 ## Query Value
 *Supported on Screenboards and Timeboards*
 
-Query values display the current value of a given metric query, with conditional formatting (such as a green/yellow/red background) to convey whether or not the value is in the expected range.
-The value displayed by a query value need not represent an instantaneous measurement.
-The widget can display the latest value reported, or an aggregate computed from all query values across the time window. These visualizations provide a narrow but unambiguous window into your infrastructure.query
+Query values display the current value of a given metric query, with conditional formatting (green/yellow/red).
+
+The value displayed by a query value does not need to represent an instantaneous measurement.
+
+The widget can display the latest value reported, or an aggregate computed from all query values across time. 
+
+These visualizations provide a narrow but unambiguous window into your infrastructure query
 
 {{< img src="graphing/dashboards/widgets/references-graphing-queryvalue-example.png" alt="Query value widget" responsive="true" style="width:50%;">}}
 
 Example of Query Value widget for the [API][1]
 
-```
+```js
 {
   "type": "query_value",
 
   // Title
-  "title": true,
-  "title_size": 16,
-  "title_text": "Throughput",
-  "title_align": "left",
+  "title"       : true,
+  "title_size"  : 16,
+  "title_text"  : "Throughput",
+  "title_align" : "left",
 
   // Sizing
-  "height": 4,
-  "width": 14,
+  "height" : 4,
+  "width"  : 14,
 
   // Positioning
-  "y": 21,
-  "x": 65,
+  "y" : 21,
+  "x" : 65,
 
   // Widget Parameters
-  "aggregator": "avg", // Choose from: [avg, sum, min, max]
-  "query": "sum:dd.sobotka.throughput.actual{*}",
-  "conditional_formats": [
+  "aggregator"          : "avg", // Choose from : [avg, sum, min, max]
+  "query"               : "sum:dd.sobotka.throughput.actual{*}",
+  "conditional_formats" : [
     {
-      "color": "white_on_green",
-      "invert": false,
-      "comparator": ">", // Choose from: [>, >=, <, <=]
-      "value": 20000
+      "color"      : "white_on_green",
+      "invert"     : false,
+      "comparator" : ">", // Choose from : [>, >=, <, <=]
+      "value"      : 20000
     }
   ],
-  "text_align": "left",
-  "precision": 1,
+  "text_align" : "left",
+  "precision"  : 1,
   "time": {
-    "live_span": "1h" // Choose from: [1m, 5m, 10m, 15m, 30m, 1h, 4h, 1d, 2d, 1w, 1mo, 3mo, 6mo, 1y]
+    // Choose from: [1m, 5m, 10m, 15m, 30m, 1h, 4h, 1d, 2d, 1w, 1mo, 3mo, 6mo, 1y]
+    "live_span": "1h" 
   },
-  "text_size": "auto",
-  "unit": "/s" // Give a custom unit or use "auto"
+  "text_size" : "auto",
+  "unit"      : "/s" // Give a custom unit or use "auto"
 }
 ```
 
@@ -162,26 +172,34 @@ Example of Query Value widget for the [API][1]
 
 The Query Value Widget only displays one Value, unlike a timeseries for example, that displays several points.
 
-Let's say you are on a Timeseries and you are currently displaying the past hour, this button allows you to either display the `avg` / `max` / `min` / `avg` / `sum` / `last value` of ALL points that are rendered during that 1 hour range timeframe - depending on the aggregation chosen above.
+Let's say you are on a Timeseries and you are currently displaying the past hour. 
+
+This button allows you to display `avg`/`max`/`min`/`sum`/`last value` of ALL points that are rendered during that time.
 
 ## Heatmap
 *Supported on Screenboards and Timeboards*
 
-The Heatmap visualization is great for showing metrics aggregated across many tags, such as *hosts*. The more hosts that have a particular value, the darker that square is.
+The Heatmap visualization shows metrics aggregated across many tags, such as *hosts*. 
+
+The Heatmap's x-axis is time.
+
+The more hosts that have a particular value, the darker that square is.
 
 {{< img src="graphing/dashboards/widgets/references-graphing-heatmap-example.png" alt="Heatmap" responsive="true" style="width:80%;">}}
 
 ## Distribution
 *Supported on Screenboards and Timeboards*
 
-The Distribution visualization is another way of showing metrics aggregated across many tags, such as *hosts*. Unlike the Heatmap, Distribution's x-axis is the quantity rather than time.
+The Distribution visualization shows metrics aggregated across many tags, such as *hosts*. 
+
+Unlike the Heatmap, Distribution's x-axis is quantity.
 
 {{< img src="graphing/dashboards/widgets/references-graphing-distribution-example.png" alt="Distribution" responsive="true" style="width:80%;">}}
 
 ## Toplist
 *Supported on Screenboards and Timeboards*
 
-The Toplist visualization is perfect when you want to see the list of hosts with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.
+The Toplist visualization lists hosts with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.
 
 {{< img src="graphing/dashboards/widgets/references-graphing-toplist-example.png" alt="TopList" responsive="true" style="width:80%;">}}
 
@@ -195,16 +213,9 @@ The Change graph shows you the change in a value over the time period chosen.
 ## Hostmap
 *Supported on Screenboards and Timeboards*
 
-The Hostmap graphs any metric for any subset of hosts on the same hostmap visualization available from the main [Infrastructure Hostmap][7] menu.
+The Hostmap graphs any metric for hosts on the same hostmap visualization available from the [Infrastructure Hostmap][7].
 
 {{< img src="graphing/dashboards/widgets/references-graphing-hostmap-example.png" alt="Hostmap" responsive="true" >}}
-
-## Free Text
-*Supported on Screenboards only*
-
-Free text is a widget that allows you to add headings to your [Screenboard][8].
-
-This is commonly used to state the overall purpose of the dashboard.
 
 ## Event Timeline
 *Supported on Screenboards only*
@@ -220,29 +231,30 @@ The event stream is a widget version of the stream of events on the [Event Strea
 
 {{< img src="graphing/dashboards/widgets/references-graphing-eventstream-example.png" alt="Timeseries" responsive="true" style="width:70%;">}}
 
-**This widgets displays only the 100 most recent events**
+**This widgets displays only 100 most recent events**
 
 Example of Event Stream widget for the [API][1]
 
-```
+```js
 {
-    "type": "event_stream"
+    "type" : "event_stream"
 
     // Title
-    "title": false,
+    "title" : false,
 
     // Sizing
-    "height": 57,
-    "width": 59,
+    "height" : 57,
+    "width"  : 59,
 
     // Positioning
-    "y": 18,
-    "x": 84,
+    "y" : 18,
+    "x" : 84,
 
     // Widgets Parameters
-    "query": "tags:release",
+    "query" : "tags:release",
     "time": {
-      "live_span": "1h" // Choose from: [1m, 5m, 10m, 15m, 30m, 1h, 4h, 1d, 2d, 1w, 1mo, 3mo, 6mo, 1y]
+      // Choose from: [1m, 5m, 10m, 15m, 30m, 1h, 4h, 1d, 2d, 1w, 1mo, 3mo, 6mo, 1y]
+      "live_span": "1h" 
     }
 }
 ```
@@ -254,59 +266,66 @@ Image allows you to embed an image on your dashboard. Images can be PNG, JPG, or
 
 Example of Image widget for the [API][1]
 
-```
+```js
 {
-  "type": "image",
+  "type" : "image",
 
   // Sizing
-  "height": 20,
-  "width": 32,
+  "height" : 20,
+  "width"  : 32,
 
   // Positioning
-  "y": 7,
-  "x": 32
+  "y" : 7,
+  "x" : 32
 
   // Widget Parameters
-  "url": "http://path/to/image.jpg" // Note that you shouldn't hotlink to images you don't own.
+  "url" : "http://path/to/image.jpg" // Note that you shouldn't hotlink to images you don't own.
 }
 ```
+
+## Free Text
+*Supported on Screenboards only*
+
+Free text is a widget that allows you to add headings to your [Screenboard][8].
+
+This is commonly used to state the overall purpose of the dashboard.
 
 ## Note
 *Supported on Screenboards only*
 
 Note widget is similar to Free Text widget, but allows for more formatting options:
 
-* An arrow can be added to the text box that appears on the dashboard. This is commonly used to document the structure of the dashboard.
+* An arrow can be added to the text box that appears on the dashboard. (Document structure of board)
 
 * Use `href` to create internal links in Datadog.
   {{< img src="graphing/dashboards/widgets/using_link_note_widget.gif" alt="Using links in note widget" responsive="true" >}}
 
 Example of Note widget for the [API][1]
 
-```
+```js
 {
-    "type": "note",
+    "type" : "note",
 
     // Title
-    "title": false,
+    "title" : false,
 
     // Sizing
-    "height": 15,
-    "width": 30,
+    "height" : 15,
+    "width"  : 30,
 
     // Positioning
-    "x": 1,
-    "y": 28,
+    "x" : 1,
+    "y" : 28,
 
     // Widget Parameters
-    "html": "Put your note text in here.",
-    "text_align": "left",
-    "font_size": 14,
-    "bgcolor": "yellow", // Choose from: [yellow, blue, pink, gray, white, red, green]
-    "tick": true,
-    "tick_pos": "50%",
-    "tick_edge": "right" // Choose from: [top, right, bottom, left]
-    "auto_refresh": true // Defaults to false
+    "html"         : "Put your note text in here.",
+    "text_align"   : "left",
+    "font_size"    : 14,
+    "bgcolor"      : "yellow", // Choose from [yellow, blue, pink, gray, white, red, green]
+    "tick"         : true,
+    "tick_pos"     : "50%",
+    "tick_edge"    : "right" // Choose from [top, right, bottom, left]
+    "auto_refresh" : true    // Defaults to false
 }
 ```
 
@@ -317,24 +336,25 @@ Alert graphs are timeseries graphs showing the current status of any monitor def
 
 Example of Alert Graph widget for the [API][1]
 
-```
+```js
 {
-   "title_size": 16,
-   "viz_type": "timeseries",
-   "title": true,
-   "title_align": "left",
-   "title_text": "u",
-   "height": 13,
-   "width": 47,
-   "alert_id": "<ENTER ID>",
+   "title_size"  : 16,
+   "viz_type"    : "timeseries",
+   "title"       : true,
+   "title_align" : "left",
+   "title_text"  : "u",
+   "height"      : 13,
+   "width"       : 47,
+   "alert_id"    : "<ENTER ID>",
    "time": {
-    "live_span": "1h" // Choose from: [1m, 5m, 10m, 15m, 30m, 1h, 4h, 1d, 2d, 1w, 1mo, 3mo, 6mo, 1y, alert]
+    // Choose from: [1m, 5m, 10m, 15m, 30m, 1h, 4h, 1d, 2d, 1w, 1mo, 3mo, 6mo, 1y, alert]
+    "live_span": "1h" 
    },
-   "y": 2,
-   "x": 6,
-   "isShared": false,
-   "type": "alert_graph",
-   "add_timeframe": false
+   "y"             : 2,
+   "x"             : 6,
+   "isShared"      : false,
+   "type"          : "alert_graph",
+   "add_timeframe" : false
 }
 ```
 

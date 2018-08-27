@@ -15,7 +15,11 @@ further_reading:
 
 ## Compatibility
 
-We officially support the Java JRE 1.7 and higher of both Oracle JDK and OpenJDK.  Other JVM compatible languages (Scala, Groovy, Kotlin, etc) should work, but may be missing the instrumentation needed to be useful.  To see what web frameworks, libraries, and datastores we support, see the [Integrations section](#integrations).
+We officially support the Java JRE 1.7 and higher of both Oracle JDK and OpenJDK. 
+
+Other JVM compatible languages (Scala, Groovy, Kotlin, etc) should work, but may be missing the instrumentation needed to be useful. 
+
+To see what web frameworks, libraries, and datastores we support, see the [Integrations section](#integrations).
 
 To improve visibility into applications using unsupported frameworks, consider:
 
@@ -67,9 +71,12 @@ The tracer is configured using System Properties and Environment Variables as fo
 ## Automatic Instrumentation
 
 Automatic instrumentation for Java utilizes the `java-agent` instrumentation capabilities [provided by the JVM][8]. When a `java-agent` is registered, it has the ability to modify class files at load time.
+
 The `java-agent` uses the popular [Byte Buddy framework][9] to find the classes defined for instrumentation and modify those class bytes accordingly.
 
-Instrumentation may come from auto-instrumentation, the OpenTracing api, or a mixture of both. Instrumentation generally captures the following info:
+Instrumentation may come from auto-instrumentation, the OpenTracing api, or a mixture of both. 
+
+Instrumentation generally captures the following info:
 
 * Method execution time
 * Timing duration is captured using the JVM's nanotime clock unless a timestamp is provided from the OpenTracing api
@@ -99,6 +106,7 @@ Web Framework tracing provides:
 | Spring-Web              | 4.0+       |
 
 *Note:* Many application servers are Servlet compatible, such as Tomcat, Jetty, Websphere, Weblogic, etc.
+
 Also, frameworks like Spring Boot and Dropwizard inherently work because they use a Servlet compatible embedded application server.
 
 Don't see your desired web frameworks? We're continually adding additional support, [check with our team][2] to see if we can help.
@@ -187,7 +195,9 @@ Don't see your desired framework? We're continually adding additional support, [
 
 ## Manual Instrumentation
 
-Before instrumenting your application, review Datadog's [APM Terminology][5] and familiarize yourself with the core concepts of Datadog APM. If you aren't using a [supported framework instrumentation](#integrations), or you would like additional depth in your application's traces, you may want to to manually instrument your code.
+Before instrumenting your application, review Datadog's [APM Terminology][5] and familiarize yourself with the core concepts of Datadog APM. 
+
+If you aren't using a [supported framework instrumentation](#integrations), or you would like additional depth in your application's traces, you may want to to manually instrument your code.
 
 Do this either using the [Trace annotation](#trace-annotation) for simple method call tracing or with the [OpenTracing API](#opentracing-api) for complex tracing.
 
@@ -264,7 +274,9 @@ Now add `@Trace` to methods to have them be traced when running with `dd-java-ag
 
 ### OpenTracing API
 
-Use the [OpenTracing API][6] and the Datadog Tracer (dd-trace-ot) library to measure execution times for specific pieces of code. This lets you trace your application more precisely than you can with the Java Agent alone.
+Use the [OpenTracing API][6] and the Datadog Tracer (dd-trace-ot) library to measure execution times for specific pieces of code. 
+
+This lets you trace your application more precisely than you can with the Java Agent alone.
 
 #### Setup
 

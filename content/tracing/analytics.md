@@ -70,6 +70,7 @@ Available visualizations:
 Visualize the evolution of a single [Measure][1] (or a [Facet][2] unique count of values) over a selected time frame, and (optionally) split by an available [Facet][2].
 
 The following timeseries Trace Analytic shows:
+
 The evolution of the **pc99** **duration** by steps of **5min** for each **Service** 
 
 {{< img src="tracing/analytics/timeserie_example.png" alt="timeserie example" responsive="true" style="width:90%;">}}
@@ -79,6 +80,7 @@ The evolution of the **pc99** **duration** by steps of **5min** for each **Servi
 Visualize the top values from a [Facet][2] according to the chosen [Measure][1]:
 
 The following Top List Trace Analytic shows:
+
 The top **pc99** **duration** of **Service** 
 
 {{< img src="tracing/analytics/top_list_example.png" alt="top list example" responsive="true" style="width:90%;">}}

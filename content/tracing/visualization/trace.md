@@ -19,7 +19,9 @@ further_reading:
   text: Understand how to read a Datadog Trace
 ---
 
-View an individual trace to see all of its spans and associated metadata. Each trace can be viewed either as a flame graph or as a list (grouped by service or host).
+View an individual trace to see all of its spans and associated metadata. 
+
+Each trace can be viewed either as a flame graph or as a list (grouped by service or host).
 
 {{< img src="tracing/visualization/trace/trace.png" alt="Trace" responsive="true" style="width:90%;">}}
 
@@ -38,6 +40,7 @@ If you are analyzing an error trace, the error has a specific display if you fol
 ### Traces special meaning tags
 
 When [submitting your traces][1] you may add attributes in the `meta` parameter.  
+
 Some of them have a special meaning which lead to a dedicated display and behavior in Datadog:
 
 * **`sql.query`**:  

@@ -22,12 +22,18 @@ further_reading:
   text: Ruby language instrumentation
 ---
 
-There are several dimensions that you can configure to scope an entire Datadog APM application. This includes aggregate statistics (such as requests/second, latency, error rate, Apdex score) and visible traces.
+There are several dimensions that you can configure to scope an entire Datadog APM application. 
+
+This includes aggregate statistics (such as requests/second, latency, error rate, Apdex score) and visible traces.
 
 ## Environment
 ### Definition
 
-An environment is a first-class dimension that is used to scope an entire Datadog APM application. Some display settings are shared across environments, but measurable data (traces/aggregate statistics) cannot be re-aggregated across multiple environments. Use cases include:
+An environment is a first-class dimension that is used to scope an entire Datadog APM application. 
+
+Some display settings are shared across environments, but measurable data (traces/aggregate statistics) cannot be re-aggregated across multiple environments. 
+
+Use cases include:
 
 * Stage environments such as production, staging, and pre-production.
 
@@ -93,15 +99,20 @@ There are several ways to specify an environment when reporting data:
 
 ### Viewing Data by Environment
 
-Environments appear at the top of APM pages. Use the dropdown to scope the data displayed on the current page.
+Environments appear at the top of APM pages. 
+
+Use the dropdown to scope the data displayed on the current page.
 
 {{< img src="tracing/setup/first_class_dimensions/envs_tracing_screen.png" alt="Envs tracing" responsive="true" style="width:80%;">}}
-
 
 ## Primary Tags
 ### Definition
 
-A primary tag is a first-class dimension that is used to scope an entire Datadog APM application. Primary tags are used in conjunction with environments to get an even finer view of your application's behavior. Use cases for primary tags include:
+A primary tag is a first-class dimension that is used to scope an entire Datadog APM application. 
+
+Primary tags are used in conjunction with environments to get an even finer view of your application's behavior. 
+
+Use cases for primary tags include:
 
 * Availability zone
 * Datacenter
@@ -119,7 +130,11 @@ APM primary tags must be set up in two ways: in the trace Agent and in the Datad
 
 #### Agent configuration
 
-Override the default tag used by the trace Agent in the [Agent configuration file][2]. This tags all traces coming through the Agent, overriding the host tag value. An APM primary tag is configured like any regular host tag. Specify it as:
+Override the default tag used by the trace Agent in the [Agent configuration file][2]. 
+
+This tags all traces coming through the Agent, overriding the host tag value. 
+
+An APM primary tag is configured like any regular host tag. Specify it as:
 
 ```
 tags:
@@ -140,7 +155,11 @@ Visit the [APM Settings][3] page to define, change, or remove primary tags. Note
 
 ### Viewing Data by Primary Tag
 
-Primary tags appear at the top of APM pages, next to environments. Use these selectors to slice the data displayed on the current page. To view all data independent of a primary tag, choose `tag-name:*` from the dropdown (as in the image below).
+Primary tags appear at the top of APM pages, next to environments. 
+
+Use these selectors to slice the data displayed on the current page. 
+
+To view all data independent of a primary tag, choose `tag-name:*` from the dropdown (as in the image below).
 
 {{< img src="tracing/setup/first_class_dimensions/primary_tags_ui.png" alt="Primary tags UI" responsive="true" style="width:80%;">}}
 

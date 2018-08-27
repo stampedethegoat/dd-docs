@@ -67,6 +67,7 @@ docker run -d --name app \
 ```
 
 This exposes the hostname `datadog-agent` in your `app` container.
+
 If you're using `docker-compose`, `<NETWORK_NAME>` parameters are the ones defined under the `networks` section of your `docker-compose.yml`.
 
 Your application tracers must be configured to submit traces to this address. See the examples below for each supported language:
@@ -135,6 +136,7 @@ const tracer = require('dd-trace').init({
 ### Docker host IP
 
 Agent container port `8126` should be linked to the host directly.
+
 Configure your application tracer to report to the default route of this container (determine this using the `ip route` command).
 
 The following is an example for the Python Tracer, assuming `172.17.0.1` is the default route:

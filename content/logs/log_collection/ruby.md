@@ -46,18 +46,18 @@ And the final result in JSON:
 
 ```
 {
-  "timestamp":"2016-01-12T19:15:19.118829+01:00",
-  "level":"INFO",
-  "logger":"Rails",
-  "method":"GET",
-  "path":"/jobs/833552.json",
-  "format":"json",
-  "controller":"jobs",
-  "action":"show",
-  "status":200,
-  "duration":58.33,
-  "view":40.43,
-  "db":15.26
+  "timestamp"  : "2016-01-12T19:15:19.118829+01:00",
+  "level"      : "INFO",
+  "logger"     : "Rails",
+  "method"     : "GET",
+  "path"       : "/jobs/833552.json",
+  "format"     : "json",
+  "controller" : "jobs",
+  "action"     : "show",
+  "status"     : 200,
+  "duration"   : 58.33,
+  "view"       : 40.43,
+  "db"         : 15.26
 }
 ```
 
@@ -89,7 +89,9 @@ config.lograge.custom_options = lambda do |event|
 end
 ```
 
-**Note**:You can also ask Lograge to add contextual information to your logs. Refer to the official doc if you are interested: [Lograge documentation][1]
+**Note**:You can also ask Lograge to add contextual information to your logs. 
+
+Refer to the official doc if you are interested: [Lograge documentation][1]
 
 ## Disable log coloration
 As it would be weirdly displayed in your Datadog application, disable your log coloration:
@@ -139,24 +141,23 @@ Create a `ruby.d/conf.yaml` file in your `conf.d/` folder with the following con
 ```yaml    
 ##Log section
 logs:
-
-    ## - type : file (mandatory) type of log input source (tcp / udp / file)
-    ##   port / path : (mandatory) Set port if type is tcp or udp. Set path if type is file
-    ##   service : (mandatory) name of the service owning the log
-    ##   source : (mandatory) attribute that defines which integration is sending the logs
+    ## - type           : file (mandatory) type of log input source (tcp / udp / file)
+    ##   port / path    : (mandatory) Set port if type is tcp or udp. Set path if type is file
+    ##   service        : (mandatory) name of the service owning the log
+    ##   source         : (mandatory) attribute that defines which integration is sending the logs
     ##   sourcecategory : (optional) Multiple value attribute. Can be used to refine the source attribtue
-    ##   tags: (optional) add tags to each logs collected
+    ##   tags           : (optional) add tags to each logs collected
 
-  - type: file
-    path: /path/to/your/ruby/log.log
-    service: ruby
-    source: ruby
-    sourcecategory: sourcecode
+  - type           : file
+    path           : /path/to/your/ruby/log.log
+    service        : ruby
+    source         : ruby
+    sourcecategory : sourcecode
     # For multiline logs, if they start by the date with the format yyyy-mm-dd uncomment the following processing rule
     #log_processing_rules:
-    #  - type: multi_line
-    #    name: new_log_start_with_date
-    #    pattern: \d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])
+    #  - type    : multi_line
+    #    name    : new_log_start_with_date
+    #    pattern : \d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])
 ```
 
 That's it! Now, all the rails calls are going to be in proper JSON automatically understood by your Datadog application.
@@ -167,6 +168,7 @@ That's it! Now, all the rails calls are going to be in proper JSON automatically
 Now that your logging configuration is sending proper JSON, you should exploit it as much as you can.
 
 A logging practice is to bring as much context (user, session, action, metrics, etc...) to every line of log you send.
+
 To do so you can actually instead of logging simple string messages you should log hashes as shown in the following example:
 
 ```ruby
@@ -178,14 +180,14 @@ The hash is going to get converted into JSON and you'll then be able to do analy
 
 ```json
 {
-    "timestamp":"2016-01-12T19:15:18.683575+01:00",
-    "level":"INFO",
-    "logger":"WelcomeController",
+    "timestamp" : "2016-01-12T19:15:18.683575+01:00",
+    "level"     : "INFO",
+    "logger"    : "WelcomeController",
     "message": {
-        "user":"1234",
-        "button_name":"save",
-        "message":"User 1234 clicked on button saved"
-            }
+        "user"        : "1234",
+        "button_name" : "save",
+        "message"     : "User 1234 clicked on button saved"
+    }
 }
 ```
 

@@ -192,7 +192,7 @@ For more details about how to activate and configure the processing pipeline, ch
 
 Ruby APM includes support for the following Ruby interpreters:
 
-___
+__
 
 | Type  | Documentation              | Version | Support type |
 | ----- | -------------------------- | -----   | ------------ |
@@ -213,7 +213,7 @@ ___
 
 Ruby APM includes support for the following web servers:
 
-___
+__
 
 | Type      | Documentation                     | Version      | Support type |
 | --------- | --------------------------------- | ------------ | ------------ |

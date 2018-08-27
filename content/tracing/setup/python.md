@@ -17,7 +17,9 @@ further_reading:
 ---
 
 <div class="alert alert-info">
-For Python applications, note that tracing is disabled when your application is launched in <code>DEBUG</code> mode. Find more <a href="http://pypi.datadoghq.com/trace/docs/#module-ddtrace.contrib.django">here</a>.
+For Python applications, note that tracing is disabled when your application is launched in <code>DEBUG</code> mode. <br>
+
+Find more <a href="http://pypi.datadoghq.com/trace/docs/#module-ddtrace.contrib.django">here</a>.
 </div>
 
 ## Installation
@@ -50,7 +52,7 @@ For more examples, see the [Getting Started section of library documentation][2]
 
 The ddtrace library includes support for a number of web frameworks, including:
 
-___
+__
 
 | Framework | Framework Documentation        | PyPi Datadog Documentation                    |
 |-----------|--------------------------------|-----------------------------------------------|
@@ -65,7 +67,7 @@ ___
 
 It also includes support for the following data stores and libraries:
 
-___
+__
 
 | Library       | Library Documentation                         | PyPi Datadog Documentation                          |
 |---------------|-----------------------------------------------|-----------------------------------------------------|
@@ -83,6 +85,7 @@ ___
 ## Example: Simple tracing
 
 We have a Flask Python application that when called on `/doc` returns **42**.  
+
 We instrumented our python code in order to generate traces from it:
 
 ```python

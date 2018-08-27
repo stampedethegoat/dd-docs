@@ -1,24 +1,24 @@
 // ## Globals
-var argv = require('minimist')(process.argv.slice(2));
+var argv         = require('minimist')(process.argv.slice(2));
 var autoprefixer = require('gulp-autoprefixer');
-var browserSync = require('browser-sync').create();
-var changed = require('gulp-changed');
-var concat = require('gulp-concat');
-var gulp = require('gulp');
-var gulpif = require('gulp-if');
-var lazypipe = require('lazypipe');
-var merge = require('merge-stream');
-var cssNano = require('gulp-cssnano');
-var plumber = require('gulp-plumber');
-var runSequence = require('run-sequence');
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
-var jshint = require('gulp-jshint');
-var manifest = require('./src/manifest.json');
-var hash = require('gulp-hash');
-var del = require('del');
-var fs = require('fs');
-var pathlib = require('path');
+var browserSync  = require('browser-sync').create();
+var changed      = require('gulp-changed');
+var concat       = require('gulp-concat');
+var gulp         = require('gulp');
+var gulpif       = require('gulp-if');
+var lazypipe     = require('lazypipe');
+var merge        = require('merge-stream');
+var cssNano      = require('gulp-cssnano');
+var plumber      = require('gulp-plumber');
+var runSequence  = require('run-sequence');
+var sass         = require('gulp-sass');
+var uglify       = require('gulp-uglify');
+var jshint       = require('gulp-jshint');
+var manifest     = require('./src/manifest.json');
+var hash         = require('gulp-hash');
+var del          = require('del');
+var fs           = require('fs');
+var pathlib      = require('path');
 
 // asset manifest is a json object containing paths to dependencies
 var path = manifest.paths;
@@ -27,11 +27,11 @@ var path = manifest.paths;
 // - `project.js` - Array of first-party JS assets.
 // - `project.css` - Array of first-party CSS assets.
 var project = {
-  "fonts": ["src/fonts/**/*"],
-  "images": ["src/images/**/*"],
-  "js": [],
-  "css": [],
-  "globs": []
+  "fonts"  : ["src/fonts/**/*"],
+  "images" : ["src/images/**/*"],
+  "js"     : [],
+  "css"    : [],
+  "globs"  : []
 };
 
 // build dependencies and globs
