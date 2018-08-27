@@ -387,7 +387,7 @@ languages:
 
         # ALERTING
         - identifier: menu_references_monitoring
-          name: "Alerting"
+          name: "Monitors 101"
           url: "monitors/"
           pre: "nav_alerting"
           weight: 70
@@ -493,13 +493,13 @@ languages:
 
         # TRACING/APM
         - identifier: menu_references_tracing
-          name: "APM (Tracing)"
+          name: "Tracing 101"
           url: "tracing/"
           pre: "nav_tracing"
           weight: 80
         # TRACING/APM - Subnav start
         - identifier: customnav_tracingnav_setup
-          name: "APM setup"
+          name: "Tracing setup"
           url: "tracing/setup/"
           weight: 10
           parent: menu_references_tracing

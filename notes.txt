@@ -4,5 +4,17 @@
 [x] Watchdog      : Main
 [x] Graphing      : Main
 [x] Graphing      : Subsidiaries
-[ ] FAQ for all apps
+[x] Alerting
+[x] APM
+
+[ ] Log Management
+[ ] Developer Tools
+[ ] Account Management
+[ ] Security
+[ ] Glossary, Videos, Help
 [ ] The Agent 101 : Subsidiaries
+[ ] FAQ for Graphs
+[ ] FAQ for Monitors
+[ ] FAQ for Agents
+[ ] FAQ for Integrations
+[ ] FAQ for Tracing

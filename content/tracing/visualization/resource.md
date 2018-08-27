@@ -18,7 +18,11 @@ further_reading:
 
 {{< img src="tracing/visualization/resource/ressource.png" alt="Ressource" responsive="true" >}}
 
-A resource is a particular action for a given service (typically an individual endpoint or query). Read more about resources in [Getting Started with APM][1]. For each resource, APM automatically generates a dashboard page covering:
+A resource is a particular action for a given service (typically an individual endpoint or query). 
+
+Read more about resources in [Getting Started with APM][1]. 
+
+For each resource, APM automatically generates a dashboard page covering:
 
 * Key health metrics
 * Monitor status for all monitors associated with this service
@@ -27,7 +31,6 @@ A resource is a particular action for a given service (typically an individual e
 ## Out of the box graphs
 
 Datadog provides out of the box graphs for any given resource:
-
 * Requests - Choose to display:
     *  The **Total amount of requests** 
     *  The amount of **Requests per second**
@@ -63,7 +66,9 @@ Zoom on this graph to filter corresponding traces.
 
 ## Traces
 
-Consult the list of traces associated with this resource. Filter/sort this list to see fast/slow and error/non-error traces:  
+Consult the list of traces associated with this resource. 
+
+Filter/sort this list to see fast/slow and error/non-error traces:  
 
 [Refer to our dedicated trace documentation to learn more][3].
 

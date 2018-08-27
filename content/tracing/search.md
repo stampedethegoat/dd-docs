@@ -31,9 +31,13 @@ further_reading:
 
 ## Overview
 
-Use Trace Search & Analytics to filter application performance metrics and [APM events][8] by user-defined tags. It allows deep exploration of the web requests flowing through your service.
+Use Trace Search & Analytics to filter application performance metrics and [APM events][8] by user-defined tags. 
 
-Trace Search & Analytics can be enabled per APM service and per host. A service on which it is enabled exposes all its APM Events to Datadog. 
+It allows deep exploration of the web requests flowing through your service.
+
+Trace Search & Analytics can be enabled per APM service and per host. 
+
+A service on which it is enabled exposes all its APM Events to Datadog. 
 
 Downstream services like databases and cache layers aren't in the list of available services (as they don't generate traces on their own), but their information is picked up by the top level services that call them.
 
@@ -77,7 +81,9 @@ For instance, if your facet name is **url** and you want to filter on the **url*
 
 ### Tags search
 
-Your traces inherit tags from [hosts][4] and [integrations][5] that generate them. They can be used in the search and as facets as well:
+Your traces inherit tags from [hosts][4] and [integrations][5] that generate them. 
+
+They can be used in the search and as facets as well:
 
 | Query                                                          | Match                                                                       |
 | :----                                                          | :---                                                                        |
@@ -115,18 +121,26 @@ Typing a complex query can be cumbersome. Use the search bar's autocomplete feat
 ### Escaping of special characters
 
 The following attributes are considered as special: `?`, `>`, `<`, `:`, `=`,`"`, `~`, `/`, and `\` require escaping.
+
 For instance, to search traces that contain `user=12345` in their `url` the following search must be entered:
 
 `@url:*user\=JaneDoe`
 
-The same logic must be applied to spaces within trace attributes. It is not recommended to have spaces in trace attributes but in such cases, spaces require escaping.
+The same logic must be applied to spaces within trace attributes. 
+
+It is not recommended to have spaces in trace attributes but in such cases, spaces require escaping.
+
 If an attribute is called `user.first name`, perform a search on this attribute by escaping the space:
 
 `@user.first\ name:myvalue`
 
 ### Saved Searches
 
-Don't lose time building the same views everyday. Saved searches contain your search query, columns, and time horizon. They are then available in the search bar thanks to the auto-complete matching whether the search name or query.
+Don't lose time building the same views everyday. 
+
+Saved searches contain your search query, columns, and time horizon. 
+
+They are then available in the search bar thanks to the auto-complete matching whether the search name or query.
 
 {{< img src="tracing/search/saved_search.png" alt="Saved Search" responsive="true" style="width:80%;">}}
 
@@ -134,12 +148,16 @@ To delete a saved search, click on the bin icon under the Trace search drop-down
 
 ## Time Range
 
-The time range allows you to display traces within a given time period. Quickly change the time range by selecting a preset range from the dropdown:
+The time range allows you to display traces within a given time period. 
+
+Quickly change the time range by selecting a preset range from the dropdown:
 
 {{< img src="tracing/search/timerange.png" style="width:50%;" alt="Timerange" responsive="true" >}}
 
 ## Trace Stream
-The Trace Stream is the list of traces that match the selected context. A context is defined by a [search bar](#search-bar) filter and a [time range](#time-range).
+The Trace Stream is the list of traces that match the selected context. 
+
+A context is defined by a [search bar](#search-bar) filter and a [time range](#time-range).
 
 Sort the list by clicking the **date** column header.
 
@@ -180,7 +198,9 @@ Choose to display one, three, or ten lines from your traces. 3 and 10 lines disp
 
 ## Facets
 
-A Facet displays all the distinct values of an attribute or a tag as well as provides some basic analytics such as the amount of traces represented. This is also a switch to easily filter your data.
+A Facet displays all the distinct values of an attribute or a tag as well as provides some basic analytics such as the amount of traces represented. 
+
+This is also a switch to easily filter your data.
 
 Facets allow you to pivot or filter your datasets based on a given attribute. Examples Facets may include users, services, etc...
 
