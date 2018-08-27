@@ -18,8 +18,9 @@ further_reading:
 
 ## Overview
 
-Every Datadog Agent collection reports a heartbeat called `datadog.agent.up`
-with a status `UP`. You can monitor this heartbeat across one or more hosts.
+Every Datadog Agent collection reports a heartbeat called `datadog.agent.up` with a status `UP`. 
+
+You can monitor this heartbeat across one or more hosts.
 
 ## Configuration
 

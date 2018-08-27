@@ -3,6 +3,6 @@
 [x] The Agent 101 : Main
 [x] Watchdog      : Main
 [x] Graphing      : Main
-[ ] Graphing      : Subsidiaries
+[x] Graphing      : Subsidiaries
+[ ] FAQ for all apps
 [ ] The Agent 101 : Subsidiaries
-[ ] Proxy ?

@@ -17,7 +17,9 @@ further_reading:
 
 ## Overview
 
-Log monitors alert when a specified type of log exceeds a user-defined threshold over a given period of time. Common use cases for this monitor include:
+Log monitors alert when a specified type of log exceeds a user-defined threshold over a given period of time. 
+
+Common use cases for this monitor include:
 
 * Code exception errors monitoring 
 * Build job notifications.
