@@ -1,68 +1,126 @@
 left:
-  - name: product
-    link: "http://localhost:1313/getting_started/"
-    title: "Overview"
+  - name: app
+    link: "http://localhost:1313"
+    title: "Application"
     children:
-          - name: product_features
-            link: "https://www.datadoghq.com/product/"
-            title: "Features"
-          - name: product_integrations
-            link: "https://www.datadoghq.com/product/integrations/"
+          - name: overview
+            link: "http://localhost:1313"
+            title: "Overview"
+          - name: agent
+            link: "http://localhost:1313"
+            title: "The Agent"
+          - name: metrics
+            link: "http://localhost:1313"
+            title: "Metrics"
+          - name: tracing
+            link: "http://localhost:1313"
+            title: "Tracing"
+          - name: monitors
+            link: "http://localhost:1313"
+            title: "Monitors/Alerts"
+          - name: logs
+            link: "http://localhost:1313"
+            title: "Logs"
+  - name: granular
+    link: "http://localhost:1313"
+    title: "Granular"
+    children:
+          - name: watchdog
+            link: "http://localhost:1313"
+            title: "Watchdog"
+          - name: tagging
+            link: "http://localhost:1313"
+            title: "Tagging"
+          - name: graphing
+            link: "http://localhost:1313"
+            title: "Graphing"
+          - name: devtools
+            link: "http://localhost:1313"
+            title: "Developer Tools"
+          - name: integrations
+            link: "http://localhost:1313"
             title: "Integrations"
-          - name: product_apm
-            link: "https://www.datadoghq.com/apm/"
-            title: "APM"
-          - name: product_dashboards
-            link: "https://www.datadoghq.com/dashboarding/"
-            title: "Dashboards"
-          - name: product_alerts
-            link: "https://www.datadoghq.com/alerts/"
-            title: "Alerts"
-          - name: product_api
-            link: "api"
-            title: "API"
-  - name: docs
-    link: ""
-    title: "Docs"
-  - name: pricing
-    link: "https://www.datadoghq.com/pricing/"
-    title: "Pricing"
-  - name: customers
-    link: "https://www.datadoghq.com/customers/"
-    title: "Customers"
+  - name: config
+    link: "http://localhost:1313"
+    title: "Config"
+    children:
+          - name: account_settings
+            link: "http://localhost:1313"
+            title: "Account Settings"
+          - name: security
+            link: "http://localhost:1313"
+            title: "Security"
+          - name: videos
+            link: "http://localhost:1313"
+            title: "Videos"
+          - name: help
+            link: "http://localhost:1313"
+            title: "Help"
 right:
-  - name: about
-    link: "https://www.datadoghq.com/about/"
-    title: "Foo1"
+  - name: zendesk
+    link: "https://datadog.zendesk.com/agent/apps/lovely-views"
+    title: "Zendesk"
+  - name: datadog
+    link: "http://localhost:1313"
+    title: "Datadog"
     children:
-          - name: about_contact
-            link: "https://www.datadoghq.com/about/contact/"
-            title: "Contact"
-          - name: about_partners
-            link: "https://www.datadoghq.com/partner-with-datadog/"
-            title: "Partners"
-          - name: about_press
-            link: "https://www.datadoghq.com/about/press/"
-            title: "Press"
-          - name: about_team
-            link: "https://www.datadoghq.com/about/team/"
-            title: "Team"
-          - name: about_careers
-            link: "https://www.datadoghq.com/careers/"
-            title: "Careers"
-  - name: blog
-    link: "https://www.datadoghq.com/blog/"
-    title: "Foo2"
-    children:
-          - name: blog_themonitor
-            link: "https://www.datadoghq.com/blog/"
-            title: "The Monitor"
-          - name: blog_engineering
-            link: "https://www.datadoghq.com/blog/engineering/"
-            title: "Engineering"
-          - name: blog_pupculture
-            link: "https://www.datadoghq.com/blog/pup-culture/"
-            title: "Pup Culture"
-  - name: login
-    link: "https://app.datadoghq.com/"
-    title: "Foo3"
+          - name: main_page
+            link: "http://localhost:1313"
+            title: "Main Page"
+          - name: doc_wiki
+            link: "http://localhost:1313"
+            title: "Documentation 🗒"
+          - name: hugo
+            link: "http://localhost:1313"
+            title: "Hugo"
+
+    #children: PRODUCT
+          #- name: product_features
+            #link: "https://www.datadoghq.com/product/"
+            #title: "Features"
+          #- name: product_integrations
+            #link: "https://www.datadoghq.com/product/integrations/"
+            #title: "Integrations"
+          #- name: product_apm
+            #link: "https://www.datadoghq.com/apm/"
+            #title: "APM"
+          #- name: product_dashboards
+            #link: "https://www.datadoghq.com/dashboarding/"
+            #title: "Dashboards"
+          #- name: product_alerts
+            #link: "https://www.datadoghq.com/alerts/"
+            #title: "Alerts"
+          #- name: product_api
+            #link: "api"
+            #title: "API"
+          #- name: watchdog
+            #link: "http://localhost:1313"
+            #title: "Watchdog"
+
+    #children: ABOUT
+          #- name: about_contact
+            #link: "https://www.datadoghq.com/about/contact/"
+            #title: "Contact"
+          #- name: about_partners
+            #link: "https://www.datadoghq.com/partner-with-datadog/"
+            #title: "Partners"
+          #- name: about_press
+            #link: "https://www.datadoghq.com/about/press/"
+            #title: "Press"
+          #- name: about_team
+            #link: "https://www.datadoghq.com/about/team/"
+            #title: "Team"
+          #- name: about_careers
+            #link: "https://www.datadoghq.com/careers/"
+            #title: "Careers"
+
+    #children: BLOG
+          #- name: blog_themonitor
+            #link: "https://www.datadoghq.com/blog/"
+            #title: "The Monitor"
+          #- name: blog_engineering
+            #link: "https://www.datadoghq.com/blog/engineering/"
+            #title: "Engineering"
+          #- name: blog_pupculture
+            #link: "https://www.datadoghq.com/blog/pup-culture/"
+            #title: "Pup Culture"
