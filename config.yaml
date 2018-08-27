@@ -2087,10 +2087,10 @@ params:
     png: "?fm=png&auto=format&lossless=1"
     gif: ""
   static_url: "http://localhost:1313/"
-  announcement_banner:
-    text: "The <strong>Service Map</strong> for APM is here!"
-    link: "blog/service-map/"
-    exclude: []
+  # announcement_banner:
+    # text: "The <strong>Service Map</strong> for APM is here!"
+    # link: "blog/service-map/"
+    # exclude: []
   code_languages:
     - display_name: Python
       key: python
