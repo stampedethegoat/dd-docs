@@ -1,5 +1,5 @@
 title          : "Docs"
-baseURL        : "http  : //localhost : 1313/"
+baseURL        : "pedantic-roentgen-aa124a.netlify.com"
 metadataformat : "yaml"
 
 canonifyURLs       : true
