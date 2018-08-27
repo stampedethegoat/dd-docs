@@ -23,10 +23,15 @@ further_reading:
 
 ## Overview
 
-Use your favorite python logger to log into a file on your host. Then [monitor this file with your Datadog Agent][1] to send your logs to Datadog.
+Use your favorite python logger to log into a file on your host. 
+
+Then [monitor this file with your Datadog Agent][1] to send your logs to Datadog.
 
 ## Setup
-Python logs are quite complex to handle, mainly because of tracebacks. They are split into multiple lines which make them difficult to associate with the original log event.  
+Python logs are quite complex to handle, mainly because of tracebacks. 
+
+They are split into multiple lines which make them difficult to associate with the original log event.  
+
 To address this use case we strongly recommend you use a JSON formatter when logging in order to:
 
 * Ensure each stack_trace is properly wrapped into the correct log
@@ -61,9 +66,9 @@ logger.info('Sign up', extra={'referral_code': '52d6ce'})
 The log file will contain the following log record (inline).
 ```json
 {
-    "message": "Sign up",
-    "time": "2015-09-01T06:06:26.524448",
-    "referral_code": "52d6ce"
+    "message"       : "Sign up",
+    "time"          : "2015-09-01T06:06:26.524448",
+    "referral_code" : "52d6ce"
 }
 ```
 
@@ -85,25 +90,25 @@ Once the [handler is configured][4], the log file contains the following log rec
 
 ```json
 {
-    "threadName": "MainThread",
-    "name": "root",
-    "thread": 140735202359648,
-    "created": 1336281068.506248,
-    "process": 41937,
-    "processName": "MainProcess",
-    "relativeCreated": 9.100914001464844,
-    "module": "tests",
-    "funcName": "testFormatKeys",
-    "levelno": 20,
-    "msecs": 506.24799728393555,
-    "pathname": "tests/tests.py",
-    "lineno": 60,
-    "asctime": ["12-05-05 22:11:08,506248"],
-    "message": "testing logging format",
-    "filename": "tests.py",
-    "levelname": "INFO",
-    "special": "value",
-    "run": 12
+    "threadName"      : "MainThread",
+    "name"            : "root",
+    "thread"          : 140735202359648,
+    "created"         : 1336281068.506248,
+    "process"         : 41937,
+    "processName"     : "MainProcess",
+    "relativeCreated" : 9.100914001464844,
+    "module"          : "tests",
+    "funcName"        : "testFormatKeys",
+    "levelno"         : 20,
+    "msecs"           : 506.24799728393555,
+    "pathname"        : "tests/tests.py",
+    "lineno"          : 60,
+    "asctime"         : ["12-05-05 22:11:08,506248"],
+    "message"         : "testing logging format",
+    "filename"        : "tests.py",
+    "levelname"       : "INFO",
+    "special"         : "value",
+    "run"             : 12
 }
 ```
 
@@ -118,24 +123,23 @@ instances:
 
 ##Log section
 logs:
-
-    ## - type : file (mandatory) type of log input source (tcp / udp / file)
-    ##   port / path : (mandatory) Set port if type is tcp or udp. Set path if type is file
-    ##   service : (mandatory) name of the service owning the log
-    ##   source : (mandatory) attribute that defines which integration is sending the logs
+    ## - type           : file (mandatory) type of log input source (tcp / udp / file)
+    ##   port / path    : (mandatory) Set port if type is tcp or udp. Set path if type is file
+    ##   service        : (mandatory) name of the service owning the log
+    ##   source         : (mandatory) attribute that defines which integration is sending the logs
     ##   sourcecategory : (optional) Multiple value attribute. Can be used to refine the source attribtue
-    ##   tags: (optional) add tags to each logs collected
+    ##   tags           : (optional) add tags to each logs collected
 
-  - type: file
-    path: /path/to/your/python/log.log
-    service: myapplication
-    source: python
-    sourcecategory: sourcecode
+  - type           : file
+    path           : /path/to/your/python/log.log
+    service        : myapplication
+    source         : python
+    sourcecategory : sourcecode
     # For multiline logs, if they start by the date with the format yyyy-mm-dd uncomment the following processing rule
     #log_processing_rules:
-    #  - type: multi_line
-    #    name: new_log_start_with_date
-    #    pattern: \d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])
+    #  - type    : multi_line
+    #    name    : new_log_start_with_date
+    #    pattern : \d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])
 ```
 
 Then [Restart the Agent][5] to apply the configuration change.

@@ -21,13 +21,17 @@ further_reading:
   text: Log Collection Troubleshooting Guide
 ---
 
-To send your C# logs to Datadog, we recommend logging to a file and then tailing that file with your Datadog Agent. Here are setup examples for the `log4Net`, `serilog` and `Nlog` logging libraries
+To send your C# logs to Datadog, we recommend logging to a file and then tailing that file with your Datadog Agent. 
+
+Here are setup examples for the `log4Net`, `serilog` and `Nlog` logging libraries
 
 We strongly encourage setting up your logging library to produce your logs in JSON format to avoid the need for [custom parsing rules][1].
 
 ## Configure your logger
 ### SeriLog
-Like many other libraries for .NET, Serilog provides diagnostic logging into files, console, and elsewhere. It is easy to set up, has a clean API, and is portable between recent .NET platforms.
+Like many other libraries for .NET, Serilog provides diagnostic logging into files, console, and elsewhere. 
+
+It is easy to set up, has a clean API, and is portable between recent .NET platforms.
 
 Unlike other logging libraries, Serilog is built with powerful structured event data in mind.
 
@@ -79,7 +83,9 @@ Then check the `log.json` file to see the following event:
 
 ### NLog
 
-NLog is a logging platform for .NET with rich log routing and management capabilities. It can help you produce and manage high-quality logs for your application regardless of its size or complexity.
+NLog is a logging platform for .NET with rich log routing and management capabilities. 
+
+It can help you produce and manage high-quality logs for your application regardless of its size or complexity.
 
 Install NLog via NuGet. Run the following command in the Package Manager Console:
 
@@ -87,7 +93,11 @@ Install NLog via NuGet. Run the following command in the Package Manager Console
 PM> Install-Package NLog
 ```
 
-Once the library is in your classpath, attach the following layout to any target. Edit or add a `NLog.config` file to the project root path. Then copy/paste the following code in it (*Logs are written into the `application-logs.json` file*):
+Once the library is in your classpath, attach the following layout to any target. 
+
+Edit or add a `NLog.config` file to the project root path. 
+
+Then copy/paste the following code in it (*Logs are written into the `application-logs.json` file*):
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -225,12 +235,12 @@ If you have followed the instructions you should see in your file (for example `
 
 ```json
 {
-  "level": "DEBUG",
-  "message": "This is my debug message",
-  "date": "2016-05-24 15:53:35.7175",
-  "appname": "Datadog.vshost.exe",
-  "logger": "Datadog.Program",
-  "thread": "10"
+  "level"   : "DEBUG",
+  "message" : "This is my debug message",
+  "date"    : "2016-05-24 15:53:35.7175",
+  "appname" : "Datadog.vshost.exe",
+  "logger"  : "Datadog.Program",
+  "thread"  : "10"
 }
 ```
 
@@ -251,31 +261,32 @@ instances:
     
 ##Log section
 logs:
-
-    ## - type : file (mandatory) type of log input source (tcp / udp / file)
-    ##   port / path : (mandatory) Set port if type is tcp or udp. Set path if type is file
-    ##   service : (mandatory) name of the service owning the log
-    ##   source : (mandatory) attribute that defines which integration is sending the logs
+    ## - type           : file (mandatory) type of log input source (tcp / udp / file)
+    ##   port / path    : (mandatory) Set port if type is tcp or udp. Set path if type is file
+    ##   service        : (mandatory) name of the service owning the log
+    ##   source         : (mandatory) attribute that defines which integration is sending the logs
     ##   sourcecategory : (optional) Multiple value attribute. Can be used to refine the source attribtue
-    ##   tags: (optional) add tags to each logs collected
+    ##   tags           : (optional) add tags to each logs collected
 
-  - type: file
-    path: /path/to/your/csharp/log.log
-    service: csharp
-    source: csharp
-    sourcecategory: sourcecode
+  - type           : file
+    path           : /path/to/your/csharp/log.log
+    service        : csharp
+    source         : csharp
+    sourcecategory : sourcecode
     # For multiline logs, if they start by the date with the format yyyy-mm-dd uncomment the following processing rule
     #log_processing_rules:
-    #  - type: multi_line
-    #    name: new_log_start_with_date
-    #    pattern: \d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])
+    #  - type    : multi_line
+    #    name    : new_log_start_with_date
+    #    pattern : \d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])
 ```
 
 That's it! Now, all your logs are going to be in proper JSON automatically understood by your Datadog application.
 
 ## Agentless logging
 
-It is possible to stream logs from your application to Datadog or to the Datadog Agent directly. This is not the recommended setup as handling connection issues should not be done directly in your application, but it might not be possible to log to a file when your application is running on a machine that cannot be accessed.
+It is possible to stream logs from your application to Datadog or to the Datadog Agent directly. 
+
+This is not the recommended setup as handling connection issues should not be done directly in your application, but it might not be possible to log to a file when your application is running on a machine that cannot be accessed.
 
 ### SeriLog 
 

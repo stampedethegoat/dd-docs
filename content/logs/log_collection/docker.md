@@ -22,7 +22,8 @@ further_reading:
 ## Overview
 
 Datadog Agent version 6 and greater can collect logs from containers.
-Two installations are possible:
+
+2 installations are possible:
 
 - on the host where the Agent is external to the Docker environment
 - or by deploying its containerized version in the Docker environment
@@ -40,11 +41,13 @@ To collect logs from all your containers without filtering by image or label, ad
 
 ```
 logs:
-    - type: docker
-      service: docker
+    - type    : docker
+      service : docker
 ```
 
-**Important note**: Integration Pipelines and Processors will not be installed automatically as the source tag is not set. The integration setup is described below and it automatically installs integration Pipelines that parse your logs and extract all the relevant information from them.
+**Important note**: Integration Pipelines and Processors will not be installed automatically as the source tag is not set. 
+
+The integration setup is described below and it automatically installs integration Pipelines that parse your logs and extract all the relevant information from them.
 
 ### Option 2: Container installation
 
@@ -88,7 +91,11 @@ Set the `source` attribute to start using integrations. This allows Datadog to i
 
 For containerized installation, begin by creating the configuration directory on the host directly:
 
-- ` /opt/datadog-agent/conf.d`: this is the folder in which integration instructions are provided. Any configuration file added there is automatically picked up by the containerized Agent when restarted. To learn more about this topic refer to the dedicated documentation on [how to enable integrations with the docker agent][4].
+- `/opt/datadog-agent/conf.d`: this is the folder in which integration instructions are provided. 
+
+Any configuration file added there is automatically picked up by the containerized Agent when restarted. 
+
+To learn more about this topic refer to the dedicated documentation on [how to enable integrations with the docker agent][4].
 
 Then, mount the directory by adding `-v /opt/datadog-agent/conf.d:/conf.d:ro` in the run command of the containerized agent.
 
@@ -97,7 +104,6 @@ To set the source for a given container filtered by image or label or name, upda
 ```yaml
 #Log section
 logs:
-
     # - type : (mandatory) type of log input source (tcp / udp / file / docker)
     #   port / path : (mandatory) Set port if type is tcp or udp. Set path if type is file
     #   service : (mandatory) name of the service owning the log
@@ -105,11 +111,11 @@ logs:
     #   sourcecategory : (optional) Multiple value attribute. Can be used to refine the source attribtue
     #   tags: (optional) add tags to each logs collected
 
-  - type: docker
-    image: <IMAGE_NAME>    #or label: <MY_LABEL> or name: <CONTAINER_NAME>
-    source: <SOURCE>
-    sourcecategory: <SOURCE_CATEGORY>
-    service: <SERVICE>
+  - type           : docker
+    image          : <IMAGE_NAME>    #or label : <MY_LABEL> or name : <CONTAINER_NAME>
+    source         : <SOURCE>
+    sourcecategory : <SOURCE_CATEGORY>
+    service        : <SERVICE>
 ```
 
 When filtering on the container image, both exact container image name or short names are supported.
@@ -128,8 +134,8 @@ Since version 6.2 of the Datadog Agent, you can configure log collection directl
 
 Autodiscovery expects labels to follow this format, depending on the file type:
 
-* Dockerfile: `LABEL "com.datadoghq.ad.logs"='[<LOGS_CONFIG>]'`
-* docker-compose.yaml:
+* Dockerfile          : `LABEL "com.datadoghq.ad.logs"='[<LOGS_CONFIG>]'`
+* docker-compose.yaml :
 
   ```
   labels:
