@@ -14,13 +14,17 @@ further_reading:
   text: Manage your monitors
 ---
 
-You may occasionally need to shut systems down or take them off-line to perform maintenance or upgrades. Scheduling downtime allows you to do this without triggering monitors.
+You may occasionally need to shut systems down or take them off-line to perform maintenance or upgrades. 
+
+Scheduling downtime allows you to do this without triggering monitors.
 
 ## What happens to a monitor when it is muted (or has a scheduled downtime)?
 
 You can schedule downtimes and/or mute your Datadog monitors so that they do not alert at specific times when you do not want them to.
 
-Monitors trigger events when they change state between `ALERT`, `WARNING` (if enabled), `RESOLVED`, and `NO DATA` (if enabled). If a monitor has been silenced either by a downtime or muting, then any transition from `RESOLVED` to another state will **neither trigger an event**, nor activate any associated notification channels. 
+Monitors trigger events when they change state between `ALERT`, `WARNING` (if enabled), `RESOLVED`, and `NO DATA` (if enabled). 
+
+If a monitor has been silenced either by a downtime or muting, then any transition from `RESOLVED` to another state will **neither trigger an event**, nor activate any associated notification channels. 
 
 **Note**: Muting or un-muting a monitor via the UI deletes all scheduled downtimes associated with that monitor.
 
@@ -29,15 +33,23 @@ Monitors trigger events when they change state between `ALERT`, `WARNING` (if en
 If a monitor transitions states during downtime (such as from `OK` to `ALERT`, `WARNING`, or `NO DATA`) and remains in that state once a scheduled downtime expires, it will **NOT** trigger a notification. 
 **However it WILL trigger a recovery event once data returns for that scope or the monitor returns to an `OK` state.**
 
-This behavior is designed to prevent spammy `NO DATA` state alerts when using the *Autoresolve* feature. If you would prefer that the monitor trigger a `NO DATA` state event at the time that the silencing expires, [reach out to our support team][5] to request that this feature is enabled for your account. This will only affect instances when a monitor exits a downtime period in a `NO DATA` state.
+This behavior is designed to prevent spammy `NO DATA` state alerts when using the *Autoresolve* feature. 
+
+If you would prefer that the monitor trigger a `NO DATA` state event at the time that the silencing expires, [reach out to our support team][5] to request that this feature is enabled for your account. 
+
+This will only affect instances when a monitor exits a downtime period in a `NO DATA` state.
 
 ## Manage Downtime
 
-Navigate to the [Manage Downtime][1] page by highlighting the *Monitors* tab in the main menu and selecting the *Manage Downtime* link. You may also navigate to the *Manage Downtime* page from other Monitor related pages by clicking the link at the top of the page.
+Navigate to the [Manage Downtime][1] page by highlighting the *Monitors* tab in the main menu and selecting the *Manage Downtime* link. 
+
+You may also navigate to the *Manage Downtime* page from other Monitor related pages by clicking the link at the top of the page.
 
 {{< img src="monitors/downtimes/downtime-nav.png" alt="downtime-nav" responsive="true" >}}
 
-The Manage Downtime page displays a list of active and scheduled downtimes. Select a downtime to view more details about the host and monitors affected.
+The Manage Downtime page displays a list of active and scheduled downtimes. 
+
+Select a downtime to view more details about the host and monitors affected.
 
 {{< img src="monitors/downtimes/downtime-manage.png" alt="downtime-manage" responsive="true" style="width:80%;">}}
 

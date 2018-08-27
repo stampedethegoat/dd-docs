@@ -1,5 +1,5 @@
 ---
-title: APM Setup
+title: Tracing Setup
 kind: Documentation
 aliases:
   - /tracing/languages/
@@ -42,28 +42,35 @@ This documentation covers Agent v6 only, to know how to set up APM tracing with 
 
 ## Setup process
 
-With our infrastructure monitoring, metrics are sent to the Agent, which then forwards them to Datadog. Similarly, tracing metrics are also sent to the Agent: the application code instrumentation flushes to the Agent every 1 s ([see here for the Python client](https://github.com/DataDog/dd-trace-py/blob/69693dc7cdaed3a2b6a855325109fa100e42e254/ddtrace/writer.py#L159) for instance) and the Agent flushes to the [Datadog API every 10s][2].
+With our infrastructure monitoring, metrics are sent to the Agent, which then forwards them to Datadog. 
+
+Similarly, tracing metrics are also sent to the Agent: the application code instrumentation flushes to the Agent every 1s ([see here for the Python client](https://github.com/DataDog/dd-trace-py/blob/69693dc7cdaed3a2b6a855325109fa100e42e254/ddtrace/writer.py#L159) for instance) and the Agent flushes to the [Datadog API every 10s][2].
 
 To start tracing your application:
 
 1. **Install the Datadog Agent**:
-  Install and configure the latest [Datadog Agent][3]. For additional information, reference the [getting started guide][4].
+Install and configure the latest [Datadog Agent][3]. [Getting Started Guide][4]
 
 2. **Install the [Trace Agent][6]**:
 
-  * On **Linux** and **Windows**, the Trace Agent is pre-packaged with the standard Datadog Agent and no extra configuration is needed. See the [Linux Trace Agent][20] and [Windows Trace Agent][8] documentation for more information.
+  * On **Linux** and **Windows**, the Trace Agent is pre-packaged with the standard Datadog Agent and no extra configuration is needed. [Linux Trace Agent][20] and [Windows Trace Agent][8].
 
-  * On **macOS**, install and run the Trace Agent in addition to the Datadog Agent. See the [macOS Trace Agent][7]  documentation for more information.
+  * On **macOS**, install and run the Trace Agent in addition to the Datadog Agent. See the [macOS Trace Agent][7] documentation for more information.
   
   * On **Docker**, enable the Trace Agent in the `datadog/agent` container by passing `DD_APM_ENABLED=true` as an environment variable. See the [APM and Docker][5] documentation for more information.
 
   * On **Heroku**, Deploy the Trace Agent via the [Datadog Heroku Buildpack][9].
 
 3. **Configure your environment**:
-  An environment is a first class dimension used to scope a whole Datadog APM application. A common use case is to disaggregate metrics from stage environments such as production, staging, and pre-production. [Learn how to configure environments][10].
-  **Note**: if you do not configure your own environments, all data will default to `env:none`.
+
+An environment is a first class dimension used to scope a whole Datadog APM application. 
+
+A common use case is to disaggregate metrics from stage environments such as production, staging, and pre-production. [Learn how to configure environments][10].
+
+**Note**: if you do not configure your own environments, all data will default to `env:none`.
 
 4. **Instrument your application**:
+
   Select one of the following supported languages:
 
   - [Go][11]
@@ -77,8 +84,11 @@ To start tracing your application:
 
 ## Agent configuration
 
-The APM Agent (also known as *Trace Agent*) is shipped by default with the
-Agent 6 in the Linux, MacOS, and Windows packages. The APM Agent is enabled by default on Linux. To enable the check on other platforms or disable it on Linux, update the `apm_config` key in your `datadog.yaml`:
+The APM Agent (also known as *Trace Agent*) is shipped by default with the Agent 6 in the Linux, MacOS, and Windows packages. 
+
+The APM Agent is enabled by default on Linux. 
+
+To enable the check on other platforms or disable it on Linux, update the `apm_config` key in your `datadog.yaml`:
 
 ```
 apm_config:
@@ -102,6 +112,7 @@ apm_config:
 | `max_connections`       | number    | -                        | Maximum number of network connections that the agent is allowed to use. When this is exceeded the process is killed.                                    |
 
 To get a an overview of all the possible settings for APM, take a look at the Trace Agent's [`datadog.example.yaml`][21] configuration file.
+
 For more information about the Datadog Agent, see the [dedicated doc page][18] or refer to the [`datadog.yaml` templates][19].
 
 [Reference the dedicated documentation to setup tracing with Docker][5].
@@ -110,7 +121,9 @@ For more information about the Datadog Agent, see the [dedicated doc page][18] o
 
 ### Automatic scrubbing
 
-Automatic scrubbing is available for some services, such as ElasticSearch, MongoDB, Redis, Memcached, and HTTP server and client request URLs. Below is an example configuration snippet documenting all the available options.
+Automatic scrubbing is available for some services, such as ElasticSearch, MongoDB, Redis, Memcached, and HTTP server and client request URLs. 
+
+Below is an example configuration snippet documenting all the available options.
 
 ```
 apm_config:
@@ -155,11 +168,15 @@ apm_config:
 
 ### Replace rules
 
-To scrub sensitive data from your span's tags, use the `replace_tags` setting. It is a list containing one or more groups of parameters that describe how to perform replacements of sensitive data within your tags. These parameters are:
+To scrub sensitive data from your span's tags, use the `replace_tags` setting. 
 
-* `name`: The key of the tag to replace. To match all tags, use `*`. To match the resource, use `resource.name`.
-* `pattern`: The regexp pattern to match against.
-* `repl`: The replacement string.
+It is a list containing one or more groups of parameters that describe how to perform replacements of sensitive data within your tags. 
+
+These parameters are:
+
+* `name`    : The key of the tag to replace. To match all tags, use `*`. To match the resource, use `resource.name`.
+* `pattern` : The regexp pattern to match against.
+* `repl`    : The replacement string.
 
 For example:
 
@@ -167,13 +184,13 @@ For example:
 apm_config:
   replace_tags:
     # Replace all numbers following the `token/` string in the tag "http.url" with "?":
-    - name: "http.url"
-      pattern: "token/(.*)"
-      repl: "?"
+    - name    : "http.url"
+      pattern : "token/(.*)"
+      repl    : "?"
     # Replace all the occurrences of "foo" in any tag with "bar":
-    - name: "*"
-      pattern: "foo"
-      repl: "bar"
+    - name    : "*"
+      pattern : "foo"
+      repl    : "bar"
     # Remove all "error.stack" tag's value.
     - name: "error.stack"
       pattern: "(?s).*"

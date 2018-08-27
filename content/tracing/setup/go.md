@@ -20,7 +20,9 @@ further_reading:
 
 For configuration instructions and details about using the API, check out our [API documentation][api docs] for manual instrumentation, and our [integrations section][contrib docs] for Go libraries and frameworks supporting automatic instrumentation.
 
-For a description of the terminology used in APM, take a look at the [Getting started with APM section][getting started]. For details about contributing, check the official repository [README.md file][repo readme].
+For a description of the terminology used in APM, take a look at the [Getting started with APM section][getting started]. 
+
+For details about contributing, check the official repository [README.md file][repo readme].
 
 Consult our [migration document][migrating] if you need to migrate from an older version of the tracer (e.g. v<0.6.x) to newest version.
 
@@ -43,7 +45,9 @@ You are now ready to import the tracer and start instrumenting your code!
 
 ## Automatic Instrumentation
 
-We have built a series of pluggable packages which provide out-of-the-box support for instrumenting a series of libraries and frameworks. Find below the list of currently supported integrations.
+We have built a series of pluggable packages which provide out-of-the-box support for instrumenting a series of libraries and frameworks. 
+
+Find below the list of currently supported integrations.
 
 **Note**: The [official documentation][contrib godoc] also provides a detailed overview of the supported packages and their APIs, along with usage examples.
 
@@ -136,9 +140,15 @@ make use of the same tracer. Make sure to check out the [API documentation][open
 
 ## Sampling / Distributed Tracing
 
-Propagate a single trace across multiple services with distributed tracing. For more details about how to use and configure distributed tracing, check out the [godoc page][tracer godoc].
+Propagate a single trace across multiple services with distributed tracing. 
 
-Make use of priority sampling to ensure that distributed traces are complete. Set the sampling priority of a trace by adding the `sampling.priority` tag to its root span. This is then propagated throughout the entire stack. For example:
+For more details about how to use and configure distributed tracing, check out the [godoc page][tracer godoc].
+
+Make use of priority sampling to ensure that distributed traces are complete. 
+
+Set the sampling priority of a trace by adding the `sampling.priority` tag to its root span. 
+
+This is then propagated throughout the entire stack. For example:
 
 ```go
 span.SetTag(ext.SamplingPriority, ext.PriorityUserKeep)

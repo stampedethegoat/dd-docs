@@ -131,7 +131,7 @@ The `dd-trace` library includes support for a number of modules. If you would li
 
 | Module           | Versions    | Support Type    |
 | :----------      | :---------- | :-------------- |
-| [amqplib][21]*   | 0.5.x       | Fully Supported |
+| [amqplib][21]\*   | 0.5.x       | Fully Supported |
 | [kafka-node][26] |             | Coming Soon     |
 
 **Note**: amqplib supports several message brokers including RabbitMQ and ActiveMQ.

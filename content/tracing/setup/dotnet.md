@@ -22,7 +22,10 @@ Tracing for .NET is coming soon. The officially supported Beta will launch as ea
 
 ## Planned Automatic Instrumentation for Beta (Coming Soon)
 
-Planned support will provide automatic instrumentation for popular frameworks and libraries. See some of these listed below. Don't see your desired frameworks or libraries?
+Planned support will provide automatic instrumentation for popular frameworks and libraries. 
+
+See some of these listed below. Don't see your desired frameworks or libraries?
+
 Please let us know more about your needs through [this survey][1].
 
 ### Web Frameworks

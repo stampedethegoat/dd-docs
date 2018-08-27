@@ -13,7 +13,9 @@ further_reading:
   text: Schedule a downtime to mute a monitor
 ---
 
-The [Manage Monitors][1] page lets you run an advanced search of all monitors so you can delete, mute, [resolve][5], or edit service tags for selected monitors in bulk. You can also clone or fully edit any individual monitor in the search results.
+The [Manage Monitors][1] page lets you run an advanced search of all monitors so you can delete, mute, [resolve][5], or edit service tags for selected monitors in bulk. 
+
+You can also clone or fully edit any individual monitor in the search results.
 
 {{< img src="monitors/manage_monitor/manage_monitor_page.png" alt="manage monitor page" responsive="true" >}}
 
@@ -23,7 +25,7 @@ Advanced search lets you query monitors by any combination of monitor attributes
 
 * `title` and `message` - text search
 * `status` - Alert, Warn, No Data, Ok
-* `scope` - e.g. *, role:master-db
+* `scope` - e.g. \*, role:master-db
 * `type` - metric, integration, apm, etc
 * `muted`
 * `creator`
@@ -34,11 +36,19 @@ Advanced search lets you query monitors by any combination of monitor attributes
 * `notification` - the monitor's notification target, e.g. you@example.com, slack-ops-oncall
 * `metric` - the metric _or_ service check monitored, e.g. system.cpu.user, http.can_connect
 
-To run a search, construct your query using the checkboxes on the left and/or the search bar along the top. When you check the boxes, the search bar updates with the equivalent query. Likewise, when you modify the search bar query (or write one from scratch), the checkboxes update to reflect the change. In any case, query results update in real-time as you edit the query; there's no 'Search' button to click.
+To run a search, construct your query using the checkboxes on the left and/or the search bar along the top. 
+
+When you check the boxes, the search bar updates with the equivalent query. 
+
+Likewise, when you modify the search bar query (or write one from scratch), the checkboxes update to reflect the change. 
+
+In any case, query results update in real-time as you edit the query; there's no 'Search' button to click.
 
 ### Check the boxes
 
-When you don't need to search monitor titles and bodies for specific text, your search is a quick click or two away. Check as many boxes as you need to find your desired monitors, keeping the following in mind:
+When you don't need to search monitor titles and bodies for specific text, your search is a quick click or two away. 
+
+Check as many boxes as you need to find your desired monitors, keeping the following in mind:
 
 * Checking attributes from different fields do AND the values, e.g. `status:Alert type:Metric` (the lack of an operator between the two search terms implies AND)
 * Checking attributes within the same field do often OR the values, e.g. `status:(Alert OR Warn)`, but there are some exceptions. For example, checking multiple scopes or service tags ANDs them.
@@ -53,9 +63,15 @@ When you need to run a more complex search than the checkboxes allow, use the se
 
 ### Write a query
 
-The most common reason to write a query is to search for specific text across all monitor titles and message bodies. A simple search of `postgresql` returns all monitors with `postgresql` anywhere in the title or message body. To search on title or message body, but not both, qualify the search term with the field name, e.g. `title:postgresql`.
+The most common reason to write a query is to search for specific text across all monitor titles and message bodies. 
 
-Otherwise, you can use boolean operators (AND, OR, and NOT) and parentheses to write complex queries using any monitor fields. The search syntax is very similar to that of [Elasticsearch][2], so it's easiest to describe how it is *not* like Elasticsearch syntax:
+A simple search of `postgresql` returns all monitors with `postgresql` anywhere in the title or message body. 
+
+To search on title or message body, but not both, qualify the search term with the field name, e.g. `title:postgresql`.
+
+Otherwise, you can use boolean operators (AND, OR, and NOT) and parentheses to write complex queries using any monitor fields. 
+
+The search syntax is very similar to that of [Elasticsearch][2], so it's easiest to describe how it is *not* like Elasticsearch syntax:
 
 * Regular expressions are not supported
 * Single-character wildcard (`?`) is not supported, but the general wildcard (`*`) is
@@ -63,7 +79,9 @@ Otherwise, you can use boolean operators (AND, OR, and NOT) and parentheses to w
 * Ranges are not supported
 * Boosting is not supported
 
-Finally, The following characters are reserved: `-`, `(`, `)`, `"`, `~`, `*`, `:`, `.`, and whitespace. To search monitor fields that include any of them, wrap the field string in quotes: `status:Alert AND "chef-client"` is a valid query string; `status:Alert AND chef-client` is not.
+Finally, The following characters are reserved: `-`, `(`, `)`, `"`, `~`, `*`, `:`, `.`, and whitespace. 
+
+To search monitor fields that include any of them, wrap the field string in quotes: `status:Alert AND "chef-client"` is a valid query string; `status:Alert AND chef-client` is not.
 
 There are a few caveats regarding quoted fields:
 
@@ -72,22 +90,37 @@ There are a few caveats regarding quoted fields:
 
 ## Manage chosen Monitors
 
-When you have found the monitors you were looking for, select one or more that you wish to update using the checkboxes next to each result. You can select all results by ticking the topmost checkbox next to the STATUS column heading. Modify the monitors in bulk using the buttons at the top right of the search results: Mute, Resolve, Delete, and Edit Service Tags.
+When you have found the monitors you were looking for, select one or more that you wish to update using the checkboxes next to each result. 
+
+You can select all results by ticking the topmost checkbox next to the STATUS column heading. 
+
+Modify the monitors in bulk using the buttons at the top right of the search results: Mute, Resolve, Delete, and Edit Service Tags.
 
 {{< img src="monitors/manage_monitor/manage-monitors-mute.png" alt="manage-monitors-mute" responsive="true" style="width:80%;" >}}
 
-To edit an individual monitor, hover over it and use the buttons to the far right in its row: Edit, Clone, Mute, Delete. To see more detail on a monitor, click its Name to visit its status page.
+To edit an individual monitor, hover over it and use the buttons to the far right in its row: Edit, Clone, Mute, Delete. 
+
+To see more detail on a monitor, click its Name to visit its status page.
 
 {{< img src="monitors/manage_monitor/manage-monitors-hover-clone.png" alt="manage-monitors-hover-clone" responsive="true" style="width:80%;" >}}
 
 ## Manage Triggered Monitors with group-level granularity
 
-You can mute or [resolve][5] triggered monitors in bulk using the [Triggered Monitors page][4]. It's similar to the [Manage Monitors page](#managing-monitors)-you can find monitors by their attributes using the same easy tickboxes or query syntax-but there are a few differences. Aside from only showing monitors with a triggered status (Alert, Warn, or No Data), the main difference is that the Triggered Monitors page shows a row for _each group_ (i.e. each reporting source) of each monitor.
+You can mute or [resolve][5] triggered monitors in bulk using the [Triggered Monitors page][4]. 
 
-Say you have a monitor called "high latency" that is grouped by host. If there are 20 hosts reporting and 14 have a triggered status, the Triggered Monitor page shows 14 rows if you search for the monitor by title in the query search bar (e.g. `high latency` or `title:
-"high latency"`). This lets you easily mute or [resolve][5] a monitor for some reporting sources, but not all (though of course you can mute or resolve all, too).
+It's similar to the [Manage Monitors page](#managing-monitors)-you can find monitors by their attributes using the same easy tickboxes or query syntax-but there are a few differences. 
 
-In writing your search queries, you can use all the same fields available on the Manage Monitors page, even though most of them aren't controllable via tickboxes on the Triggered Monitors page. A few notes on field differences on the Triggered Monitors page:
+Aside from only showing monitors with a triggered status (Alert, Warn, or No Data), the main difference is that the Triggered Monitors page shows a row for _each group_ (i.e. each reporting source) of each monitor.
+
+Say you have a monitor called "high latency" that is grouped by host. 
+
+If there are 20 hosts reporting and 14 have a triggered status, the Triggered Monitor page shows 14 rows if you search for the monitor by title in the query search bar (e.g. `high latency` or `title: "high latency"`). 
+
+This lets you easily mute or [resolve][5] a monitor for some reporting sources, but not all (though of course you can mute or resolve all, too).
+
+In writing your search queries, you can use all the same fields available on the Manage Monitors page, even though most of them aren't controllable via tickboxes on the Triggered Monitors page. 
+
+A few notes on field differences on the Triggered Monitors page:
 
 * It uses the `group_status` field instead of `status`.
 * It adds the `triggered` field, which lets you filter monitors by how long they've been triggered.
