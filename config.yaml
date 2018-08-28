@@ -29,232 +29,223 @@ languages:
       main:
         # GETTING STARTED
         - identifier : menu_references_getting_started
-          name       : "Overview"
+          name       : "0| Overview"
           url        : "getting_started/"
           pre        : "nav_start"
           weight     : 30
 
         # AGENT
         - identifier : menu_references_agent
-          name       : "The Agent"
+          name       : "1| The Agent"
           url        : "agent/"
           pre        : "nav_agent"
           weight     : 35
+        - identifier : kubernetes
+          name       : "Kubernetes"
+          url        : "agent/kubernetes/"
+          weight     : 15
+          parent     : menu_references_agent
+        - identifier : kubernetes_daemonset
+          name       : "DaemonSet Setup"
+          url        : "agent/kubernetes/daemonset_setup"
+          weight     : 150
+          parent     : kubernetes
+        - identifier : kubernetes_host
+          name       : "Host Setup"
+          url        : "agent/kubernetes/host_setup"
+          weight     : 155
+          parent     : kubernetes
+        - identifier : kubernetes_event
+          name       : "Event Collection"
+          url        : "agent/kubernetes/event_collection"
+          weight     : 160
+          parent     : kubernetes
+        - identifier : kubernetes_integrations
+          name       : "Custom Integrations"
+          url        : "agent/kubernetes/integrations"
+          weight     : 165
+          parent     : kubernetes
+        - identifier : kubernetes_metrics
+          name       : "Metrics"
+          url        : "agent/kubernetes/metrics"
+          weight     : 170
+          parent     : kubernetes
+        - identifier : kubernetes_legacy
+          name       : "Legacy Versions"
+          url        : "agent/kubernetes/legacy"
+          weight     : 175
+          parent     : kubernetes
+        - identifier : autodiscovery
+          name       : "Autodiscovery"
+          url        : "agent/autodiscovery"
+          weight     : 20
+          parent     : menu_references_agent
+        - identifier : proxy
+          name       : "Proxy"
+          url        : "agent/proxy"
+          weight     : 30
+          parent     : menu_references_agent
+        - identifier : network
+          name       : "Network"
+          url        : "agent/network"
+          weight     : 40
+          parent     : menu_references_agent
+        - identifier : prometheus
+          name       : "Prometheus Checks"
+          url        : "agent/prometheus"
+          weight     : 60
+          parent     : menu_references_agent
+        - identifier : custom_python_package
+          name       : "Adding Python packages"
+          url        : "agent/custom_python_package"
+          weight     : 70
+          parent     : menu_references_agent
+
+        # Troubleshooting
+        - identifier : troubleshooting
+          name       : "Troubleshooting"
+          url        : "agent/troubleshooting/"
+          weight     : 60
+          parent     : menu_references_agent
+
+        - identifier : customnav_agentnav_security
+          name       : "Security"
+          url        : "agent/security"
+          weight     : 80
+          parent     : menu_references_agent
+
 
         ## Basic agent usage
-        - identifier: customnav_agentnav_basic_usage
-          name: "Configuration"
-          url: "agent/basic_agent_usage/"
-          weight: 10
-          parent: menu_references_agent
-        - identifier: amazonlinux
-          name: "Amazon Linux"
-          url: "agent/basic_agent_usage/amazonlinux/"
-          weight: 110
-          parent: customnav_agentnav_basic_usage
-        - identifier: centos
-          name: "CentOS"
-          url: "agent/basic_agent_usage/centos/"
-          weight: 115
-          parent: customnav_agentnav_basic_usage
-        - identifier: deb
-          name: "Debian"
-          url: "agent/basic_agent_usage/deb/"
-          weight: 120
-          parent: customnav_agentnav_basic_usage
-        - identifier: customnav_agentnav_docker
-          name: "Docker"
-          url: "agent/basic_agent_usage/docker/"
-          weight: 125
-          parent: customnav_agentnav_basic_usage
-        - identifier: fedora
-          name: "Fedora"
-          url: "agent/basic_agent_usage/fedora/"
-          weight: 130
-          parent: customnav_agentnav_basic_usage
-        - identifier: heroku
-          name: "Heroku"
-          url: "agent/basic_agent_usage/heroku/"
-          weight: 135
-          parent: customnav_agentnav_basic_usage
-        - identifier: osx
-          name: "Mac OS X"
-          url: "agent/basic_agent_usage/osx/"
-          weight: 145
-          parent: customnav_agentnav_basic_usage
-        - identifier: redhat
-          name: "Red Hat"
-          url: "agent/basic_agent_usage/redhat/"
-          weight: 150
-          parent: customnav_agentnav_basic_usage
-        - identifier: suse
-          name: "SUSE"
-          url: "agent/basic_agent_usage/suse/"
-          weight: 155
-          parent: customnav_agentnav_basic_usage
-        - identifier: ubuntu
-          name: "Ubuntu"
-          url: "agent/basic_agent_usage/ubuntu/"
-          weight: 160
-          parent: customnav_agentnav_basic_usage
-        - identifier: windows
-          name: "Windows"
-          url: "agent/basic_agent_usage/windows/"
-          weight: 165
-          parent: customnav_agentnav_basic_usage
-        - identifier: source
-          name: "From Source"
-          url: "agent/basic_agent_usage/source/"
-          weight: 170
-          parent: customnav_agentnav_basic_usage
+        - identifier : customnav_agentnav_basic_usage
+          name       : "Configuration"
+          url        : "agent/basic_agent_usage/"
+          weight     : 10
+          parent     : menu_references_agent
+        - identifier : amazonlinux
+          name       : "Amazon Linux"
+          url        : "agent/basic_agent_usage/amazonlinux/"
+          weight     : 110
+          parent     : customnav_agentnav_basic_usage
+        - identifier : centos
+          name       : "CentOS"
+          url        : "agent/basic_agent_usage/centos/"
+          weight     : 115
+          parent     : customnav_agentnav_basic_usage
+        - identifier : deb
+          name       : "Debian"
+          url        : "agent/basic_agent_usage/deb/"
+          weight     : 120
+          parent     : customnav_agentnav_basic_usage
+        - identifier : customnav_agentnav_docker
+          name       : "Docker"
+          url        : "agent/basic_agent_usage/docker/"
+          weight     : 125
+          parent     : customnav_agentnav_basic_usage
+        - identifier : fedora
+          name       : "Fedora"
+          url        : "agent/basic_agent_usage/fedora/"
+          weight     : 130
+          parent     : customnav_agentnav_basic_usage
+        - identifier : heroku
+          name       : "Heroku"
+          url        : "agent/basic_agent_usage/heroku/"
+          weight     : 135
+          parent     : customnav_agentnav_basic_usage
+        - identifier : osx
+          name       : "Mac OS X"
+          url        : "agent/basic_agent_usage/osx/"
+          weight     : 145
+          parent     : customnav_agentnav_basic_usage
+        - identifier : redhat
+          name       : "Red Hat"
+          url        : "agent/basic_agent_usage/redhat/"
+          weight     : 150
+          parent     : customnav_agentnav_basic_usage
+        - identifier : suse
+          name       : "SUSE"
+          url        : "agent/basic_agent_usage/suse/"
+          weight     : 155
+          parent     : customnav_agentnav_basic_usage
+        - identifier : ubuntu
+          name       : "Ubuntu"
+          url        : "agent/basic_agent_usage/ubuntu/"
+          weight     : 160
+          parent     : customnav_agentnav_basic_usage
+        - identifier : windows
+          name       : "Windows"
+          url        : "agent/basic_agent_usage/windows/"
+          weight     : 165
+          parent     : customnav_agentnav_basic_usage
+        - identifier : source
+          name       : "From Source"
+          url        : "agent/basic_agent_usage/source/"
+          weight     : 170
+          parent     : customnav_agentnav_basic_usage
 
         # METRICS
         - identifier : menu_references_metrics
-          name       : "Metrics"
+          name       : "2| Metrics"
           url        : "metrics/"
           pre        : "nav_metrics"
           weight     : 40
-
-        #- identifier : menu_references_agent
-          #name       : "The Agent"
-          #url        : "agent/"
-          #pre        : "nav_agent"
-          #weight     : 35
-        #- identifier: customnav_developersnav_metrics_custom
-          #name: "Custom Metrics"
-          #url: "developers/metrics/custom_metrics/"
-          #weight: 400
-          #parent: customnav_developersnav_metrics
-        #- identifier: customnav_developersnav_metrics_counts
-          #name: "Counts"
-          #url: "developers/metrics/counts"
-          #weight: 401
-          #parent: customnav_developersnav_metrics
-        #- identifier: customnav_developersnav_metrics_distributions
-          #name: "Distributions"
-          #url: "developers/metrics/distributions"
-          #weight: 402
-          #parent: customnav_developersnav_metrics
-        #- identifier: customnav_developersnav_metrics_gauges
-          #name: "Gauges"
-          #url: "developers/metrics/gauges"
-          #weight: 403
-          #parent: customnav_developersnav_metrics
-        #- identifier: customnav_developersnav_metrics_histograms
-          #name: "Histograms"
-          #url: "developers/metrics/histograms"
-          #weight: 404
-          #parent: customnav_developersnav_metrics
-        #- identifier: customnav_developersnav_metrics_rates
-          #name: "Rates"
-          #url: "developers/metrics/rates"
-          #weight: 405
-          #parent: customnav_developersnav_metrics
-        #- identifier: customnav_developersnav_metrics_sets
-          #name: "Sets"
-          #url: "developers/metrics/sets"
-          #weight: 406
-          #parent: customnav_developersnav_metrics
+        - identifier : menu_references_metrics_custom
+          name       : "Custom Metrics"
+          url        : "metrics/custom_metrics/"
+          weight     : 400
+          parent     : menu_references_metrics
+        - identifier : menu_references_metrics_counts
+          name       : "Counts"
+          url        : "metrics/counts"
+          weight     : 401
+          parent     : menu_references_metrics
+        - identifier : menu_references_metrics_distributions
+          name       : "Distributions"
+          url        : "metrics/distributions"
+          weight     : 402
+          parent     : menu_references_metrics
+        - identifier : menu_references_metrics_gauges
+          name       : "Gauges"
+          url        : "metrics/gauges"
+          weight     : 403
+          parent     : menu_references_metrics
+        - identifier : menu_references_metrics_histograms
+          name       : "Histograms"
+          url        : "metrics/histograms"
+          weight     : 404
+          parent     : menu_references_metrics
+        - identifier : menu_references_metrics_rates
+          name       : "Rates"
+          url        : "metrics/rates"
+          weight     : 405
+          parent     : menu_references_metrics
+        - identifier : menu_references_metrics_sets
+          name       : "Sets"
+          url        : "metrics/sets"
+          weight     : 406
+          parent     : menu_references_metrics
 
         # TAGGING
-        - identifier: menu_references_tagging
-          name: "Tagging"
-          url: "tagging/"
-          pre: "nav_tagging"
-          weight: 45
-        - identifier: customnav_getting_started_assigning_tags
-          name: "Assigning tags"
-          url: "tagging/assigning_tags"
-          weight: 350
-          parent: menu_references_tagging
-        - identifier: customnav_getting_started_using_tags
-          name: "Using tags"
-          url: "tagging/using_tags"
-          weight: 351
-          parent: menu_references_tagging
-
-        - identifier: kubernetes
-          name: "Kubernetes"
-          url: "agent/kubernetes/"
-          weight: 15
-          parent: menu_references_agent
-
-        - identifier: kubernetes_daemonset
-          name: "DaemonSet Setup"
-          url: "agent/kubernetes/daemonset_setup"
-          weight: 150
-          parent: kubernetes
-        - identifier: kubernetes_host
-          name: "Host Setup"
-          url: "agent/kubernetes/host_setup"
-          weight: 155
-          parent: kubernetes
-        - identifier: kubernetes_event
-          name: "Event Collection"
-          url: "agent/kubernetes/event_collection"
-          weight: 160
-          parent: kubernetes
-        - identifier: kubernetes_integrations
-          name: "Custom Integrations"
-          url: "agent/kubernetes/integrations"
-          weight: 165
-          parent: kubernetes
-        - identifier: kubernetes_metrics
-          name: "Metrics"
-          url: "agent/kubernetes/metrics"
-          weight: 170
-          parent: kubernetes
-        - identifier: kubernetes_legacy
-          name: "Legacy Versions"
-          url: "agent/kubernetes/legacy"
-          weight: 175
-          parent: kubernetes
-
-        - identifier: autodiscovery
-          name: "Autodiscovery"
-          url: "agent/autodiscovery"
-          weight: 20
-          parent: menu_references_agent
-        - identifier: proxy
-          name: "Proxy"
-          url: "agent/proxy"
-          weight: 30
-          parent: menu_references_agent
-        - identifier: network
-          name: "Network"
-          url: "agent/network"
-          weight: 40
-          parent: menu_references_agent
-        - identifier: prometheus
-          name: "Prometheus Checks"
-          url: "agent/prometheus"
-          weight: 60
-          parent: menu_references_agent
-        - identifier: custom_python_package
-          name: "Adding Python packages"
-          url: "agent/custom_python_package"
-          weight: 70
-          parent: menu_references_agent
-
-        # Troubleshooting
-        - identifier: troubleshooting
-          name: "Troubleshooting"
-          url: "agent/troubleshooting/"
-          weight: 60
-          parent: menu_references_agent
-
-        - identifier: customnav_agentnav_security
-          name: "Security"
-          url: "agent/security"
-          weight: 80
-          parent: menu_references_agent
+        - identifier : menu_references_tagging
+          name       : "3| Tagging"
+          url        : "tagging/"
+          pre        : "nav_tagging"
+          weight     : 45
+        - identifier : customnav_getting_started_assigning_tags
+          name       : "Assigning tags"
+          url        : "tagging/assigning_tags"
+          weight     : 350
+          parent     : menu_references_tagging
+        - identifier : customnav_getting_started_using_tags
+          name       : "Using tags"
+          url        : "tagging/using_tags"
+          weight     : 351
+          parent     : menu_references_tagging
 
         #- identifier: customnav_agentnav_faq
         #  name: "FAQ"
         #  url: "agent/faq/"
         #  weight: 100
         #  parent: menu_references_agent
-        # AGENT - Subnav end
 
         # INTEGRATIONS
         - identifier: menu_references_integrations
@@ -888,113 +879,73 @@ languages:
         # LOGS - Subnav end
 
         # DEVELOPERS
-        - identifier: menu_references_developers
-          name: "Dev Tools"
-          url: "developers/"
-          pre: "nav_developers"
-          weight: 100
+        - identifier : menu_references_developers
+          name       : "Dev Tools"
+          url        : "developers/"
+          pre        : "nav_developers"
+          weight     : 100
         # DEVELOPERS - Subnav start
-        - identifier: customnav_developersnav_dogstatsd
-          name: "DogStatsD"
-          url: "developers/dogstatsd/"
-          weight: 30
-          parent: menu_references_developers
-        - identifier: customnav_developersnav_dogstatsd_data_types
-          name: "Data Types and Tags"
-          url: "developers/dogstatsd/data_types"
-          weight: 301
-          parent: customnav_developersnav_dogstatsd
-        - identifier: customnav_developersnav_dogstatsd_datagram_shell
-          name: "Datagram and Shell Usage"
-          url: "developers/dogstatsd/datagram_shell"
-          weight: 302
-          parent: customnav_developersnav_dogstatsd
-        - identifier: customnav_developersnav_dogstatsd_unix_socket
-          name: "Unix Domain Socket usage"
-          url: "developers/dogstatsd/unix_socket"
-          weight: 303
-          parent: customnav_developersnav_dogstatsd
-        #- identifier: customnav_developersnav_metrics
-          #name: "Metrics"
-          #url: "developers/metrics/"
-          #weight: 40
-          #parent: menu_references_developers
-        #- identifier: customnav_developersnav_metrics_custom
-          #name: "Custom Metrics"
-          #url: "developers/metrics/custom_metrics/"
-          #weight: 400
-          #parent: customnav_developersnav_metrics
-        #- identifier: customnav_developersnav_metrics_counts
-          #name: "Counts"
-          #url: "developers/metrics/counts"
-          #weight: 401
-          #parent: customnav_developersnav_metrics
-        #- identifier: customnav_developersnav_metrics_distributions
-          #name: "Distributions"
-          #url: "developers/metrics/distributions"
-          #weight: 402
-          #parent: customnav_developersnav_metrics
-        #- identifier: customnav_developersnav_metrics_gauges
-          #name: "Gauges"
-          #url: "developers/metrics/gauges"
-          #weight: 403
-          #parent: customnav_developersnav_metrics
-        #- identifier: customnav_developersnav_metrics_histograms
-          #name: "Histograms"
-          #url: "developers/metrics/histograms"
-          #weight: 404
-          #parent: customnav_developersnav_metrics
-        #- identifier: customnav_developersnav_metrics_rates
-          #name: "Rates"
-          #url: "developers/metrics/rates"
-          #weight: 405
-          #parent: customnav_developersnav_metrics
-        #- identifier: customnav_developersnav_metrics_sets
-          #name: "Sets"
-          #url: "developers/metrics/sets"
-          #weight: 406
-          #parent: customnav_developersnav_metrics
-        - identifier: customnav_developersnav_libraries
-          name: "Libraries"
-          url: "developers/libraries/"
-          weight: 50
-          parent: menu_references_developers
-        - identifier: customnav_developersnav_office_hours
-          name: "Community Office Hours"
-          url: "developers/office_hours/"
-          weight: 60
-          parent: menu_references_developers
-        - identifier: customnav_developersnav_agent_checks
-          name: "Write an Agent Check"
-          url: "developers/agent_checks"
-          weight: 70
-          parent: menu_references_developers
-        - identifier: customnav_developersnav_prometheus
-          name: "Write a Prometheus Check"
-          url: "developers/prometheus"
-          weight: 80
-          parent: menu_references_developers
+        - identifier : customnav_developersnav_dogstatsd
+          name       : "DogStatsD"
+          url        : "developers/dogstatsd/"
+          weight     : 30
+          parent     : menu_references_developers
+        - identifier : customnav_developersnav_dogstatsd_data_types
+          name       : "Data Types and Tags"
+          url        : "developers/dogstatsd/data_types"
+          weight     : 301
+          parent     : customnav_developersnav_dogstatsd
+        - identifier : customnav_developersnav_dogstatsd_datagram_shell
+          name       : "Datagram and Shell Usage"
+          url        : "developers/dogstatsd/datagram_shell"
+          weight     : 302
+          parent     : customnav_developersnav_dogstatsd
+        - identifier : customnav_developersnav_dogstatsd_unix_socket
+          name       : "Unix Domain Socket usage"
+          url        : "developers/dogstatsd/unix_socket"
+          weight     : 303
+          parent     : customnav_developersnav_dogstatsd
+        - identifier : customnav_developersnav_libraries
+          name       : "Libraries"
+          url        : "developers/libraries/"
+          weight     : 50
+          parent     : menu_references_developers
+        - identifier : customnav_developersnav_office_hours
+          name       : "Community Office Hours"
+          url        : "developers/office_hours/"
+          weight     : 60
+          parent     : menu_references_developers
+        - identifier : customnav_developersnav_agent_checks
+          name       : "Write an Agent Check"
+          url        : "developers/agent_checks"
+          weight     : 70
+          parent     : menu_references_developers
+        - identifier : customnav_developersnav_prometheus
+          name       : "Write a Prometheus Check"
+          url        : "developers/prometheus"
+          weight     : 80
+          parent     : menu_references_developers
         # Integrations core doc
-        - identifier: customnav_integrationsnav_new_integration
-          name: "Integrations"
-          url: "developers/integrations/"
-          weight: 90
-          parent: menu_references_developers
-        - identifier: customnav_integrationsnav_new_check_howto
-          name: "Create a new Integration"
-          url: "developers/integrations/new_check_howto"
-          weight: 901
-          parent: customnav_integrationsnav_new_integration
-        - identifier: customnav_integrationsnav_python
-          name: "Python"
-          url: "developers/integrations/python"
-          weight: 902
-          parent: customnav_integrationsnav_new_integration
-        - identifier: customnav_integrationsnav_legacy
-          name: "Legacy"
-          url: "developers/integrations/legacy"
-          weight: 903
-          parent: customnav_integrationsnav_new_integration
+        - identifier : customnav_integrationsnav_new_integration
+          name       : "Integrations"
+          url        : "developers/integrations/"
+          weight     : 90
+          parent     : menu_references_developers
+        - identifier : customnav_integrationsnav_new_check_howto
+          name       : "Create a new Integration"
+          url        : "developers/integrations/new_check_howto"
+          weight     : 901
+          parent     : customnav_integrationsnav_new_integration
+        - identifier : customnav_integrationsnav_python
+          name       : "Python"
+          url        : "developers/integrations/python"
+          weight     : 902
+          parent     : customnav_integrationsnav_new_integration
+        - identifier : customnav_integrationsnav_legacy
+          name       : "Legacy"
+          url        : "developers/integrations/legacy"
+          weight     : 903
+          parent     : customnav_integrationsnav_new_integration
         #- identifier: customnav_developersnav_faq
         #  name: "FAQ"
         #  url: "developers/faq/"
@@ -2123,21 +2074,17 @@ languages:
           weight: 140
 
 params:
-  environment: local
-  img_url: "http://localhost:1313/"
-  corp_url: "http://localhost:1313/"
+  environment : local
+  img_url     : "http://localhost:1313/"
+  corp_url    : "http://localhost:1313/"
   imgix:
-    header_jpg: "?ch=Width&fit=max&fm=jpg&auto=format&lossless=true"
-    header_png: "?ch=Width&fit=max&fm=png&auto=format&lossless=1"
-    header_gif: "?ch=Width,Save-Data&fm=gif"
-    jpg: "?fm=jpg&auto=format&lossless=true"
-    png: "?fm=png&auto=format&lossless=1"
-    gif: ""
+    header_jpg : "?ch=Width&fit=max&fm=jpg&auto=format&lossless=true"
+    header_png : "?ch=Width&fit=max&fm=png&auto=format&lossless=1"
+    header_gif : "?ch=Width,Save-Data&fm=gif"
+    jpg        : "?fm=jpg&auto=format&lossless=true"
+    png        : "?fm=png&auto=format&lossless=1"
+    gif        : ""
   static_url: "http://localhost:1313/"
-  # announcement_banner:
-    # text: "The <strong>Service Map</strong> for APM is here!"
-    # link: "blog/service-map/"
-    # exclude: []
   code_languages:
     - display_name: Python
       key: python
@@ -2150,6 +2097,6 @@ params:
     - marketo: false
     - adroll: false
   home:
-      meta_image: datadog_logo_share_tt.png
-      meta_title: Getting Started with Datadog
-      meta_description: Datadog, the leading service for cloud-scale monitoring.
+      meta_image       : datadog_logo_share_tt.png
+      meta_title       : Getting Started with Datadog
+      meta_description : Datadog, the leading service for cloud-scale monitoring.

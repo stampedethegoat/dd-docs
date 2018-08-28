@@ -18,7 +18,9 @@ further_reading:
 
 ## Overview
 
-The Live Tail feature gives you the ability to see all your log events in near real time from anywhere in your infrastructure. It displays logs as soon as they get out of the [Pipeline section][1] and before [their indexation][2] by Datadog, hence: 
+The Live Tail feature gives you the ability to see all your log events in near real time from anywhere in your infrastructure. 
+
+It displays logs as soon as they get out of the [Pipeline section][1] and before [their indexation][2] by Datadog, hence: 
 
 1. All logs ingested by Datadog are displayed. ([It's logging without limits][2].)
 2. Displayed logs have been processed.
@@ -33,7 +35,9 @@ Choose the `Live Tail` option in the time range selector to switch to the Live T
 
 {{< img src="logs/live_tail/live_tail_time_selector.png" alt="Live Tail time selector" responsive="true" >}}
 
-The number of received events per second is displayed at the top left, as well as the sampling rate. Since a stream of thousands of logs per second is not human readable, high throughput log streams are sampled.
+The number of received events per second is displayed at the top left, as well as the sampling rate. 
+
+Since a stream of thousands of logs per second is not human readable, high throughput log streams are sampled.
 
 Use the [Live Tail search bar filtering features](#filtering-the-log-stream) to filter the log stream and the **Pause/Play** button at the top right of the screen to pause or resume the stream.
 
@@ -42,6 +46,7 @@ Use the [Live Tail search bar filtering features](#filtering-the-log-stream) to 
 ### Display Options
 
 Customize the Live Tail view to better highlight the relevant information in your logs. 
+
 Click on the gear at the top right of the page to activate one of the options below:
 
 {{< img src="logs/live_tail/live_tail_column.png" alt="Live tail column" responsive="true" style="width:30%;">}}
@@ -55,13 +60,14 @@ Click on the gear at the top right of the page to activate one of the options be
 ## Filtering the log Stream
 
 A valid query in the search bar displays logs that match your search criteria. 
+
 The search syntax is the same in the Live Tail views as in the other Log views, but here, your query is matched against all of the ingested logs and not just the indexed ones.
 
 ### JSON attributes
 
 Any query that works in other views works in the Live Tail view, but you can even go further and **filter on attributes that are not defined as facets**.
 
-For example, to filter on the following `filename` attribute there are two options:
+For example, to filter on the following `filename` attribute there are 2 options:
 
 {{< img src="logs/live_tail/live_tail_save.png" alt="Live tail save" responsive="true" style="width:50%;">}}
 

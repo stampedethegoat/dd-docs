@@ -7,7 +7,7 @@ code_languages:
   - Python
   - Ruby
 aliases:
-  - /metrics/
+  - /metrics-test/
   - /guides/metrics/
   - /metrictypes/
   - /units/
