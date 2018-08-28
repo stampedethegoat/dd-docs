@@ -8,7 +8,11 @@ videos:
 summary: Understanding how and why we aggregate your data
 ---
 
-Datadog 101 shows you everything you need to know about using the Datadog platform. In this fifth video talk about space and time aggregation, why its needed, and how we do it. Here is whats covered in this section:
+Datadog 101 shows you everything you need to know about using the Datadog platform. 
+
+In this 5th video talk about space and time aggregation, why its needed, and how we do it. 
+
+Here is whats covered in this section:
 
 * [What problem does aggregation solve?](?wtime=19s)
 * [Aggregation example](?wtime=94s)

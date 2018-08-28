@@ -9,7 +9,11 @@ videos:
 summary: How to get metrics and events from your hosts up to Datadog
 ---
 
-This series shows you everything you need to know to get started with Datadog. This video covers Collection: How to get the metrics and events from your hosts up to Datadog. We cover the following topics:
+This series shows you everything you need to know to get started with Datadog. 
+
+This video covers Collection: How to get the metrics and events from your hosts up to Datadog. 
+
+We cover the following topics:
 
 * [What is a host](?wtime=25.5)
 * [Useful Resources](?wtime=55)

@@ -9,7 +9,11 @@ videos:
 summary: Using notifications to get alerted to problems without being woken up for false positives
 ---
 
-Datadog 101 shows you everything you need to know about using the Datadog platform. In this sixth video we show you how to use notifications. We cover the following topics:
+Datadog 101 shows you everything you need to know about using the Datadog platform.
+
+In this 6th video we show you how to use notifications. 
+
+We cover the following topics:
 
 * [Notification Types](?wtime=28)
 * [Add a comment in the event stream](?wtime=85)

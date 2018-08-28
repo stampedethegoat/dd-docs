@@ -10,8 +10,8 @@
 [x] Developer Tools
 
 [x] Account Management
-[ ] Security
-[ ] Glossary, Videos, Help
+[x] Security
+[x] Glossary, Videos, Help
 
 [ ] The Agent 101 : Subsidiaries
 

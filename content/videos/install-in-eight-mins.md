@@ -12,5 +12,9 @@ videos:
     - RDS
     - Elasticsearch
 ---
-Want to know how long it takes to get up and running with Datadog. Far less than you probably think. This video covers getting 5 integrations installed in about 8 minutes.
+Want to know how long it takes to get up and running with Datadog. 
+
+Far less than you probably think. 
+
+This video covers getting 5 integrations installed in about 8 minutes.
 
