@@ -1,14 +1,16 @@
 Big Picture
 ---------------
-[ ] Figure out best strategy for 10 header links
 [ ] Finish up sidebar, most importantly the overview tab.
 [ ] FAQ Placement
+[ ] Figure out best strategy for 10 header links
 [ ] Combining everything onto this webpage
+[ ] Understand github repos next
 
 Solutions Engineer
 ---------------
 [ ] Play around with Docker
 [ ] Play around with Kubernetes
+[ ] Conference
 [ ] Demo
 [ ] Olark
 [ ] Configure basics for SE
@@ -41,3 +43,4 @@ Side Things
 [ ] Eventually Deploy documentation
 [ ] Figure out what the deal is with github token..?
 [ ] Configure Color of page
+[ ] Mess around with Spectacle

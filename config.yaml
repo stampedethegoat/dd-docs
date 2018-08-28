@@ -69,107 +69,108 @@ languages:
           url        : "getting_started/dashboards/template_variables/"
           weight     : 130
           parent     : customnav_getting_startednav_dashboards
-        - identifier : customnav_graphingnav_widgets
+        - identifier : customnav_getting_startednav_widgets
           name       : "Widgets"
           url        : "getting_started/dashboards/widgets/"
           weight     : 140
           parent     : customnav_getting_startednav_dashboards
-        - identifier : customnav_graphingnav_infrastructure
-          name       : "Infrastructure"
-          url        : "getting_started/infrastructure/"
-          weight     : 40
-          parent     : menu_references_getting_started
-        - identifier : customnav_infrastructurenav_hostmap
-          name       : "Host Map"
-          url        : "getting_started/infrastructure/hostmap/"
-          weight     : 510
-          parent     : customnav_graphingnav_infrastructure
-        - identifier : customnav_infrastructurenav_containermap
-          name       : "Container Map"
-          url        : "getting_started/infrastructure/containermap/"
-          weight     : 35
-          parent     : customnav_graphingnav_infrastructure
-        - identifier : customnav_infrastructurenav_livecontainers
-          name       : "Live Containers"
-          url        : "getting_started/infrastructure/livecontainers/"
-          weight     : 520
-          parent     : customnav_graphingnav_infrastructure
-        - identifier : customnav_infrastructurenav_process
-          name       : "Live Processes"
-          url        : "getting_started/infrastructure/process/"
-          weight     : 530
-          parent     : customnav_graphingnav_infrastructure
-        - identifier : customnav_graphingnav_functions
+        - identifier : customnav_getting_startednav_algorithms
           name       : "Algorithms"
-          url        : "getting_started/functions/"
-          weight     : 30
-          parent     : menu_references_getting_started
-        - identifier : customnav_graphingnav_algorithms
-          name       : "Anomalies and Outliers"
-          url        : "getting_started/functions/algorithms/"
-          weight     : 610
-          parent     : customnav_graphingnav_functions
-        - identifier : customnav_graphingnav_arithmetic
-          name       : "Arithmetic"
-          url        : "getting_started/functions/arithmetic/"
-          weight     : 620
-          parent     : customnav_graphingnav_functions
-        - identifier : customnav_graphingnav_count
-          name       : "Count"
-          url        : "getting_started/functions/count/"
-          weight     : 630
-          parent     : customnav_graphingnav_functions
-        - identifier : customnav_graphingnav_interpolation
-          name       : "Interpolation"
-          url        : "getting_started/functions/interpolation/"
-          weight     : 640
-          parent     : customnav_graphingnav_functions
-        - identifier : customnav_graphingnav_rank
-          name       : "Rank"
-          url        : "getting_started/functions/rank/"
-          weight     : 650
-          parent     : customnav_graphingnav_functions
-        - identifier : customnav_graphingnav_rate
-          name       : "Rate"
-          url        : "getting_started/functions/rate/"
-          weight     : 660
-          parent     : customnav_graphingnav_functions
-        - identifier : customnav_graphingnav_regression
-          name       : "Regression"
-          url        : "getting_started/functions/regression/"
-          weight     : 670
-          parent     : customnav_graphingnav_functions
-        - identifier : customnav_graphingnav_rollup
-          name       : "Rollup"
-          url        : "getting_started/functions/rollup/"
-          weight     : 680
-          parent     : customnav_graphingnav_functions
-        - identifier : customnav_graphingnav_smoothing
-          name       : "Smoothing"
-          url        : "getting_started/functions/smoothing/"
-          weight     : 690
-          parent     : customnav_graphingnav_functions
-        - identifier : customnav_graphingnav_timeshift
-          name       : "Timeshift"
-          url        : "getting_started/functions/timeshift/"
-          weight     : 695
-          parent     : customnav_graphingnav_functions
-        - identifier : customnav_getting_startednav_notebooks
-          name       : "Notebooks"
-          url        : "getting_started/notebooks/"
-          weight     : 50
-          parent     : menu_references_getting_started
-        - identifier : customnav_getting_startednav_graphing
-          name       : "Graphing"
-          url        : "getting_started/graphing/"
-          pre        : "nav_graphing"
-          weight     : 60
-          parent     : menu_references_getting_started
-        - identifier : customnav_graphingnav_graphingjson
-          name       : "JSON"
-          url        : "getting_started/graphing_json/"
-          weight     : 70
-          parent     : menu_references_getting_started
+          url        : "getting_started/dashboards/algorithms/"
+          weight     : 150
+          parent     : customnav_getting_startednav_dashboards
+        #- identifier : customnav_graphingnav_algorithms
+          #name       : "Anomalies and Outliers"
+          #url        : "getting_started/dashboards/algorithms/anomalies-outliers/"
+          #weight     : 610
+          #parent     : customnav_graphingnav__algorithms
+        #- identifier : customnav_graphingnav_arithmetic
+          #name       : "Arithmetic"
+          #url        : "getting_started/dashboards/algorithms/arithmetic/"
+          #weight     : 620
+          #parent     : customnav_graphingnav__algorithms
+        #- identifier : customnav_graphingnav_count
+          #name       : "Count"
+          #url        : "getting_started/dashboards/algorithms/count/"
+          #weight     : 630
+          #parent     : customnav_graphingnav__algorithms
+        #- identifier : customnav_graphingnav_interpolation
+          #name       : "Interpolation"
+          #url        : "getting_started/dashboards/algorithms/interpolation/"
+          #weight     : 640
+          #parent     : customnav_graphingnav__algorithms
+        #- identifier : customnav_graphingnav_rank
+          #name       : "Rank"
+          #url        : "getting_started/dashboards/algorithms/rank/"
+          #weight     : 650
+          #parent     : customnav_graphingnav__algorithms
+        #- identifier : customnav_graphingnav_rate
+          #name       : "Rate"
+          #url        : "getting_started/dashboards/algorithms/rate/"
+          #weight     : 660
+          #parent     : customnav_graphingnav__algorithms
+        #- identifier : customnav_graphingnav_regression
+          #name       : "Regression"
+          #url        : "getting_started/dashboards/algorithms/regression/"
+          #weight     : 670
+          #parent     : customnav_graphingnav__algorithms
+        #- identifier : customnav_graphingnav_rollup
+          #name       : "Rollup"
+          #url        : "getting_started/dashboards/algorithms/rollup/"
+          #weight     : 680
+          #parent     : customnav_graphingnav__algorithms
+        #- identifier : customnav_graphingnav_smoothing
+          #name       : "Smoothing"
+          #url        : "getting_started/dashboards/algorithms/smoothing/"
+          #weight     : 690
+          #parent     : customnav_graphingnav__algorithms
+        #- identifier : customnav_graphingnav_timeshift
+          #name       : "Timeshift"
+          #url        : "getting_started/dashboards/algorithms/timeshift/"
+          #weight     : 695
+          #parent     : customnav_graphingnav__algorithms
+
+        #- identifier : customnav_graphingnav_infrastructure
+          #name       : "Infrastructure"
+          #url        : "getting_started/infrastructure/"
+          #weight     : 40
+          #parent     : menu_references_getting_started
+        #- identifier : customnav_infrastructurenav_hostmap
+          #name       : "Host Map"
+          #url        : "getting_started/infrastructure/hostmap/"
+          #weight     : 510
+          #parent     : customnav_graphingnav_infrastructure
+        #- identifier : customnav_infrastructurenav_containermap
+          #name       : "Container Map"
+          #url        : "getting_started/infrastructure/containermap/"
+          #weight     : 520
+          #parent     : customnav_graphingnav_infrastructure
+        #- identifier : customnav_infrastructurenav_livecontainers
+          #name       : "Live Containers"
+          #url        : "getting_started/infrastructure/livecontainers/"
+          #weight     : 530
+          #parent     : customnav_graphingnav_infrastructure
+        #- identifier : customnav_infrastructurenav_process
+          #name       : "Live Processes"
+          #url        : "getting_started/infrastructure/process/"
+          #weight     : 540
+          #parent     : customnav_graphingnav_infrastructure
+        #- identifier : customnav_getting_startednav_notebooks
+          #name       : "Notebooks"
+          #url        : "getting_started/notebooks/"
+          #weight     : 50
+          #parent     : menu_references_getting_started
+        #- identifier : customnav_getting_startednav_graphing
+          #name       : "Graphing"
+          #url        : "getting_started/graphing/"
+          #pre        : "nav_graphing"
+          #weight     : 60
+          #parent     : menu_references_getting_started
+        #- identifier : customnav_graphingnav_graphingjson
+          #name       : "JSON"
+          #url        : "getting_started/graphing_json/"
+          #weight     : 70
+          #parent     : menu_references_getting_started
 
        # - identifier: customnav_graphingnav_faq
        #   name: "FAQ"
