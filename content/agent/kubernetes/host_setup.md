@@ -40,7 +40,9 @@ Two installations are possible:
 - On the node where the Agent is external to the Docker environment
 - Deployed with its containerized version in the Docker environment
 
-Take advantage of DaemonSets to [automatically deploy the Datadog Agent on all your nodes][14]. Otherwise follow the [container log collection steps][15] to start collecting logs from all your containers.
+Take advantage of DaemonSets to [automatically deploy the Datadog Agent on all your nodes][14]. 
+
+Otherwise follow the [container log collection steps][15] to start collecting logs from all your containers.
 
 ## Further Reading
 To get a better idea of how (or why) to integrate your Kubernetes service, check out our [series of blog posts][13] about it.

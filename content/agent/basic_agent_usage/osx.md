@@ -19,13 +19,19 @@ further_reading:
 
 ## Overview
 
-This page outlines the basic features of the Datadog Agent for macOS. If you haven't installed the Agent yet, instructions can be found in the [Datadog Agent Integration][1] documentation.
+This page outlines the basic features of the Datadog Agent for macOS.
 
-By default, the Agent is installed in a sandbox located at `/opt/datadog-agent`. You're free to move this folder wherever you like; however, his documentation assumes a default installation location.
+If you haven't installed the Agent yet, instructions can be found in the [Datadog Agent Integration][1] documentation.
+
+By default, the Agent is installed in a sandbox located at `/opt/datadog-agent`. 
+
+You're free to move this folder wherever you like; however, his documentation assumes a default installation location.
 
 ## Commands
 
-In Agent v6, the `launchctl` service manager provided by the operating system is responsible for the Agent lifecycle, while other commands must be run via the Agent binary directly. Alternatively, lifecycle commands can also be managed via the systray app, and other commands can be executed via the web GUI.
+In Agent v6, the `launchctl` service manager provided by the operating system is responsible for the Agent lifecycle, while other commands must be run via the Agent binary directly. 
+
+Alternatively, lifecycle commands can also be managed via the systray app, and other commands can be executed via the web GUI.
 
 In Agent v5, everything is done via the binary directly. 
 
@@ -56,7 +62,9 @@ Configuration files for [Integrations][2]:
 
 ## Troubleshooting
 
-Run the `status` (or `info` in v5) command to see the state of the Agent. The Agent logs are located in the `/var/log/datadog/` directory:
+Run the `status` (or `info` in v5) command to see the state of the Agent. 
+
+The Agent logs are located in the `/var/log/datadog/` directory:
 
 * For Agent v6, all logs are consolidated in `agent.log`
 * For Agent v5, logs are split into:
@@ -69,7 +77,9 @@ If you're still having trouble, [our support team][3] is glad to provide further
 
 ## Working with the embedded Agent
 
-The Agent contains an embedded Python environment at `/opt/datadog-agent/embedded/`. Common binaries such as `python` and `pip` are contained within `/opt/datadog-agent/embedded/bin/`.
+The Agent contains an embedded Python environment at `/opt/datadog-agent/embedded/`. 
+
+Common binaries such as `python` and `pip` are contained within `/opt/datadog-agent/embedded/bin/`.
 
 See the instructions on how to [add packages to the embedded Agent][5] for more information.
 
@@ -85,7 +95,9 @@ You can either download the DMG package and install it manually, or use the one-
 2. Install the DMG package
 3. Add your API key to `/opt/datadog-agent/etc/datadog.yaml`
 
-Then start the Datadog Agent app (once started, you should see it in the system tray), and manage the Agent from there. Agent v6 includes a web-based GUI to edit the Agent configuration files and much more.
+Then start the Datadog Agent app (once started, you should see it in the system tray), and manage the Agent from there. 
+
+Agent v6 includes a web-based GUI to edit the Agent configuration files and much more.
 
 ### Install script
 

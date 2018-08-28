@@ -13,7 +13,9 @@ further_reading:
   text: "Kubernetes Metrics"
 ---
 
-Our default configuration targets Kubernetes 1.7.6 and later, as the Datadog Agent relies on features and endpoints introduced in this version. More installation steps are required for older versions:
+Our default configuration targets Kubernetes 1.7.6 and later, as the Datadog Agent relies on features and endpoints introduced in this version. 
+
+More installation steps are required for older versions:
 
 - [RBAC objects][1] (`ClusterRoles` and `ClusterRoleBindings`) are available since Kubernetes 1.6 and OpenShift 3.3, but are available under different `apiVersion` prefixes:
 

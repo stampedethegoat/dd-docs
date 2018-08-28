@@ -5,7 +5,9 @@ aliases:
 - /developers/faq/how-do-i-collect-metrics-from-heroku-with-datadog
 ---
 
-This buildpack installs the Datadog Agent in your Heroku Dyno to collect system metrics, custom application metrics, and traces. To collect custom application metrics or traces, include the language appropriate [DogStatsD or Datadog APM library][1] in your application.
+This buildpack installs the Datadog Agent in your Heroku Dyno to collect system metrics, custom application metrics, and traces. 
+
+To collect custom application metrics or traces, include the language appropriate [DogStatsD or Datadog APM library][1] in your application.
 
 ## Installation
 
@@ -33,7 +35,9 @@ git push heroku master
 
 Once complete, the Datadog Agent is started automatically when each Dyno starts.
 
-The Datadog Agent provides a listening port on 8125 for StatsD/DogStatsD metrics and events. Traces are collected on port 8126.
+The Datadog Agent provides a listening port on 8125 for StatsD/DogStatsD metrics and events. 
+
+Traces are collected on port 8126.
 
 ## Configuration
 
@@ -53,9 +57,19 @@ In addition to the environment variables shown above, there are a number of othe
 
 ## Hostname
 
-Heroku dynos are ephemeral-they can move to different host machines whenever new code is deployed, configuration changes are made, or resouce needs/availability changes. This makes Heroku flexible and responsive, but can potentially lead to a high number of reported hosts in Datadog. Datadog bills on a per-host basis, and the buildpack default is to report actual hosts, which can lead to higher than expected costs.
+Heroku dynos are ephemeral-they can move to different host machines whenever new code is deployed, configuration changes are made, or resouce needs/availability changes. 
 
-Depending on your use case, you may want to set your hostname so that hosts are aggregated and report a lower number.  To do this, Set `DD_DYNO_HOST` to `true`. This causes the Agent to report the hostname as the dyno name (e.g. `web.1` or `run.1234`), so your host count will match your dyno usage. One drawback is that you may see some metrics continuity errors whenever a dyno is cycled.
+This makes Heroku flexible and responsive, but can potentially lead to a high number of reported hosts in Datadog. 
+
+Datadog bills on a per-host basis, and the buildpack default is to report actual hosts, which can lead to higher than expected costs.
+
+Depending on your use case, you may want to set your hostname so that hosts are aggregated and report a lower number. 
+
+To do this, Set `DD_DYNO_HOST` to `true`. 
+
+This causes the Agent to report the hostname as the dyno name (e.g. `web.1` or `run.1234`), so your host count will match your dyno usage. 
+
+One drawback is that you may see some metrics continuity errors whenever a dyno is cycled.
 
 ## More information
 

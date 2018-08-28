@@ -18,11 +18,15 @@ further_reading:
 
 ## Overview
 
-This page outlines the basic features of the Datadog Agent for Amazon Linux. If you haven't installed the Agent yet, instructions can be found in the [Datadog Agent Integration][1] documentation.
+This page outlines the basic features of the Datadog Agent for Amazon Linux. 
+
+If you haven't installed the Agent yet, instructions can be found in the [Datadog Agent Integration][1] documentation.
 
 ## Commands
 
-In Agent v6, the service manager provided by the operating system is responsible for the Agent lifecycle, while other commands must be run via the Agent binary directly. In Agent v5, almost everything is done via the service manager.
+In Agent v6, the service manager provided by the operating system is responsible for the Agent lifecycle, while other commands must be run via the Agent binary directly. 
+
+In Agent v5, almost everything is done via the service manager.
 
 | Agent v5                                          | Agent v6                                               | Notes                              |
 | ------------------------------------------------- | ------------------------------------------------------ | ---------------------------------- |
@@ -59,7 +63,9 @@ Configuration files for [Integrations][2]:
 
 ## Troubleshooting
 
-Run the `status` (or `info` in v5) command to see the state of the Agent. The Agent logs are located in the `/var/log/datadog/` directory:
+Run the `status` (or `info` in v5) command to see the state of the Agent. 
+
+The Agent logs are located in the `/var/log/datadog/` directory:
 
 * For Agent v6, all logs are consolidated in `agent.log`
 * For Agent v5, logs are split into:
@@ -72,7 +78,9 @@ If you're still having trouble, [our support team][3] is glad to provide further
 
 ## Working with the embedded Agent
 
-The Agent contains an embedded Python environment at `/opt/datadog-agent/embedded/`. Common binaries such as `python` and `pip` are contained within `/opt/datadog-agent/embedded/bin/`.
+The Agent contains an embedded Python environment at `/opt/datadog-agent/embedded/`. 
+
+Common binaries such as `python` and `pip` are contained within `/opt/datadog-agent/embedded/bin/`.
 
 See the instructions on how to [add packages to the embedded Agent][5] for more information.
 
@@ -81,13 +89,13 @@ See the instructions on how to [add packages to the embedded Agent][5] for more 
 1. Set up Datadog's Yum repo on your system by creating `/etc/zypp/repos.d/datadog.repo` with the contents:
   ```ini
   [datadog]
-  name=Datadog, Inc.
-  enabled=1
-  baseurl=https://yum.datadoghq.com/suse/stable/6/x86_64
-  type=rpm-md
-  gpgcheck=1
-  repo_gpgcheck=0
-  gpgkey=https://yum.datadoghq.com/DATADOG_RPM_KEY.public
+  name          = Datadog, Inc.
+  enabled       = 1
+  baseurl       = https://yum.datadoghq.com/suse/stable/6/x86_64
+  type          = rpm-md
+  gpgcheck      = 1
+  repo_gpgcheck = 0
+  gpgkey        = https://yum.datadoghq.com/DATADOG_RPM_KEY.public
   ```
 
 2. Update your local Zypper repo and install the Agent:

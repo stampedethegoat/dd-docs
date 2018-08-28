@@ -52,11 +52,11 @@ The information is structured as JSON following this schema:
             ...
         ]
     },
-    "apm": {...},                       // <-- same structure as "agents" but IPs used for the APM agent data
-    "logs": {...},                      // <-- same for the logs agent data
-    "process": {...},                   // <-- same for the process agent data
-    "api": {...},                       // <-- not relevant for agent traffic (submitting data via API)
-    "webhooks": {...}                   // <-- not relevant for agent traffic (Datadog source IPs delivering webhooks)
+    "apm"      : {...},                 // <-- same structure as "agents" but IPs used for the APM agent data
+    "logs"     : {...},                 // <-- same for the logs agent data
+    "process"  : {...},                 // <-- same for the process agent data
+    "api"      : {...},                 // <-- not relevant for agent traffic (submitting data via API)
+    "webhooks" : {...}                  // <-- not relevant for agent traffic (Datadog source IPs delivering webhooks)
 }
 ```
 
@@ -76,18 +76,18 @@ Open the following ports in order to benefit from all the Agent functionalities:
 
 * **Outbound**:
 
-  * `443/tcp`: port for most Agent data. (Metrics, APM, Live Processes/Containers) 
-  * `123/udp`: NTP - [More details on the importance of NTP here][5].
-  * `10516/tcp`: port for the [Log collection][3]
-  * `10255/tcp`: port for the [Kubernetes http kubelet][8]
-  * `10250/tcp`: port for the [Kubernetes https kubelet][8]
+  * `443/tcp`   : port for most Agent data. (Metrics, APM, Live Processes/Containers)
+  * `123/udp`   : NTP - [More details on the importance of NTP here][5].
+  * `10516/tcp` : port for the [Log collection][3]
+  * `10255/tcp` : port for the [Kubernetes http kubelet][8]
+  * `10250/tcp` : port for the [Kubernetes https kubelet][8]
 
 * **Inbound**:
 
-  * `5000/tcp`: port for the [go_expvar server][6]
-  * `5001/tcp`: port on which the IPC api listens
-  * `5002/tcp`: port for [the Agent browser GUI to be served][7]
-  * `8125/udp`: dogstatsd. Unless `dogstatsd_non_local_traffic` is set to true. This port is available on localhost: 
+  * `5000/tcp` : port for the [go_expvar server][6]
+  * `5001/tcp` : port on which the IPC api listens
+  * `5002/tcp` : port for [the Agent browser GUI to be served][7]
+  * `8125/udp` : dogstatsd. Unless `dogstatsd_non_local_traffic` is set to true. This port is available on localhost :
 
       * `127.0.0.1`
       * `::1` 
@@ -110,9 +110,9 @@ Open the following ports in order to benefit from all the Agent functionalities:
       * `::1` 
       * `fe80::1`
 
-  * `8126/tcp`: port for the [APM Receiver][1]
-  * `17123/tcp`: Agent forwarder, used to buffer traffic in case of network splits between the Agent and Datadog
-  * `17124/tcp`: optional graphite adapter
+  * `8126/tcp`  : port for the [APM Receiver][1]
+  * `17123/tcp` : Agent forwarder, used to buffer traffic in case of network splits between the Agent and Datadog
+  * `17124/tcp` : optional graphite adapter
 
 ## Using Proxies
 

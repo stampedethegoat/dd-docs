@@ -22,7 +22,9 @@ further_reading:
   text: Collect your Docker traces
 ---
 
-If you haven't installed the Agent yet, instructions can be found [in the Datadog Agent Integration page][1]. You can also consult our [Official Docker Agent 6 image][2].
+If you haven't installed the Agent yet, instructions can be found [in the Datadog Agent Integration page][1]. 
+
+You can also consult our [Official Docker Agent 6 image][2].
 
 ## How to run it
 
@@ -44,27 +46,27 @@ The Agent is highly customizable; here are the most used environment variables:
 
 #### Global options
 
-- `DD_API_KEY`: your API key (**required**)
-- `DD_HOSTNAME`: hostname to use for metrics (if autodetection fails)
-- `DD_TAGS`: host tags, separated by spaces. For example: `simple-tag-0 tag-key-1:tag-value-1`
+- `DD_API_KEY`  : your API key (**required**)
+- `DD_HOSTNAME` : hostname to use for metrics (if autodetection fails)
+- `DD_TAGS`     : host tags, separated by spaces. For example:`simple-tag-0 tag-key-1 : tag-value-1`
 
 #### Optional collection Agents
 
 These features are disabled by default for security or performance reasons, you need to explicitly enable them:
 
-- `DD_APM_ENABLED`: run the trace-agent along with the infrastructure Agent, allowing the container to accept traces on `8126/tcp`
-- `DD_LOGS_ENABLED`: run the [log-agent][3] along with the infrastructure Agent.
-- `DD_PROCESS_AGENT_ENABLED`: enable live process collection in the [process-agent][4]. The Live Container View is already enabled by default if the Docker socket is available
+- `DD_APM_ENABLED`           : run the trace-agent along with the infrastructure Agent, allowing the container to accept traces on `8126/tcp`
+- `DD_LOGS_ENABLED`          : run the [log-agent][3] along with the infrastructure Agent.
+- `DD_PROCESS_AGENT_ENABLED` : enable live process collection in the [process-agent][4]. The Live Container View is already enabled by default if the Docker socket is available
 
 #### DogStatsD (custom metrics)
 
 Send custom metrics via [the statsd protocol][5]:
 
-- `DD_DOGSTATSD_NON_LOCAL_TRAFFIC`: listen to DogStatsD packets from other containers, required to send custom metrics
-- `DD_HISTOGRAM_PERCENTILES`: histogram percentiles to compute, separated by spaces. The default is "0.95"
-- `DD_HISTOGRAM_AGGREGATES`: histogram aggregates to compute, separated by spaces. The default is "max median avg count"
-- `DD_DOGSTATSD_SOCKET`: path to the unix socket to listen to. Must be in a `rw` mounted volume.
-- `DD_DOGSTATSD_ORIGIN_DETECTION`: enable container detection and tagging for unix socket metrics.
+- `DD_DOGSTATSD_NON_LOCAL_TRAFFIC` : listen to DogStatsD packets from other containers, required to send custom metrics
+- `DD_HISTOGRAM_PERCENTILES`       : histogram percentiles to compute, separated by spaces. The default is "0.95"
+- `DD_HISTOGRAM_AGGREGATES`        : histogram aggregates to compute, separated by spaces. The default is "max median avg count"
+- `DD_DOGSTATSD_SOCKET`            : path to the unix socket to listen to. Must be in a `rw` mounted volume.
+- `DD_DOGSTATSD_ORIGIN_DETECTION`  : enable container detection and tagging for unix socket metrics.
 
 [Learn more about DogStatsD over Unix Domain Sockets with Docker][9].
 
@@ -72,13 +74,13 @@ Send custom metrics via [the statsd protocol][5]:
 
 We automatically collect common tags from [Docker][6], [Kubernetes][7], [ECS][8], [Swarm, Mesos, Nomad and Rancher][6], and allow you to extract even more tags with the following options:
 
-- `DD_DOCKER_LABELS_AS_TAGS` : extract docker container labels
-- `DD_DOCKER_ENV_AS_TAGS` : extract docker container environment variables
+- `DD_DOCKER_LABELS_AS_TAGS`         : extract docker container labels
+- `DD_DOCKER_ENV_AS_TAGS`            : extract docker container environment variables
 - `DD_KUBERNETES_POD_LABELS_AS_TAGS` : extract pod labels
 
 ```shell
-DD_KUBERNETES_POD_LABELS_AS_TAGS='{"app":"kube_app","release":"helm_release"}'
-DD_DOCKER_LABELS_AS_TAGS='{"com.docker.compose.service":"service_name"}'
+DD_KUBERNETES_POD_LABELS_AS_TAGS = '{"app":"kube_app","release":"helm_release"}'
+DD_DOCKER_LABELS_AS_TAGS         = '{"com.docker.compose.service":"service_name"}'
 ```
 
 Either define them in your custom `datadog.yaml`, or set them as JSON maps in these envvars. The map key is the source (`label/envvar`) name, and the map value the datadog tag name.
@@ -94,7 +96,9 @@ Exclude containers from the metrics collection and Autodiscovery, if these are n
 
 ### Configuration files
 
-You can also mount YAML configuration files in the `/conf.d` folder. They will automatically be copied to `/etc/datadog-agent/conf.d/` when the container starts. The same can be done for the `/checks.d` folder: any Python files in the `/checks.d` folder will automatically be copied to `/etc/datadog-agent/checks.d/` when the container starts.
+You can also mount YAML configuration files in the `/conf.d` folder. They will automatically be copied to `/etc/datadog-agent/conf.d/` when the container starts. 
+
+The same can be done for the `/checks.d` folder: any Python files in the `/checks.d` folder will automatically be copied to `/etc/datadog-agent/checks.d/` when the container starts.
 
 1. Create a configuration folder on the host and write your YAML files in it. The examples below can be used for the `/checks.d` folder as well.
 

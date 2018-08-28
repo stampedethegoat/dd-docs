@@ -20,13 +20,15 @@ further_reading:
 
 ---
 
-**Note**: Agent version 6.0 and above only support versions of Kubernetes higher than 1.7.6. For prior versions of Kubernetes, consult the [Legacy Kubernetes versions section][1].
+**Note**: Agent version 6.0 and above only support versions of Kubernetes higher than 1.7.6. 
+
+For prior versions of Kubernetes, consult the [Legacy Kubernetes versions section][1].
 
 ## Installation
 
-To gather metrics, traces, and logs from your Kubernetes clusters, there are two options:
+To gather metrics, traces, and logs from your Kubernetes clusters, there are 2 options:
 
-1. [Container installation][2] (**recommended**) -  The Agent runs inside a Pod. This implementation is sufficient for the majority of use cases, but note that it does not grant visibility into components of the system that exist outside Kubernetes. This method also does not monitor the starting phase of your Kubernetes cluster.
+1. [Container installation][2] (**recommended**) - The Agent runs inside a Pod. This implementation is sufficient for the majority of use cases, but note that it does not grant visibility into components of the system that exist outside Kubernetes. This method also does not monitor the starting phase of your Kubernetes cluster.
 2. [Host installation][3] (optional) - Installing the Agent on the host provides additional visibility into your ecosystem, independent of Kubernetes.
 
 ## RBAC

@@ -18,11 +18,15 @@ further_reading:
 
 ## Overview
 
-This page outlines the basic features of the Datadog Agent for Amazon Linux. If you haven't installed the Agent yet, instructions can be found in the [Datadog Agent Integration][1] documentation.
+This page outlines the basic features of the Datadog Agent for Amazon Linux. 
+
+If you haven't installed the Agent yet, instructions can be found in the [Datadog Agent Integration][1] documentation.
 
 ## Commands
 
-In Agent v6, the service manager provided by the operating system is responsible for the Agent lifecycle, while other commands must be run via the Agent binary directly. In Agent v5, almost everything is done via the service manager.
+In Agent v6, the service manager provided by the operating system is responsible for the Agent lifecycle, while other commands must be run via the Agent binary directly. 
+
+In Agent v5, almost everything is done via the service manager.
 
 | Agent v5                                          | Agent v6                                               | Notes                              |
 | ------------------------------------------------- | ------------------------------------------------------ | ---------------------------------- |
@@ -72,7 +76,9 @@ If you're still having trouble, [our support team][3] is glad to provide further
 
 ## Working with the embedded Agent
 
-The Agent contains an embedded Python environment at `/opt/datadog-agent/embedded/`. Common binaries such as `python` and `pip` are contained within `/opt/datadog-agent/embedded/bin/`.
+The Agent contains an embedded Python environment at `/opt/datadog-agent/embedded/`. 
+
+Common binaries such as `python` and `pip` are contained within `/opt/datadog-agent/embedded/bin/`.
 
 See the instructions on how to [add packages to the embedded Agent][5] for more information.
 
@@ -80,7 +86,11 @@ See the instructions on how to [add packages to the embedded Agent][5] for more 
 
 ### Upgrade to Agent 6
 
-A script is available to automatically install or upgrade to the new Agent. It sets up the package repositories and installs the Agent package for you. When upgrading, the import tool also searches for an existing `datadog.conf` from a prior version, and converts Agent and Check configurations according to the new v6 format.
+A script is available to automatically install or upgrade to the new Agent. 
+
+It sets up the package repositories and installs the Agent package for you. 
+
+When upgrading, the import tool also searches for an existing `datadog.conf` from a prior version, and converts Agent and Check configurations according to the new v6 format.
 
 #### One-step install
 
@@ -95,7 +105,9 @@ DD_UPGRADE=true bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dat
 
 ##### Fresh install
 
-This is very similar to the upgrade method above, except instead of specifying the upgrade flag, you must supply your API key. This method will also work on Agent v5 machines, however the existing configuration will *not* be converted.
+This is very similar to the upgrade method above, except instead of specifying the upgrade flag, you must supply your API key. 
+
+This method will also work on Agent v5 machines, however the existing configuration will *not* be converted.
 ```shell
 DD_API_KEY=YOUR_API_KEY bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
 ```
@@ -111,7 +123,6 @@ DD_API_KEY=YOUR_API_KEY bash -c "$(curl -L https://raw.githubusercontent.com/Dat
     gpgcheck=1
     gpgkey=https://yum.datadoghq.com/DATADOG_RPM_KEY.public
     ```
-
 2. Update your local Yum repo and install the Agent:
     ```
     sudo yum makecache

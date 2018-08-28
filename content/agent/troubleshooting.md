@@ -16,7 +16,11 @@ further_reading:
   text: Collect your traces
 ---
 
-If you ended up at this page and have not yet installed the Datadog Agent, go [to the dedicated Agent integration page][1] for installation instructions. If you just installed the Agent, it might take a few moments before you start seeing metrics appear. The first place you should check for metrics is the [Metrics Explorer][2].
+If you ended up at this page and have not yet installed the Datadog Agent, go [to the dedicated Agent integration page][1] for installation instructions. 
+
+If you just installed the Agent, it might take a few moments before you start seeing metrics appear. 
+
+The first place you should check for metrics is the [Metrics Explorer][2].
 
 If you think you might be experiencing issues, the first thing to do is [run the info command][3] and check the [Agent logs][4].
 
@@ -62,9 +66,15 @@ If your container is already running:
 
 If you are running the 5.3 version (or higher) of the Agent, you're able to send all necessary troubleshooting information to our Support Team, with one flare command!
 
-`flare` gathers all of the Agent's configuration files and logs into an archive file. It removes sensitive information including passwords, API keys, Proxy credentials, and SNMP community strings.  
+`flare` gathers all of the Agent's configuration files and logs into an archive file. 
+
+It removes sensitive information including passwords, API keys, Proxy credentials, and SNMP community strings.  
+
 **Confirm the upload of the archive to immediately send it to Datadog support**.  
-Since the Datadog Agent is completely open source, you can [verify the code's behavior][7]. You can also review the archive prior to sending as the flare prompts a confirmation before uploading it.  
+
+Since the Datadog Agent is completely open source, you can [verify the code's behavior][7]. 
+
+You can also review the archive prior to sending as the flare prompts a confirmation before uploading it.  
 
 In the commands below, replace `<CASE_ID>` with your Datadog support case ID, if you don't specify a case ID, the command asks for an email address that is used to login in your organization and creates a new support case.
 

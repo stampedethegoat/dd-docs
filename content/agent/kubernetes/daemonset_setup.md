@@ -18,13 +18,15 @@ Take advantage of DaemonSets to deploy the Datadog Agent on all your nodes (or o
 *If DaemonSets are not an option for your Kubernetes cluster, [install the Datadog Agent][3] as a deployment on each Kubernetes node.*
 
 ## Configure RBAC permissions
-If your Kubernetes has role-based access control (RBAC) enabled, configure RBAC permissions for your Datadog Agent service account. Create the file `datadog-serviceaccount.yaml`:
+If your Kubernetes has role-based access control (RBAC) enabled, configure RBAC permissions for your Datadog Agent service account. 
+
+Create the file `datadog-serviceaccount.yaml`:
 
 ```yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: datadog-agent
+apiVersion : rbac.authorization.k8s.io/v1
+kind       : ClusterRole
+metadata   :
+  name : datadog-agent
 rules:
 - apiGroups:
   - ""
@@ -79,18 +81,18 @@ metadata:
 # Your admin user needs the same permissions to be able to grant them
 # Easiest way is to bind your user to the cluster-admin role
 # See https://cloud.google.com/container-engine/docs/role-based-access-control#setting_up_role-based_access_control
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
+apiVersion : rbac.authorization.k8s.io/v1
+kind       : ClusterRoleBinding
 metadata:
-  name: datadog-agent
+  name : datadog-agent
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: datadog-agent
+  apiGroup : rbac.authorization.k8s.io
+  kind     : ClusterRole
+  name     : datadog-agent
 subjects:
-- kind: ServiceAccount
-  name: datadog-agent
-  namespace: default
+- kind      : ServiceAccount
+  name      : datadog-agent
+  namespace : default
 ```
 Create the appropriate ClusterRole, ServiceAccount, and ClusterRoleBinding:
 
@@ -115,18 +117,18 @@ spec:
     spec:
       serviceAccountName: datadog-agent
       containers:
-      - image: datadog/agent:latest
-        imagePullPolicy: Always
-        name: datadog-agent
-        ports:
-          - containerPort: 8125
-            # hostPort: 8125
-            name: dogstatsdport
-            protocol: UDP
-          - containerPort: 8126
-            # hostPort: 8126
-            name: traceport
-            protocol: TCP
+      - image           : datadog/agent : latest
+        imagePullPolicy : Always
+        name            : datadog-agent
+        ports           :
+          - containerPort : 8125
+            # hostPort    : 8125
+            name          : dogstatsdport
+            protocol      : UDP
+          - containerPort : 8126
+            # hostPort    : 8126
+            name          : traceport
+            protocol      : TCP
         env:
           - name: DD_API_KEY
             value: "<YOUR_API_KEY>"
@@ -142,20 +144,20 @@ spec:
                 fieldPath: status.hostIP
         resources:
           requests:
-            memory: "256Mi"
-            cpu: "200m"
+            memory : "256Mi"
+            cpu    : "200m"
           limits:
-            memory: "256Mi"
-            cpu: "200m"
+            memory : "256Mi"
+            cpu    : "200m"
         volumeMounts:
-          - name: dockersocket
-            mountPath: /var/run/docker.sock
-          - name: procdir
-            mountPath: /host/proc
-            readOnly: true
-          - name: cgroups
-            mountPath: /host/sys/fs/cgroup
-            readOnly: true
+          - name      : dockersocket
+            mountPath : /var/run/docker.sock
+          - name      : procdir
+            mountPath : /host/proc
+            readOnly  : true
+          - name      : cgroups
+            mountPath : /host/sys/fs/cgroup
+            readOnly  : true
         livenessProbe:
           exec:
             command:
@@ -174,14 +176,18 @@ spec:
           name: cgroups
 ```
 
-Replace `<YOUR_API_KEY>` with [your Datadog API key][5] or use [Kubernetes secrets][6] to set your API key [as an environment variable][7]. [Consult our docker integration to discover all configuration options.][8]
+Replace `<YOUR_API_KEY>` with [your Datadog API key][5] or use [Kubernetes secrets][6] to set your API key [as an environment variable][7]. 
+
+[Consult our docker integration to discover all configuration options.][8]
 
 Deploy the DaemonSet with the command:
 ```
 kubectl create -f datadog-agent.yaml
 ```
 
-**Note**:  This manifest enables Autodiscovery's auto configuration feature. To learn how to configure Autodiscovery, please refer to the [dedicated Autodiscovery documentation][9].
+**Note**: This manifest enables Autodiscovery's auto configuration feature. 
+
+To learn how to configure Autodiscovery, please refer to the [dedicated Autodiscovery documentation][9].
 
 ### Verification
 
@@ -254,8 +260,21 @@ To enable [Trace collection][20] with your DaemonSet:
 2. Uncomment the `# hostPort: 8126` line.
   This exposes the Datadog Agent tracing port on each of your Kubernetes nodes.
 
-  **Warning**: This opens a port on your host. Make sure your firewall only allows access from your applications or trusted sources.
-  Another word of caution: some network plugins don't support `hostPorts` yet, so this won't work. The workaround in this case is to add `hostNetwork: true` in your agent pod specifications. This shares the network namespace of your host with the Datadog agent. This also means that all ports opened on the container are also opened on the host. If a port is used both on the host and in your container, they conflict (since they share the same network namespace) and the pod will not start. Not all Kubernetes installations allow this.
+  **Warning**: This opens a port on your host. 
+
+Make sure your firewall only allows access from your applications or trusted sources.
+
+Another word of caution: some network plugins don't support `hostPorts` yet, so this won't work. 
+
+The workaround in this case is to add `hostNetwork: true` in your agent pod specifications. 
+
+This shares the network namespace of your host with the Datadog agent. 
+
+This also means that all ports opened on the container are also opened on the host. 
+
+If a port is used both on the host and in your container, they conflict (since they share the same network namespace) and the pod will not start. 
+
+Not all Kubernetes installations allow this.
 
 ### Process Collection
 
@@ -276,10 +295,25 @@ To send custom metrics via DogStatsD, set the `DD_DOGSTATSD_NON_LOCAL_TRAFFIC` v
 
 Learn more about this in the [Docker DogStatsD documentation][19]
 
-To send custom metrics via DogStatsD from your application pods, uncomment the `# hostPort: 8125` line in your `datadog-agent.yaml` manifest. This exposes the DogStatsD port on each of your Kubernetes nodes.
+To send custom metrics via DogStatsD from your application pods, uncomment the `# hostPort: 8125` line in your `datadog-agent.yaml` manifest. 
 
-**Warning**: This opens a port on your host. Make sure your firewall only allows access from your applications or trusted sources.
-Another word of caution: some network plugins don't support `hostPorts` yet, so this won't work. The workaround in this case is to add `hostNetwork: true` in your agent pod specifications. This shares the network namespace of your host with the Datadog agent. This also means that all ports opened on the container are also opened on the host. If a port is used both on the host and in your container, they conflict (since they share the same network namespace) and the pod will not start. Not all Kubernetes installations allow this.
+This exposes the DogStatsD port on each of your Kubernetes nodes.
+
+**Warning**: This opens a port on your host.
+
+Make sure your firewall only allows access from your applications or trusted sources.
+
+Another word of caution: some network plugins don't support `hostPorts` yet, so this won't work. 
+
+The workaround in this case is to add `hostNetwork: true` in your agent pod specifications. 
+
+This shares the network namespace of your host with the Datadog agent. 
+
+This also means that all ports opened on the container are also opened on the host. 
+
+If a port is used both on the host and in your container, they conflict (since they share the same network namespace) and the pod will not start. 
+
+Not all Kubernetes installations allow this.
 
 ## Further Reading
 

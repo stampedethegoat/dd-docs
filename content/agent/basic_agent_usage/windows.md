@@ -19,11 +19,17 @@ further_reading:
 
 ## Overview
 
-This page outlines the basic features of the Windows Datadog Agent. If you haven't installed the Agent yet, basic installation instructions can be found [in the Datadog Agent Integration page][1].
+This page outlines the basic features of the Windows Datadog Agent. 
+
+If you haven't installed the Agent yet, basic installation instructions can be found [in the Datadog Agent Integration page][1].
 
 ## Agent installation
 
-Many items can be configured on the command line when installing the Datadog Windows Agent. Each configuration item is added as an install property to the command line. For instance, the following commands install the Agent, configure the Agent configuration file with the `<DATADOG_API_KEY>`, and set the `<HOSTNAME>` and tags.
+Many items can be configured on the command line when installing the Datadog Windows Agent. 
+
+Each configuration item is added as an install property to the command line. 
+
+For instance, the following commands install the Agent, configure the Agent configuration file with the `<DATADOG_API_KEY>`, and set the `<HOSTNAME>` and tags.
 
 * (cmd shell) `msiexec /qn /i datadog-agent-6-latest.amd64.msi APIKEY="<DATADOG_API_KEY>" HOSTNAME="<HOSTNAME>" TAGS="key_1:val_1,key_2:val_2"`
 * (powershell) `Start-Process msiexec -ArgumentList 'datadog-agent-6-latest.amd64.msi APIKEY="<DATADOG_API_KEY>" HOSTNAME="<HOSTNAME>" TAGS="key_1:val_1,key_2:val_2"'`
@@ -93,6 +99,7 @@ You can also use Windows Powershell if you are running on a modern version of Wi
 ## Agent Configuration
 
 Use the Datadog Agent Manager located in the start menu to enable, disable, and configure checks. 
+
 Restart the Agent in order for your changes to be applied.
 
 ### Agent check directory structure
@@ -300,9 +307,13 @@ When adding your own processes, be sure to follow the formatting exactly as show
 
 When you're done editing the file, press "Save" to save it, then "Enable" to enable it.
 
-Any time you modify a Datadog Integration you'll need to restart the Datadog Agent service. You can do this by clicking the "Actions" button in the top left corner, then selecting "Restart", or you can restart "Datadog Agent" in your Services Management Snap-in Console (services.msc).
+Any time you modify a Datadog Integration you'll need to restart the Datadog Agent service. 
 
-To verify that your Process check is working, click on "Logs and Status", then "Agent Status". Scroll down to the "Checks" section and you should see "process" reporting on each process instance you have setup in your configuration file.
+You can do this by clicking the "Actions" button in the top left corner, then selecting "Restart", or you can restart "Datadog Agent" in your Services Management Snap-in Console (services.msc).
+
+To verify that your Process check is working, click on "Logs and Status", then "Agent Status". 
+
+Scroll down to the "Checks" section and you should see "process" reporting on each process instance you have setup in your configuration file.
 
 Again, due to the sensitivity of yaml, if you've tried the above and cannot get it to work, use the attached file to get yourself started and confirm your syntax.
 

@@ -51,7 +51,11 @@ Manage the Datadog Agent and [Integrations][1] using configuration management to
 * For Linux and macOS, `/var/log/datadog/`
 * For Windows, `C:\ProgramData\Datadog\logs`
 
-The Datadog logs do a rollover every 10MB. When a rollover occurs, **one** backup is kept (e.g. `agent.log.1`). If a previous backup exists, it is overwritten during the rollover.
+The Datadog logs do a rollover every 10MB. 
+
+When a rollover occurs, **one** backup is kept (e.g. `agent.log.1`). 
+
+If a previous backup exists, it is overwritten during the rollover.
 
 ## Further Reading
 

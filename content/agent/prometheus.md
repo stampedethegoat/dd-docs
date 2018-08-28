@@ -18,7 +18,9 @@ further_reading:
 
 ## Overview
 
-This page explains the basic usage of the generic `Prometheus` check, the fastest and simplest way to scrape custom metrics from Prometheus endpoints. For more advanced usage of the `PrometheusCheck` interface, including writing a custom check, see the [Developer Tools][1] section.
+This page explains the basic usage of the generic `Prometheus` check, the fastest and simplest way to scrape custom metrics from Prometheus endpoints. 
+
+For more advanced usage of the `PrometheusCheck` interface, including writing a custom check, see the [Developer Tools][1] section.
 
 ## Generic Prometheus check
 
@@ -34,9 +36,13 @@ The minimal configuration of an instance includes:
 * A `namespace` that is prepended to all metrics to avoid metric name collisions.
 * A list of `metrics` that you want to retrieve as custom metrics. For each metric you can either add it to the list `- metric_name` or rename it by specifying a new metric name `- metric_name: renamed`.
 
-Note: It's possible to use a `*` wildcard such as `- metric*` that would fetch all matching metrics. Use with caution; this can potentially generate a lot of custom metrics!
+Note: It's possible to use a `*` wildcard such as `- metric*` that would fetch all matching metrics. 
 
-Your metrics are collected in the form `namespace.metric_name`. By default, you get a service check named `namespace.prometheus.health` to indicate the health of the Prometheus endpoint.
+Use with caution; this can potentially generate a lot of custom metrics!
+
+Your metrics are collected in the form `namespace.metric_name`. 
+
+By default, you get a service check named `namespace.prometheus.health` to indicate the health of the Prometheus endpoint.
 
 ### Advanced settings
 
@@ -68,22 +74,31 @@ annotations:
 
 #### Custom join
 
-In Prometheus it's common to have some placeholder metric holding all the labels because it's possible to do some label joins in the Prometheus query language. The Datadog agent allows you to [join some labels during processing][10], so the metric is sent with all labels/tags wanted.
+In Prometheus it's common to have some placeholder metric holding all the labels because it's possible to do some label joins in the Prometheus query language. 
+
+The Datadog agent allows you to [join some labels during processing][10], so the metric is sent with all labels/tags wanted.
+
 For instance, to add the `node` label on every metric with the `pod` label, use the following configuration lines:
 
 ```
    label_joins:
      target_metric:
-       label_to_match: pod
-       labels_to_get:
+       label_to_match : pod
+       labels_to_get  :
          - node
 ```
 
 ### From custom to official integration
 
-By default, all metrics retrieved by the generic Prometheus check are considered custom metrics. If you are monitoring off-the-shelf software and think it deserves an official integration, please don't hesitate to [contribute][1].
+By default, all metrics retrieved by the generic Prometheus check are considered custom metrics. 
 
-Official integrations have their own dedicated directories. There's a default instance mechanism in the generic check to hardcode the default configuration and metrics metadata. For an example, reference the [kube-proxy][5] integration.
+If you are monitoring off-the-shelf software and think it deserves an official integration, please don't hesitate to [contribute][1].
+
+Official integrations have their own dedicated directories.
+
+There's a default instance mechanism in the generic check to hardcode the default configuration and metrics metadata. 
+
+For an example, reference the [kube-proxy][5] integration.
 
 ## Further Reading
 

@@ -15,7 +15,9 @@ further_reading:
 
 ### Linux
 
-The Agent contains an embedded Python environment at `/opt/datadog-agent/embedded/`. Common binaries such as `python` and `pip` are contained within `/opt/datadog-agent/embedded/bin/`.
+The Agent contains an embedded Python environment at `/opt/datadog-agent/embedded/`. 
+
+Common binaries such as `python` and `pip` are contained within `/opt/datadog-agent/embedded/bin/`.
 
 Python packages can be installed via the embedded `pip`:
 
