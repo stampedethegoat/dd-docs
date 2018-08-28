@@ -1,3 +1,20 @@
+Big Picture
+---------------
+[ ] Figure out best strategy for 10 header links
+[ ] Finish up sidebar, most importantly the overview tab.
+[ ] FAQ Placement
+[ ] Combining everything onto this webpage
+
+Solutions Engineer
+---------------
+[ ] Play around with Docker
+[ ] Play around with Kubernetes
+[ ] Demo
+[ ] Olark
+[ ] Configure basics for SE
+
+Granular
+---------------
 [x] Datadog 101   : Main
 [x] Tagging 101   : Main & Sub
 [x] The Agent 101 : Main
@@ -12,10 +29,15 @@
 [x] Account Management
 [x] Security
 [x] Glossary, Videos, Help
-
 [ ] FAQ for Graphs
 [ ] FAQ for Monitors
 [ ] FAQ for Agents
 [ ] FAQ for Integrations
 [ ] FAQ for Tracing
 [ ] FAQ for Account Settings
+
+Side Things
+---------------
+[ ] Eventually Deploy documentation
+[ ] Figure out what the deal is with github token..?
+[ ] Configure Color of page

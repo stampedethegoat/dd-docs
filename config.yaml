@@ -33,10 +33,21 @@ languages:
           url        : "getting_started/"
           pre        : "nav_start"
           weight     : 30
+        - identifier : customnav_getting_startednav_watchdog
+          name       : "Watchdog"
+          url        : "getting_started/watchdog"
+          pre        : "nav_watchdog"
+          weight     : 10
+          parent     : menu_references_getting_started
+        - identifier : customnav_getting_startednav_events
+          name       : "Events"
+          url        : "getting_started/event_stream/"
+          weight     : 20
+          parent     : menu_references_getting_started
         - identifier : customnav_getting_startednav_dashboards
           name       : "Dashboards"
           url        : "getting_started/dashboards/"
-          weight     : 10
+          weight     : 30
           parent     : menu_references_getting_started
         - identifier : customnav_getting_startednav_timeboard
           name       : "Timeboard"
@@ -66,7 +77,7 @@ languages:
         - identifier : customnav_graphingnav_infrastructure
           name       : "Infrastructure"
           url        : "getting_started/infrastructure/"
-          weight     : 20
+          weight     : 40
           parent     : menu_references_getting_started
         - identifier : customnav_infrastructurenav_hostmap
           name       : "Host Map"
@@ -143,11 +154,6 @@ languages:
           url        : "getting_started/functions/timeshift/"
           weight     : 695
           parent     : customnav_graphingnav_functions
-        - identifier : customnav_getting_startednav_events
-          name       : "Event Stream"
-          url        : "getting_started/event_stream/"
-          weight     : 40
-          parent     : menu_references_getting_started
         - identifier : customnav_getting_startednav_notebooks
           name       : "Notebooks"
           url        : "getting_started/notebooks/"
@@ -744,13 +750,6 @@ languages:
         #  weight: 90
         #  parent: menu_references_logs
 
-
-        # WATCHDOG
-        - identifier : customnav_watchdog
-          name       : "6| Watchdog"
-          url        : "watchdog/"
-          pre        : "nav_watchdog"
-          weight     : 70
 
         # TAGGING
         - identifier : menu_references_tagging
