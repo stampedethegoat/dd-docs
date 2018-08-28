@@ -13,7 +13,11 @@ Upgrade or downgrade your account from the Plan tab on the Organization Account 
 
 ## Usage reports
 
-View hourly usage of your account across all billable parameters as well as the top 500 custom metrics submitted. If your organization is the parent-organization in a [multi-org account][4], you will also be able to view the usage of child-organization accounts. Individual child-organization accounts are isolated and will only be able to view their own usage and custom metrics.
+View hourly usage of your account across all billable parameters as well as the top 500 custom metrics submitted. 
+
+If your organization is the parent-organization in a [multi-org account][4], you will also be able to view the usage of child-organization accounts. 
+
+Individual child-organization accounts are isolated and will only be able to view their own usage and custom metrics.
 
 **Note**: Allow up to 72 hours for this section to update.
 
@@ -21,11 +25,14 @@ Further detailed usage reports can also be created [on request][3] by your accou
 
 ## Billing history
 
-Your account billing history is available from the Billing History tab on the [Organization Account Settings page][2]. For specific billing questions, contact your account representative or [success@datadoghq.com][3].
+Your account billing history is available from the Billing History tab on the [Organization Account Settings page][2]. 
+
+For specific billing questions, contact your account representative or [success@datadoghq.com][3].
 
 ## Change your organization name
 
 To rename your organization, enter the new name, then click save. 
+
 **Note**: **Your organization name may not exceed 32 characters**.
 
 ## SAML settings

@@ -15,7 +15,7 @@ Configuring [SAML (Security Assertion Markup Language)][1] for your Datadog acco
 
 **Note**: Created users must accept email verification in order for SAML to work.
 
-Here's a two-minute video walkthrough:
+Here's a 2min video walkthrough:
 
 {{< wistia 2qe33x8h3v >}}
 
@@ -42,7 +42,10 @@ Once SAML is configured in Datadog and your IdP is set up to accept requests fro
 {{< img src="account_management/saml/saml_enabled.png" alt="Saml Enabled" responsive="true" >}}
 
 The Single Sign On URL is also displayed on the [Team page][5].
-Loading this URL initiates a SAML authentication against your IdP. Note that the URL isn't displayed until SAML is enabled for your account.
+
+Loading this URL initiates a SAML authentication against your IdP. 
+
+Note that the URL isn't displayed until SAML is enabled for your account.
 
 ## Datadog Service Provider Details
 
@@ -55,13 +58,17 @@ Loading this URL initiates a SAML authentication against your IdP. Note that the
 
 ##  Setting Attributes
 
-Attributes may be included with the Assertion. Datadog looks for 3 Attributes in the AttributeStatement:
+Attributes may be included with the Assertion. 
+
+Datadog looks for 3 Attributes in the AttributeStatement:
 
   1. **eduPersonPrincipalName**: If specified, the eduPersonPrincipalName must correspond to the user's Datadog username. The username is usually the user's email address.
   2. **sn**: This is optional, and should be set to the user's surname.
   3. **givenName**: This is optional, and should be set to the user's first, or given name.
 
-Datadog expects that Attributes use the URI NameFormat `urn:oasis:names:tc:SAML:2.0:attrname-format:uri` or the Basic NameFormat `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`. The name used for each attribute depends on the NameFormat that your IdP uses.
+Datadog expects that Attributes use the URI NameFormat `urn:oasis:names:tc:SAML:2.0:attrname-format:uri` or the Basic NameFormat `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`.
+
+The name used for each attribute depends on the NameFormat that your IdP uses.
 
 If your IdP is configured to use the URI NameFormat `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`:
 
@@ -75,7 +82,11 @@ If your IdP is configured to use the Basic NameFormat `urn:oasis:names:tc:SAML:2
   2. **sn**: The IdP should set `urn:mace:dir:attribute-def:sn` as the Name of the Attribute
   3. **givenName**: The IdP should set `urn:mace:dir:attribute-def:givenName` as the Name of the Attribute
 
-If **eduPersonPrincipalName** exists in the AttributeStatement, the value of this attribute is used for the username. If **eduPersonPrincipalName** is not included in the AttributeStatement, the username is taken from the NameID in the Subject. The NameID must use the Format `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+If **eduPersonPrincipalName** exists in the AttributeStatement, the value of this attribute is used for the username. 
+
+If **eduPersonPrincipalName** is not included in the AttributeStatement, the username is taken from the NameID in the Subject. 
+
+The NameID must use the Format `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 
 If **sn** and **givenName** are provided, they are used to update the user's name in their Datadog profile.
 
@@ -95,21 +106,31 @@ The following features can be enabled through the [SAML Configuration dialog](ht
 
 ### Just-in-Time (JIT) Provisioning
 
-With Just-in-Time provisioning, a user is created within Datadog on the fly the first time they try to log in. This eliminates the need for administrators to manually create user accounts one at a time.
+With Just-in-Time provisioning, a user is created within Datadog on the fly the first time they try to log in. 
 
-Some organizations might not want to invite all of their users to Datadog. If you would like to make changes to how SAML works for your account, [contact support][10].
+This eliminates the need for administrators to manually create user accounts 1 at a time.
+
+Some organizations might not want to invite all of their users to Datadog. 
+
+If you would like to make changes to how SAML works for your account, [contact support][10].
+
 It is up to the organization to configure their IdP to not send assertions to Datadog if they don't want a particular user to access Datadog.
 
 Administrators in accounts using SAML can also set the default role for new Just-in-Time users.
+
 The default role is currently **Standard**, but you can choose to add new JIT users as **Read-Only** or even **Administrators**.
 
 {{< img src="account_management/saml/saml_jit_default.png" alt="saml JIT Default" responsive="true" style="width:50%;" >}}
 
 ### IdP Initiated Login
 
-When the Datadog url is loaded, the browser is redirected to the customer IdP where the user enters their credentials, then the IdP redirects back to Datadog. Some IdPs have the ability to send an assertion directly to Datadog without first getting an AuthnRequest (IdP Initiated Login).
+When the Datadog url is loaded, the browser is redirected to the customer IdP where the user enters their credentials, then the IdP redirects back to Datadog. 
 
-After enabling the IdP Initiated Login feature (and waiting for caches to clear), you will need to get a new version of the SP Metadata. Your new SP Metadata will contain a different, organization-specific AssertionConsumerService endpoint to send assertions to.
+Some IdPs have the ability to send an assertion directly to Datadog without first getting an AuthnRequest (IdP Initiated Login).
+
+After enabling the IdP Initiated Login feature (and waiting for caches to clear), you will need to get a new version of the SP Metadata. 
+
+Your new SP Metadata will contain a different, organization-specific AssertionConsumerService endpoint to send assertions to.
 
 If you do not use the updated SP Metadata, Datadog will not be able to associate the assertion with your organization and will display an error page with a message that the SAML response is missing the "InResponseTo" attribute.
 

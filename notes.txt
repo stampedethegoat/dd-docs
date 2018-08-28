@@ -6,15 +6,18 @@
 [x] Graphing      : Subsidiaries
 [x] Alerting
 [x] APM
-
 [x] Log Management
-[ ] Developer Tools
+[x] Developer Tools
+
 [ ] Account Management
 [ ] Security
 [ ] Glossary, Videos, Help
+
 [ ] The Agent 101 : Subsidiaries
+
 [ ] FAQ for Graphs
 [ ] FAQ for Monitors
 [ ] FAQ for Agents
 [ ] FAQ for Integrations
 [ ] FAQ for Tracing
+[ ] FAQ for Account Settings

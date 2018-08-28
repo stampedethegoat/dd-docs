@@ -916,15 +916,16 @@ languages:
           weight     : 60
           parent     : menu_references_developers
         - identifier : customnav_developersnav_agent_checks
-          name       : "Write an Agent Check"
+          name       : "Agent Check"
           url        : "developers/agent_checks"
           weight     : 70
           parent     : menu_references_developers
         - identifier : customnav_developersnav_prometheus
-          name       : "Write a Prometheus Check"
+          name       : "Prometheus Check"
           url        : "developers/prometheus"
           weight     : 80
           parent     : menu_references_developers
+
         # Integrations core doc
         - identifier : customnav_integrationsnav_new_integration
           name       : "Integrations"
@@ -954,18 +955,18 @@ languages:
         # DEVELOPERS - Subnav end
 
         # API
-        - identifier: menu_references_api
-          name: "API"
-          url: "api/"
-          pre: "nav_api"
-          weight: 110
+        - identifier : menu_references_api
+          name       : "API"
+          url        : "api/"
+          pre        : "nav_api"
+          weight     : 110
 
         # ACCOUNT MANAGEMENT
-        - identifier: menu_references_account_management
-          name: "Account Settings"
-          url: "account_management/"
-          pre: "nav_account"
-          weight: 120
+        - identifier : menu_references_account_management
+          name       : "Account Settings"
+          url        : "account_management/"
+          pre        : "nav_account"
+          weight     : 120
         # ACCOUNT MANAGEMENT - Subnav start
         - identifier: customnav_accountmanagementnav_team
           name: "Team management"

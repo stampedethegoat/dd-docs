@@ -20,7 +20,9 @@ This article is meant to be used as an add-on to the main guide on this integrat
 
 **The following steps should be followed when configure this with ADFS.**
 
-Open the ADFS management console. This can be done from Server Manager as shown below:
+Open the ADFS management console. 
+
+This can be done from Server Manager as shown below:
 
 {{< img src="account_management/saml/1ef6IBS.png" alt="1ef6IBS" responsive="true" style="width:60%;">}}
 
@@ -28,13 +30,17 @@ Click the button on the right for Add a Relying Party Trust.
 
 {{< img src="account_management/saml/O85HjIi.png" alt="O85HjIi" responsive="true" style="width:60%;">}}
 
-This opens a wizard for the trust with a welcome screen describing the feature. Review the description and click Start to begin.
+This opens a wizard for the trust with a welcome screen describing the feature. 
+
+Review the description and click Start to begin.
 
 {{< img src="account_management/saml/KWe4h6W.png" alt="KWe4h6W" responsive="true" style="width:60%;">}}
 
 Import the [Datadog SAML Metadata file][2].
 
-The file requires a login to access it, making it easiest to download then import by file instead of directly via the URL as shown in the import options below. (As a warning: when downloading the file, if you open and/or rename the file, that may end up changing the file type which can cause xml parsing issues at the next step.)
+The file requires a login to access it, making it easiest to download then import by file instead of directly via the URL as shown in the import options below. 
+
+(As a warning: when downloading the file, if you open and/or rename the file, that may end up changing the file type which can cause xml parsing issues at the next step.)
 
 {{< img src="account_management/saml/UAjeUVL.png" alt="UAjeUVL" responsive="true" style="width:60%;">}}
 
@@ -68,11 +74,17 @@ We recommend two Claim Rules for brokering the SAML assertions. They can be adde
 
 {{< img src="account_management/saml/QkNaDCD.png" alt="QkNaDCD" responsive="true" style="width:60%;">}}
 
-This first rule is an LDAP Attributes rule that ensures the required information is passed between the two systems. Configure the rule as shown below and click OK to save. (Make sure to use three separate fields for "E-Mail-Addresses, Given-Name, and Surname" or else some relevant info may be left as "None" later on.)
+This first rule is an LDAP Attributes rule that ensures the required information is passed between the two systems. 
+
+Configure the rule as shown below and click OK to save. 
+
+(Make sure to use three separate fields for "E-Mail-Addresses, Given-Name, and Surname" or else some relevant info may be left as "None" later on.)
 
 {{< img src="account_management/saml/cogaUQT.png" alt="cogaUQT" responsive="true" style="width:60%;">}}
 
-The second rule is a Transform rule. Datadog specifies `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` for the Format of the NameIDPolicy in Assertion Requests where ADFS natively expects these in Name ID format so we need to transform the format from email to Name ID.
+The second rule is a Transform rule. 
+
+Datadog specifies `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` for the Format of the NameIDPolicy in Assertion Requests where ADFS natively expects these in Name ID format so we need to transform the format from email to Name ID.
 
 Select Transform an Incoming Claim from the drop-down and click **Next** to continue.
 
@@ -96,11 +108,15 @@ Import into your Datadog Organization from the SAML configuration page as shown 
 
 That's it! Once SAML is configured, users can login by using the link provided in the SAML configuration page.
 
-Keep in mind that users still need to be invited and activated before they're able to login. Be sure to invite new users by using the email address corresponding to their Active Directory user record otherwise they may be denied as shown below.
+Keep in mind that users still need to be invited and activated before they're able to login. 
+
+Be sure to invite new users by using the email address corresponding to their Active Directory user record otherwise they may be denied as shown below.
 
 {{< img src="account_management/saml/6TsPUla.png" alt="6TsPUla" responsive="true" style="width:60%;">}}
 
-While in most setups the user's user@domain is his  Microsoft login does not enforce this. You can confirm the email address used within the user record as shown below.
+While in most setups the user's user@domain is his  Microsoft login does not enforce this. 
+
+You can confirm the email address used within the user record as shown below.
 
 {{< img src="account_management/saml/0R81SaK.png" alt="0R81SaK" responsive="true" style="width:60%;">}}
 

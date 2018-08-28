@@ -27,13 +27,19 @@ Datadog provides 3 user roles:
 
 * **Administrators** have access to billing information, the ability to revoke API keys, can manage users, and can configure [read-only dashboards][2]. They can also promote standard users to Administrators.
 
+
 * **Standard users** have access to view and modify all monitoring features that Datadog offers such as [dashboards][2], [monitors][3], [events][4], and [notebooks][5].
+
 
 * **Read only users** are created by administrators and do not have access to edit within Datadog. This comes in handy when you'd like to share specific read-only views with a client or where a member of one business unit needs to share a [dashboard][6] with someone outside their unit.
 
 ## Disable existing members
 
-**NOTE:** You must be an administrator of the team to disable members. You cannot permanently remove users as they might own events, dashboards, etc. which are not supposed to be removed. Disabled team members will disappear from the administrator's team page UI automatically after one month.
+**NOTE:** You must be an administrator of the team to disable members. 
+
+You cannot permanently remove users as they might own events, dashboards, etc. which are not supposed to be removed. 
+
+Disabled team members will disappear from the administrator's team page UI automatically after 1 month.
 
 1. Go to the [Team Page][1].
 2. Hover over the avatar for the user you wish to disable. Choose **Disable** from the menu.
