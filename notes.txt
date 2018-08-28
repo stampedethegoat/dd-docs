@@ -9,7 +9,7 @@
 [x] Log Management
 [x] Developer Tools
 
-[ ] Account Management
+[x] Account Management
 [ ] Security
 [ ] Glossary, Videos, Help
 
