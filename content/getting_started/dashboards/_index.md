@@ -1,8 +1,6 @@
 ---
 title: Dashboards
 kind: documentation
-aliases:
-    - /guides/templating/
 further_reading:
 - link: "graphing/dashboards/template_variables"
   tag: "Documentation"

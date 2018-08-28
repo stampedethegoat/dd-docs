@@ -33,153 +33,143 @@ languages:
           url        : "getting_started/"
           pre        : "nav_start"
           weight     : 30
-        #- identifier : customnav_getting_startednav_graphing
-          #name       : "Graphing"
-          #url        : "getting_started/graphing/"
-          #pre        : "nav_graphing"
-          #weight     : 100
-          #parent     : menu_references_getting_started
-        #- identifier : customnav_getting_startednav_boards
-          #name       : "Boards"
-          #url        : "getting_started/dashboards/"
-          #weight     : 110
-          #parent     : menu_references_getting_started
-        #- identifier : customnav_graphingnav_timeboard
-          #name       : "Timeboard"
-          #url        : "graphing/dashboards/timeboard/"
-          #weight     : 100
-          #parent     : customnav_graphingnav_dashboards
-        #- identifier : customnav_graphingnav_screenboard
-          #name       : "Screenboard"
-          #url        : "graphing/dashboards/screenboard/"
-          #weight     : 110
-          #parent     : customnav_graphingnav_dashboards
-        #- identifier : customnav_graphingnav_shared_graph
-          #name       : "Shared Graphs"
-          #url        : "graphing/dashboards/shared_graph/"
-          #weight     : 120
-          #parent     : customnav_graphingnav_dashboards
-        #- identifier : customnav_graphingnav_template_variables
-          #name       : "Template Variables"
-          #url        : "graphing/dashboards/template_variables/"
-          #weight     : 130
-          #parent     : customnav_graphingnav_dashboards
-        #- identifier : customnav_graphingnav_widgets
-          #name       : "Widgets"
-          #url        : "graphing/dashboards/widgets/"
-          #weight     : 140
-          #parent     : customnav_graphingnav_dashboards
-        #- identifier : customnav_graphingnav_metrics
-          #name       : "Metrics"
-          #url        : "graphing/metrics/"
-          #weight     : 20
-          #parent     : menu_references_graphing
-        #- identifier : customnav_graphingnav_distribution
-          #name       : "Distributions"
-          #url        : "graphing/metrics/distributions"
-          #weight     : 210
-          #parent     : customnav_graphingnav_metrics
-        #- identifier : customnav_graphingnav_notebooks
-          #name       : "Notebooks"
-          #url        : "graphing/notebooks/"
-          #weight     : 30
-          #parent     : menu_references_graphing
-        #- identifier : customnav_graphingnav_events
-          #name       : "Event Stream"
-          #url        : "graphing/event_stream/"
-          #weight     : 40
-          #parent     : menu_references_graphing
-        #- identifier : customnav_graphingnav_infrastructure
-          #name       : "Infrastructure"
-          #url        : "graphing/infrastructure/"
-          #weight     : 50
-          #parent     : menu_references_graphing
-        #- identifier : customnav_infrastructurenav_hostmap
-          #name       : "Host Map"
-          #url        : "graphing/infrastructure/hostmap/"
-          #weight     : 510
-          #parent     : customnav_graphingnav_infrastructure
-        #- identifier : customnav_infrastructurenav_containermap
-          #name       : "Container Map"
-          #url        : "graphing/infrastructure/containermap/"
-          #weight     : 35
-          #parent     : customnav_graphingnav_infrastructure
-        #- identifier : customnav_infrastructurenav_livecontainers
-          #name       : "Live Containers"
-          #url        : "graphing/infrastructure/livecontainers/"
-          #weight     : 520
-          #parent     : customnav_graphingnav_infrastructure
-        #- identifier : customnav_infrastructurenav_process
-          #name       : "Live Processes"
-          #url        : "graphing/infrastructure/process/"
-          #weight     : 530
-          #parent     : customnav_graphingnav_infrastructure
-        #- identifier : customnav_graphingnav_functions
-          #name       : "From the query to the graph "
-          #url        : "graphing/functions/"
-          #weight     : 60
-          #parent     : menu_references_graphing
-        #- identifier : customnav_graphingnav_algorithms
-          #name       : "Algorithms"
-          #url        : "graphing/functions/algorithms/"
-          #weight     : 610
-          #parent     : customnav_graphingnav_functions
-        #- identifier : customnav_graphingnav_arithmetic
-          #name       : "Arithmetic"
-          #url        : "graphing/functions/arithmetic/"
-          #weight     : 620
-          #parent     : customnav_graphingnav_functions
-        #- identifier : customnav_graphingnav_count
-          #name       : "Count"
-          #url        : "graphing/functions/count/"
-          #weight     : 630
-          #parent     : customnav_graphingnav_functions
-        #- identifier : customnav_graphingnav_interpolation
-          #name       : "Interpolation"
-          #url        : "graphing/functions/interpolation/"
-          #weight     : 640
-          #parent     : customnav_graphingnav_functions
-        #- identifier : customnav_graphingnav_rank
-          #name       : "Rank"
-          #url        : "graphing/functions/rank/"
-          #weight     : 650
-          #parent     : customnav_graphingnav_functions
-        #- identifier : customnav_graphingnav_rate
-          #name       : "Rate"
-          #url        : "graphing/functions/rate/"
-          #weight     : 660
-          #parent     : customnav_graphingnav_functions
-        #- identifier : customnav_graphingnav_regression
-          #name       : "Regression"
-          #url        : "graphing/functions/regression/"
-          #weight     : 670
-          #parent     : customnav_graphingnav_functions
-        #- identifier : customnav_graphingnav_rollup
-          #name       : "Rollup"
-          #url        : "graphing/functions/rollup/"
-          #weight     : 680
-          #parent     : customnav_graphingnav_functions
-        #- identifier : customnav_graphingnav_smoothing
-          #name       : "Smoothing"
-          #url        : "graphing/functions/smoothing/"
-          #weight     : 690
-          #parent     : customnav_graphingnav_functions
-        #- identifier : customnav_graphingnav_timeshift
-          #name       : "Timeshift"
-          #url        : "graphing/functions/timeshift/"
-          #weight     : 695
-          #parent     : customnav_graphingnav_functions
-        #- identifier : customnav_graphingnav_graphingjson
-          #name       : "Graphing JSON"
-          #url        : "graphing/graphing_json/"
-          #weight     : 70
-          #parent     : menu_references_graphing
+        - identifier : customnav_getting_startednav_dashboards
+          name       : "Dashboards"
+          url        : "getting_started/dashboards/"
+          weight     : 10
+          parent     : menu_references_getting_started
+        - identifier : customnav_getting_startednav_timeboard
+          name       : "Timeboard"
+          url        : "getting_started/dashboards/timeboard/"
+          weight     : 100
+          parent     : customnav_getting_startednav_dashboards
+        - identifier : customnav_getting_startednav_screenboard
+          name       : "Screenboard"
+          url        : "getting_started/dashboards/screenboard/"
+          weight     : 110
+          parent     : customnav_getting_startednav_dashboards
+        - identifier : customnav_getting_startednav_shared_graph
+          name       : "Shared Graphs"
+          url        : "getting_started/dashboards/shared_graph/"
+          weight     : 120
+          parent     : customnav_getting_startednav_dashboards
+        - identifier : customnav_getting_startednav_template_variables
+          name       : "Template Variables"
+          url        : "getting_started/dashboards/template_variables/"
+          weight     : 130
+          parent     : customnav_getting_startednav_dashboards
+        - identifier : customnav_graphingnav_widgets
+          name       : "Widgets"
+          url        : "getting_started/dashboards/widgets/"
+          weight     : 140
+          parent     : customnav_getting_startednav_dashboards
+        - identifier : customnav_graphingnav_infrastructure
+          name       : "Infrastructure"
+          url        : "getting_started/infrastructure/"
+          weight     : 20
+          parent     : menu_references_getting_started
+        - identifier : customnav_infrastructurenav_hostmap
+          name       : "Host Map"
+          url        : "getting_started/infrastructure/hostmap/"
+          weight     : 510
+          parent     : customnav_graphingnav_infrastructure
+        - identifier : customnav_infrastructurenav_containermap
+          name       : "Container Map"
+          url        : "getting_started/infrastructure/containermap/"
+          weight     : 35
+          parent     : customnav_graphingnav_infrastructure
+        - identifier : customnav_infrastructurenav_livecontainers
+          name       : "Live Containers"
+          url        : "getting_started/infrastructure/livecontainers/"
+          weight     : 520
+          parent     : customnav_graphingnav_infrastructure
+        - identifier : customnav_infrastructurenav_process
+          name       : "Live Processes"
+          url        : "getting_started/infrastructure/process/"
+          weight     : 530
+          parent     : customnav_graphingnav_infrastructure
+        - identifier : customnav_graphingnav_functions
+          name       : "Algorithms"
+          url        : "getting_started/functions/"
+          weight     : 30
+          parent     : menu_references_getting_started
+        - identifier : customnav_graphingnav_algorithms
+          name       : "Anomalies and Outliers"
+          url        : "getting_started/functions/algorithms/"
+          weight     : 610
+          parent     : customnav_graphingnav_functions
+        - identifier : customnav_graphingnav_arithmetic
+          name       : "Arithmetic"
+          url        : "getting_started/functions/arithmetic/"
+          weight     : 620
+          parent     : customnav_graphingnav_functions
+        - identifier : customnav_graphingnav_count
+          name       : "Count"
+          url        : "getting_started/functions/count/"
+          weight     : 630
+          parent     : customnav_graphingnav_functions
+        - identifier : customnav_graphingnav_interpolation
+          name       : "Interpolation"
+          url        : "getting_started/functions/interpolation/"
+          weight     : 640
+          parent     : customnav_graphingnav_functions
+        - identifier : customnav_graphingnav_rank
+          name       : "Rank"
+          url        : "getting_started/functions/rank/"
+          weight     : 650
+          parent     : customnav_graphingnav_functions
+        - identifier : customnav_graphingnav_rate
+          name       : "Rate"
+          url        : "getting_started/functions/rate/"
+          weight     : 660
+          parent     : customnav_graphingnav_functions
+        - identifier : customnav_graphingnav_regression
+          name       : "Regression"
+          url        : "getting_started/functions/regression/"
+          weight     : 670
+          parent     : customnav_graphingnav_functions
+        - identifier : customnav_graphingnav_rollup
+          name       : "Rollup"
+          url        : "getting_started/functions/rollup/"
+          weight     : 680
+          parent     : customnav_graphingnav_functions
+        - identifier : customnav_graphingnav_smoothing
+          name       : "Smoothing"
+          url        : "getting_started/functions/smoothing/"
+          weight     : 690
+          parent     : customnav_graphingnav_functions
+        - identifier : customnav_graphingnav_timeshift
+          name       : "Timeshift"
+          url        : "getting_started/functions/timeshift/"
+          weight     : 695
+          parent     : customnav_graphingnav_functions
+        - identifier : customnav_getting_startednav_events
+          name       : "Event Stream"
+          url        : "getting_started/event_stream/"
+          weight     : 40
+          parent     : menu_references_getting_started
+        - identifier : customnav_getting_startednav_notebooks
+          name       : "Notebooks"
+          url        : "getting_started/notebooks/"
+          weight     : 50
+          parent     : menu_references_getting_started
+        - identifier : customnav_getting_startednav_graphing
+          name       : "Graphing"
+          url        : "getting_started/graphing/"
+          pre        : "nav_graphing"
+          weight     : 60
+          parent     : menu_references_getting_started
+        - identifier : customnav_graphingnav_graphingjson
+          name       : "JSON"
+          url        : "getting_started/graphing_json/"
+          weight     : 70
+          parent     : menu_references_getting_started
 
        # - identifier: customnav_graphingnav_faq
        #   name: "FAQ"
-       #   url: "graphing/faq/"
+       #   url: "getting_started/faq/"
        #   weight: 90
-       #   parent: menu_references_graphing
+       #   parent: menu_references_getting_started
         # GRAPHING - Subnav end
 
 
@@ -490,7 +480,7 @@ languages:
           parent     : customnav_tracingnav_getting_further
         - identifier : customnav_tracingnav_apm_widget
           name       : "APM in Dashboard"
-          url        : "graphing/dashboards/widgets/#service-summary"
+          url        : "getting_started/dashboards/widgets/#service-summary"
           weight     : 440
           parent     : customnav_tracingnav_getting_further
         - identifier : customnav_tracingnav_metrics_namespace
@@ -1087,7 +1077,7 @@ languages:
 
 
         # GRAPHING
-        - identifier: menu_references_graphing
+        - identifier: menu_references_getting_started
           name: "Graphiques"
           url: "graphing/"
           pre: "nav_graphing"
@@ -1097,7 +1087,7 @@ languages:
           name: "Dashboards"
           url: "graphing/dashboards/"
           weight: 10
-          parent: menu_references_graphing
+          parent: menu_references_getting_started
         # Graphing dashboard subnav
         - identifier: customnav_graphingnav_screenboard
           name: "Screenboard"
@@ -1130,7 +1120,7 @@ languages:
           name: "Metrics"
           url: "graphing/metrics/"
           weight: 20
-          parent: menu_references_graphing
+          parent: menu_references_getting_started
         - identifier: customnav_graphingnav_distribution
           name: "Distributions"
           url: "graphing/metrics/distributions"
@@ -1141,18 +1131,18 @@ languages:
           name: "Notebooks"
           url: "graphing/notebooks/"
           weight: 40
-          parent: menu_references_graphing
+          parent: menu_references_getting_started
         - identifier: customnav_graphingnav_events
           name: "Flux d'événements"
           url: "graphing/event_stream/"
           weight: 50
-          parent: menu_references_graphing
+          parent: menu_references_getting_started
 
         - identifier: customnav_graphingnav_infrastructure
           name: "Infrastructure"
           url: "graphing/infrastructure/"
           weight: 60
-          parent: menu_references_graphing
+          parent: menu_references_getting_started
         - identifier: customnav_infrastructurenav_hostmap
           name: "Hostmap"
           url: "graphing/infrastructure/hostmap/"
@@ -1174,7 +1164,7 @@ languages:
           name: "De la query au graphique"
           url: "graphing/functions/"
           weight: 60
-          parent: menu_references_graphing
+          parent: menu_references_getting_started
         - identifier: customnav_graphingnav_algorithms
           name: "Algorithms"
           url: "graphing/functions/algorithms/"
@@ -1230,12 +1220,12 @@ languages:
           name: "Graphing JSON"
           url: "graphing/graphing_json/"
           weight: 70
-          parent: menu_references_graphing
+          parent: menu_references_getting_started
        # - identifier: customnav_graphingnav_faq
        #   name: "FAQ"
        #   url: "graphing/faq/"
        #   weight: 90
-       #   parent: menu_references_graphing
+       #   parent: menu_references_getting_started
         # GRAPHING - Subnav end
 
 
