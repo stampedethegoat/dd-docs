@@ -1,4 +1,10 @@
 left:
+  - name: apasdfp
+    link: "http://localhost:1313"
+    title: "random"
+  - name: apasdfp
+    link: "http://localhost:1313"
+    title: "random"
   - name: app
     link: "http://localhost:1313"
     title: "Application"
@@ -57,6 +63,15 @@ left:
             link: "http://localhost:1313"
             title: "Help"
 right:
+  - name: apasdfp
+    link: "http://localhost:1313"
+    title: "random"
+  - name: apasdfp
+    link: "http://localhost:1313"
+    title: "random"
+  - name: apasdfp
+    link: "http://localhost:1313"
+    title: "random"
   - name: zendesk
     link: "https://datadog.zendesk.com/agent/apps/lovely-views"
     title: "Zendesk"

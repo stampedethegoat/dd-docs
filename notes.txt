@@ -1,6 +1,7 @@
 [x] Datadog 101   : Main
 [x] Tagging 101   : Main & Sub
 [x] The Agent 101 : Main
+[x] The Agent 101 : Subsidiaries
 [x] Watchdog      : Main
 [x] Graphing      : Main
 [x] Graphing      : Subsidiaries
@@ -8,12 +9,9 @@
 [x] APM
 [x] Log Management
 [x] Developer Tools
-
 [x] Account Management
 [x] Security
 [x] Glossary, Videos, Help
-
-[ ] The Agent 101 : Subsidiaries
 
 [ ] FAQ for Graphs
 [ ] FAQ for Monitors
