@@ -14,8 +14,9 @@ further_reading:
   text: "DogStatsD source code"
 ---
 
+This section specifies the raw datagram format for each data type that DogStatsD accepts. 
 
-This section specifies the raw datagram format for each data type that DogStatsD accepts. This isn't required reading if you're using any of the DogStatsD client libraries; however, if you want to write your own library, or use the shell to send metrics or events, then read on.
+This isn't required reading if you're using any of the DogStatsD client libraries; however, if you want to write your own library, or use the shell to send metrics or events, then read on.
 
 ## Datagram Format
 

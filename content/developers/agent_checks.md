@@ -1,5 +1,5 @@
 ---
-title: Writing an Agent check
+title: Agent Check
 kind: documentation
 aliases:
   - /guides/agent_checks/
@@ -24,15 +24,23 @@ Custom Agent checks are included in the main check run loop, meaning they run ev
 
 ### Should you write an Agent check or an Integration?
 
-Agent checks are a great way to collect metrics from custom applications or unique systems. However, if you are trying to collect metrics from a generally available application, public service or open source project, we recommend that you write [an Integration][5].
+Agent checks are a great way to collect metrics from custom applications or unique systems. 
 
-Starting with version 5.9 of the Datadog Agent, a new method for creating integrations is available. This allows integrations to be released and updated independently from Datadog Agent updates, it also provides an easier way for you to share integrations and makes it easier for the wider Datadog community to use your integrations.
+However, if you are trying to collect metrics from a generally available application, public service or open source project, we recommend that you write [an Integration][5].
+
+Starting with version 5.9 of the Datadog Agent, a new method for creating integrations is available. 
+
+This allows integrations to be released and updated independently from Datadog Agent updates. 
+
+It also provides an easier way for you to share integrations and share your integrations with the wider Datadog community.
 
 For more information about how to write an integration, see [Creating New Integrations][1] and check out the [integrations-extras GitHub repository][2] to see other contributed integrations.
 
 ## Setup
 
-First off, ensure you've properly installed the [Agent][3] on your machine. If you run into any issues during the setup, [contact our support][4].
+First off, ensure you've properly installed the [Agent][3] on your machine. 
+
+If you run into any issues during the setup, [contact our support][4].
 
 ## `AgentCheck` interface
 
@@ -83,8 +91,7 @@ There are some differences between Agent v5 and Agent v6:
 
 ### Sending metrics
 
-Sending metrics in a check is easy. If you're already familiar with the
-methods available in [DogStatsD][6], then the transition is very simple.
+Sending metrics in a check is easy. If you're already familiar with the methods available in [DogStatsD][6], then the transition is very simple.
 
 You have the [following methods][6] available to you:
 
@@ -104,14 +111,15 @@ You have the [following methods][6] available to you:
 
 All of these methods take the following arguments:
 
-- `metric`: The name of the metric
-- `value`: The value for the metric (defaults to 1 on increment, -1 on decrement)
-- `tags`: (optional) A list of tags to associate with this metric.
-- `hostname`: (optional) A hostname to associate with this metric. Defaults to the current host.
-- `device_name`: (optional) A device name to associate with this metric.
+- `metric`      : The name of the metric
+- `value`       : The value for the metric (defaults to 1 on increment, -1 on decrement)
+- `tags`        : (optional) A list of tags to associate with this metric.
+- `hostname`    : (optional) A hostname to associate with this metric. Defaults to the current host.
+- `device_name` : (optional) A device name to associate with this metric.
 
-These methods may be called from anywhere within your check logic. At the end of your `check` function, all metrics that were submitted are collected and
-flushed out with the other Agent metrics.
+These methods may be called from anywhere within your check logic. 
+
+At the end of your `check` function, all metrics that were submitted are collected and flushed out with the other Agent metrics.
 
 ### Sending events
 
@@ -119,18 +127,17 @@ At any time during your check, make a call to `self.event(...)` with one argumen
 
 ```
 {
-    "timestamp": int, the epoch timestamp for the event,
-    "event_type": string, the event name,
-    "api_key": string, the api key for your account,
-    "msg_title": string, the title of the event,
-    "msg_text": string, the text body of the event,
-    "aggregation_key": string, a key to use for aggregating events,
-    "alert_type": (optional) string, one of ('error', 'warning', 'success', 'info');
-        defaults to 'info',
-    "source_type_name": (optional) string, the source type name,
-    "host": (optional) string, the name of the host,
-    "tags": (optional) list, a list of tags to associate with this event
-    "priority": (optional) string which specifies the priority of the event (Normal, Low)
+    "timestamp"        : int, the epoch timestamp for the event,
+    "event_type"       : string, the event name,
+    "api_key"          : string, the api key for your account,
+    "msg_title"        : string, the title of the event,
+    "msg_text"         : string, the text body of the event,
+    "aggregation_key"  : string, a key to use for aggregating events,
+    "alert_type"       : (optional) string, one of ('error', 'warning', 'success', 'info');
+    "source_type_name" : (optional) string, the source type name,
+    "host"             : (optional) string, the name of the host,
+    "tags"             : (optional) list, a list of tags to associate with this event
+    "priority"         : (optional) string which specifies the priority of the event (Normal, Low)
 }
 ```
 
@@ -142,28 +149,26 @@ Your custom Agent check can also report the status of a service by calling the `
 
 The service_check method accepts the following arguments:
 
-- `check_name`: The name of the service check.
-- `status`: An integer describing the service status. You may also use the class status definitions:
+- `check_name` : The name of the service check.
+- `status`     : An integer describing the service status. You may also use the class status definitions :
   - `AgentCheck.OK` or `0` for success
   - `AgentCheck.WARNING` or `1` for warning
   - `AgentCheck.CRITICAL` or `2` for failure
   - `AgentCheck.UNKNOWN` or `3` for indeterminate status
-- `tags`: (optional) A list of key:val tags for this check.
-- `timestamp`: (optional) The POSIX timestamp when the check occurred.
-- `hostname`: (optional) The name of the host submitting the check. Defaults to the host_name of the Agent.
-- `check_run_id`: (optional) An integer ID used for logging and tracing purposes. The ID doesn't need to be unique. If an ID is not provided, one is automatically generated.
-- `message`: (optional) Additional information or a description of why this status occurred.
+- `tags`         : (optional) A list of key:val tags for this check.
+- `timestamp`    : (optional) The POSIX timestamp when the check occurred.
+- `hostname`     : (optional) The name of the host submitting the check. Defaults to the host_name of the Agent.
+- `check_run_id` : (optional) An integer ID used for logging and tracing purposes. The ID doesn't need to be unique. If an ID is not provided, one is automatically generated.
+- `message`      : (optional) Additional information or a description of why this status occurred.
 
 ### Exceptions
 
-If a check cannot run because of improper configuration, programming error, or
-because it could not collect any metrics, it should raise a meaningful exception. This exception is logged and is shown in the Agent [info command][7] for easy debugging. For example:
+If a check cannot run because of improper configuration, programming error, or because it could not collect any metrics, it should raise a meaningful exception. 
 
+This exception is logged and is shown in the Agent [info command][7] for easy debugging. For example:
     $ sudo /etc/init.d/datadog-agent info
-
       Checks
       ======
-
         my_custom_check
         ---------------
           - instance #0 [ERROR]: ConnectionError('Connection refused.',)
@@ -171,16 +176,17 @@ because it could not collect any metrics, it should raise a meaningful exception
 
 ### Logging
 
-As part of the parent class, you're given a logger at `self.log`, so you can do
-things like `self.log.info('hello')`. The log handler is `checks.{name}`
-where `{name}` is the name of your check (based on the filename of the check
-module).
+As part of the parent class, you're given a logger at `self.log`, so you can do things like `self.log.info('hello')`. 
+
+The log handler is `checks.{name}` where `{name}` is the name of your check (based on the filename of the check module).
 
 ## Configuration
 
 Each check has a [YAML][8] configuration file that is placed in the `conf.d` directory. The file name should match the name of the check module (e.g.: `haproxy.py` and `haproxy.yaml`).  
 
-Due to the way Agent checks are packaged and distributed, custom checks cannot have the same name as a existing check or library within the Agent's embedded environment. Use `pip` to display a list of effectively unusable names:
+Due to the way Agent checks are packaged and distributed, custom checks cannot have the same name as a existing check or library within the Agent's embedded environment. 
+
+Use `pip` to display a list of effectively unusable names:
 
 ```
 $ sudo /opt/datadog-agent/embedded/bin/pip freeze
@@ -196,37 +202,49 @@ init_config:
     key2: val2
 
 instances:
-    - username: jon_smith
-      password: 1234
-      min_collection_interval: 20
-    - username: jane_smith
-      password: 5678
-      min_collection_interval: 20
+    - username : jon_smith
+      password : 1234
+      min_collection_interval : 20
+    - username : jane_smith
+      password : 5678
+      min_collection_interval : 20
 ```
 
-For Agent 5, `min_collection_interval` can be added to the `init_config` section to help define how often the check should be run globally, or defined at the instance level. For Agent 6, `min_collection_interval` must be added at an instance level, and can be configured individually for each instance. 
+For Agent 5, `min_collection_interval` can be added to the `init_config` section to help define how often the check should be run globally, or defined at the instance level. 
 
-If it is greater than the interval time for the Agent collector, a line is added to the log stating that collection for this script was skipped. The default is `0` which means it's collected at the same interval as the rest of the integrations on that Agent.
+For Agent 6, `min_collection_interval` must be added at an instance level, and can be configured individually for each instance. 
+
+If it is greater than the interval time for the Agent collector, a line is added to the log stating that collection for this script was skipped. 
+
+The default is `0` which means it's collected at the same interval as the rest of the integrations on that Agent.
+
 If the value is set to `30`, it does not mean that the metric is collected every 30 seconds, but rather that it could be collected as often as every 30 seconds.
 
-The collector runs every 15-20 seconds depending on how many integrations are enabled. If the interval on this Agent happens to be every 20 seconds, then the Agent collects and includes the Agent check. The next time it collects 20 seconds later, it sees that 20 is less than 30 and doesn't collect the custom Agent check. The next time it sees that the time since last run was 40 which is greater than 30 and therefore the Agent check is collected.
+The collector runs every 15-20 seconds depending on how many integrations are enabled. 
+
+If the interval on this Agent happens to be every 20 seconds, then the Agent collects and includes the Agent check. 
+
+The next time it collects 20 seconds later, it sees that 20 is less than 30 and doesn't collect the custom Agent check. 
+
+The next time it sees that the time since last run was 40 which is greater than 30 and therefore the Agent check is collected.
 
 ### init_config
 
-The *init_config* section allows you to have an arbitrary number of global
-configuration options that is available on every run of the check in
-`self.init_config`.
+The *init_config* section allows you to have an arbitrary number of global configuration options that is available on every run of the check in `self.init_config`.
 
 ### instances
 
-The *instances* section is a list of instances that this check is run
-against. Your actual `check()` method is run once per instance. This means that
-every check supports multiple instances out of the box.
+The *instances* section is a list of instances that this check is run against. 
+
+Your actual `check()` method is run once per instance. 
+
+This means that every check supports multiple instances out of the box.
 
 ## Directory structure
 
-Before starting your first check it is worth understanding the checks directory
-structure. Add files for your check in the  `checks.d` folder, which lives in your Agent root.
+Before starting your first check it is worth understanding the checks directory structure. 
+
+Add files for your check in the  `checks.d` folder, which lives in your Agent root.
 
 ## Your first check
 
@@ -236,9 +254,11 @@ is called <code>mycheck.py</code> your configuration file <em>must</em> be
 named <code>mycheck.yaml</code>.
 </div>
 
-To start off simple, write a check that does nothing more than sending a
-value of 1 for the metric `hello.world`. The configuration file is very
-simple, including no real information. This goes into `conf.d/hello.yaml`:
+To start off simple, write a check that does nothing more than sending a value of 1 for the metric `hello.world`. 
+
+The configuration file is very simple, including no real information. 
+
+This goes into `conf.d/hello.yaml`:
 
 ```yaml
 init_config:
@@ -270,7 +290,9 @@ Let's write a basic check that checks the status of an HTTP endpoint. On each ru
 
 First let's define how the configuration should look so that we know how to handle the structure of the `instance` payload that is passed into the call to `check`.
 
-Besides just defining a URL per call, it'd be nice to allow you to set a timeout for each URL. We'd also want to be able to configure a default timeout if no timeout value is given for a particular URL.
+Besides just defining a URL per call, it'd be nice to allow you to set a timeout for each URL. 
+
+We'd also want to be able to configure a default timeout if no timeout value is given for a particular URL.
 
 So our final configuration looks something like this:
 
@@ -279,27 +301,26 @@ init_config:
     default_timeout: 5
 
 instances:
-    -   url: https://google.com
-
-    -   url: http://httpbin.org/delay/10
-        timeout: 8
-
-    -   url: http://httpbin.org/status/400
+    -   url     : https://google.com
+    -   url     : http://httpbin.org/delay/10
+        timeout : 8
+    -   url     : http://httpbin.org/status/400
 
 ```
 
 ### The check
 
-Now let's define our check method. The main part of the check makes
-a request to the URL and time the response time, handling error cases as it goes.
+Now let's define our check method. 
+
+The main part of the check makes a request to the URL and time the response time, handling error cases as it goes.
 
 In this snippet, we start a timer, make the GET request using the [requests library][9] ([Learn how to add custom python package to the Agent][12]) and handle and errors that might arise.
 
 ```python
 # Load values from the instance config
-url = instance['url']
+url             = instance['url']
 default_timeout = self.init_config.get('default_timeout', 5)
-timeout = float(instance.get('timeout', default_timeout))
+timeout         = float(instance.get('timeout', default_timeout))
 
 # Use a hash of the URL as an aggregation key
 aggregation_key = md5(url).hexdigest()
@@ -324,21 +345,22 @@ timing = end_time - start_time
 self.gauge('http.response_time', timing, tags=["url:"+url]
 ```
 
-Finally, define what happens in the error cases. We have already
-seen that we call `self.timeout_event` in the case of a URL timeout and
-we call `self.status_code_event` in the case of a bad status code. Let's
-define those methods now.
+Finally, define what happens in the error cases. We have already seen that we call `self.timeout_event` in the case of a URL timeout and we call `self.status_code_event` in the case of a bad status code. 
 
-First, define `timeout_event`. Note that we want to aggregate all of these events together based on the URL so we define the aggregation_key as a hash of the URL.
+Let's define those methods now.
+
+First, define `timeout_event`. 
+
+Note that we want to aggregate all of these events together based on the URL so we define the aggregation_key as a hash of the URL.
 
 ```python
 def timeout_event(self, url, timeout, aggregation_key):
     self.event({
-        'timestamp': int(time.time()),
-        'event_type': 'http_check',
-        'msg_title': 'URL timeout',
-        'msg_text': '%s timed out after %s seconds.' % (url, timeout),
-        'aggregation_key': aggregation_key
+        'timestamp'       : int(time.time()),
+        'event_type'      : 'http_check',
+        'msg_title'       : 'URL timeout',
+        'msg_text'        : '%s timed out after %s seconds.' % (url, timeout),
+        'aggregation_key' : aggregation_key
     })
 ```
 
@@ -347,19 +369,25 @@ Next, define `status_code_event` which looks very similar to the timeout event m
 ```python
 def status_code_event(self, url, r, aggregation_key):
     self.event({
-        'timestamp': int(time.time()),
-        'event_type': 'http_check',
-        'msg_title': 'Invalid response code for %s' % url,
-        'msg_text': '%s returned a status of %s' % (url, r.status_code),
-        'aggregation_key': aggregation_key
+        'timestamp'       : int(time.time()),
+        'event_type'      : 'http_check',
+        'msg_title'       : 'Invalid response code for %s' % url,
+        'msg_text'        : '%s returned a status of %s' % (url, r.status_code),
+        'aggregation_key' : aggregation_key
     })
 ```
 
 ### Putting It All Together
 
-The entire check would be placed into the `checks.d` folder as `http.py`. The corresponding configuration would be placed into the `conf.d` folder as `http.yaml`.
+The entire check would be placed into the `checks.d` folder as `http.py`. 
 
-Once the check is in `checks.d`, test it by running it as a python script. [Restart the Agent][10] for the changes to be enabled. **Make sure to change the conf.d path in the test method**. From your Agent root, run:
+The corresponding configuration would be placed into the `conf.d` folder as `http.yaml`.
+
+Once the check is in `checks.d`, test it by running it as a python script. 
+
+[Restart the Agent][10] for the changes to be enabled. 
+
+**Make sure to change the conf.d path in the test method**. From your Agent root, run:
 
 * For Agent v5:
   `sudo -u dd-agent -- dd-agent check <check_name>`
@@ -385,9 +413,9 @@ class HTTPCheck(AgentCheck):
             return
 
         # Load values from the instance configuration
-        url = instance['url']
+        url             = instance['url']
         default_timeout = self.init_config.get('default_timeout', 5)
-        timeout = float(instance.get('timeout', default_timeout))
+        timeout         = float(instance.get('timeout', default_timeout))
 
         # Use a hash of the URL as an aggregation key
         aggregation_key = md5(url).hexdigest()
@@ -395,7 +423,7 @@ class HTTPCheck(AgentCheck):
         # Check the URL
         start_time = time.time()
         try:
-            r = requests.get(url, timeout=timeout)
+            r        = requests.get(url, timeout = timeout)
             end_time = time.time()
         except requests.exceptions.Timeout as e:
             # If there's a timeout
@@ -410,20 +438,20 @@ class HTTPCheck(AgentCheck):
 
     def timeout_event(self, url, timeout, aggregation_key):
         self.event({
-            'timestamp': int(time.time()),
-            'event_type': 'http_check',
-            'msg_title': 'URL timeout',
-            'msg_text': '%s timed out after %s seconds.' % (url, timeout),
-            'aggregation_key': aggregation_key
+            'timestamp'       : int(time.time()),
+            'event_type'      : 'http_check',
+            'msg_title'       : 'URL timeout',
+            'msg_text'        : '%s timed out after %s seconds.' % (url, timeout),
+            'aggregation_key' : aggregation_key
         })
 
     def status_code_event(self, url, r, aggregation_key):
         self.event({
-            'timestamp': int(time.time()),
-            'event_type': 'http_check',
-            'msg_title': 'Invalid response code for %s' % url,
-            'msg_text': '%s returned a status of %s' % (url, r.status_code),
-            'aggregation_key': aggregation_key
+            'timestamp'       : int(time.time()),
+            'event_type'      : 'http_check',
+            'msg_title'       : 'Invalid response code for %s' % url,
+            'msg_text'        : '%s returned a status of %s' % (url, r.status_code),
+            'aggregation_key' : aggregation_key
         })
 ```
 

@@ -4,11 +4,15 @@ kind: documentation
 description: Everything you need to know about developing for the Datadog platform, including config and code examples, and a ton of reference material.
 ---
 
-This section includes technical details, code examples, and reference documentation to help get you up and running quickly.
+This section includes technical details, code examples, and reference docs to help get you up and running quickly.
 
 #### Custom Checks
 
-Wondering how to report your own custom Checks? Start with the sections on [Agent Checks][1] and [Prometheus Checks][2], which contain tons of configuration and code examples. From there, move on to the [DogStatsD section][3] to learn how to use the metrics aggregation service built in to the Agent itself.
+Wondering how to report your own custom Checks? 
+
+Start with the sections on [Agent Checks][1] and [Prometheus Checks][2], which contain tons of configuration and code examples. 
+
+From there, move on to the [DogStatsD section][3] to learn how to use the metrics aggregation service built in to the Agent itself.
 
 #### Integrations
 
@@ -20,7 +24,11 @@ Looking to know more about Datadog resources for your favorite language or platf
 
 #### Metrics
 
-Our [Metrics section][6] is a deep-dive into the heart of Metrics at Datadog. This section explains the different types of Metrics, what they represent, and how they are used throughout the Datadog ecosystem. You can also head directly to the [Custom Metrics][8] section to learn more about using your own tailor-made metrics.
+Our [Metrics section][6] is a deep-dive into the heart of Metrics at Datadog. 
+
+This section explains the different types of Metrics, what they represent, and how they are used throughout the Datadog ecosystem. 
+
+You can also head directly to the [Custom Metrics][8] section to learn more about using your own tailor-made metrics.
 
 #### Office Hours
 

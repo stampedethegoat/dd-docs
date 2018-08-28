@@ -8,7 +8,9 @@ disable_toc: true
 
 ## API and DogStatsD Client Libraries
 
-The following table lists Datadog-official and community contributed API and [DogStatsD](/developers/dogstatsd) client libraries. A few libraries support both the API and DogStatsD, but most focus on one or the other.
+The following table lists Datadog-official and community contributed API and [DogStatsD](/developers/dogstatsd) client libraries. 
+
+A few libraries support both the API and DogStatsD, but most focus on one or the other.
 
 {{< classic-libraries-table >}}
 
@@ -92,38 +94,37 @@ A Winston Datadog [transport][24].
 
 If you've written a Datadog library and would like to add it to this page, write us at [code@datadoghq.com][32].
 
-
-   [1]: https://github.com/DataDog/datadog-formula
-   [2]: https://gist.github.com/mastrolinux/6175280
-   [3]: https://gist.github.com/mastrolinux
-   [4]: https://docs.ansible.com/ansible/list_of_monitoring_modules.html
-   [5]: https://github.com/ansible/ansible-modules-extras
-   [6]: https://github.com/wimactel/FreeSwitch-DataDog-Metrics
-   [7]: https://github.com/wimactel
-   [8]: https://github.com/gitterHQ/pid-stats
-   [9]: https://github.com/gitterHQ
-   [10]: https://github.com/simplifi/ngx_lua_datadog/
-   [11]: https://www.elastic.co/guide/en/logstash/current/plugins-outputs-datadog.html
-   [12]: https://github.com/Sjeanpierre/passenger-datadog-monitor
-   [13]: https://github.com/Sjeanpierre
-   [14]: https://github.com/mediba-system/lua-resty-dogstatsd
-   [15]: http://www.mediba.jp/
-   [16]: https://github.com/brigade/logstash-output-dogstatsd
-   [17]: https://github.com/zendesk/consul2dogstats
-   [18]: https://github.com/cvent/dogscaler
-   [19]: https://github.com/urosgruber/dd-agent-FreeBSD
-   [20]: https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/networking/dd-agent/default.nix
-   [21]: https://github.com/Dynatrace/Dynatrace-AppMon-Datadog-Plugin
-   [22]: https://docs.moogsoft.com/display/060102/Datadog+Solution+Pak
-   [23]: https://github.com/sensu-plugins/sensu-plugins-datadog
-   [24]: https://github.com/sparkida/winston-datadog
-   [25]: https://github.com/bithauschile/datadog-ga
-   [26]: https://blog.bithaus.cl/2016/04/20/realtime-google-analytics-metrics-in-datadog/
-   [27]: https://github.com/byronwolfman/dd-openvpn
-   [28]: https://github.com/denniswebb/datadog-openvpn
-   [29]: https://github.com/StackStorm-Exchange/stackstorm-datadog
-   [30]: https://github.com/BetaProjectWave/auth0-logs-to-datadog
-   [31]: https://www.aptible.com/documentation/enclave/reference/metrics/metric-drains/datadog.html
-   [32]: mailto:code@datadoghq.com
-   [33]: /tracing/
-   [34]: https://github.com/keirans/datadog-management
+[1]: https://github.com/DataDog/datadog-formula
+[2]: https://gist.github.com/mastrolinux/6175280
+[3]: https://gist.github.com/mastrolinux
+[4]: https://docs.ansible.com/ansible/list_of_monitoring_modules.html
+[5]: https://github.com/ansible/ansible-modules-extras
+[6]: https://github.com/wimactel/FreeSwitch-DataDog-Metrics
+[7]: https://github.com/wimactel
+[8]: https://github.com/gitterHQ/pid-stats
+[9]: https://github.com/gitterHQ
+[10]: https://github.com/simplifi/ngx_lua_datadog/
+[11]: https://www.elastic.co/guide/en/logstash/current/plugins-outputs-datadog.html
+[12]: https://github.com/Sjeanpierre/passenger-datadog-monitor
+[13]: https://github.com/Sjeanpierre
+[14]: https://github.com/mediba-system/lua-resty-dogstatsd
+[15]: http://www.mediba.jp/
+[16]: https://github.com/brigade/logstash-output-dogstatsd
+[17]: https://github.com/zendesk/consul2dogstats
+[18]: https://github.com/cvent/dogscaler
+[19]: https://github.com/urosgruber/dd-agent-FreeBSD
+[20]: https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/networking/dd-agent/default.nix
+[21]: https://github.com/Dynatrace/Dynatrace-AppMon-Datadog-Plugin
+[22]: https://docs.moogsoft.com/display/060102/Datadog+Solution+Pak
+[23]: https://github.com/sensu-plugins/sensu-plugins-datadog
+[24]: https://github.com/sparkida/winston-datadog
+[25]: https://github.com/bithauschile/datadog-ga
+[26]: https://blog.bithaus.cl/2016/04/20/realtime-google-analytics-metrics-in-datadog/
+[27]: https://github.com/byronwolfman/dd-openvpn
+[28]: https://github.com/denniswebb/datadog-openvpn
+[29]: https://github.com/StackStorm-Exchange/stackstorm-datadog
+[30]: https://github.com/BetaProjectWave/auth0-logs-to-datadog
+[31]: https://www.aptible.com/documentation/enclave/reference/metrics/metric-drains/datadog.html
+[32]: mailto:code@datadoghq.com
+[33]: /tracing/
+[34]: https://github.com/keirans/datadog-management

@@ -16,7 +16,11 @@ further_reading:
 
 Starting with version 6.0, the Datadog Agent is able to ingest metrics via a Unix Domain Socket (UDS), as an alternative to UDP, when running on Linux systems.
 
-While UDP works great on `localhost`, it can be a challenge to setup in containerized environments. Unix Domain Sockets allow you to easily establish the connection via a socket file, regardless of the IP of the Datadog Agent container. It also enables the following benefits:
+While UDP works great on `localhost`, it can be a challenge to setup in containerized environments. 
+
+Unix Domain Sockets allow you to easily establish the connection via a socket file, regardless of the IP of the Datadog Agent container. 
+
+It also enables the following benefits:
 
 * Bypassing the networking stack brings a significant performance improvement for high traffic
 * While UDP has no error handling, UDS allows the Agent to detect dropped packets and connection errors, while still allowing a non-blocking use
@@ -24,9 +28,13 @@ While UDP works great on `localhost`, it can be a challenge to setup in containe
 
 ## How it works
 
-Instead of using an `IP:port` pair to establish connections, Unix Domain Sockets use a placeholder socket file. Once the connection is open, data is transmitted in the same [datagram format][2] as UDP.
+Instead of using an `IP:port` pair to establish connections, Unix Domain Sockets use a placeholder socket file. 
 
-When the Agent restarts, the existing socket is deleted and replaced by a new one. Client libraries detect this change and connect seamlessly to the new socket.
+Once the connection is open, data is transmitted in the same [datagram format][2] as UDP.
+
+When the Agent restarts, the existing socket is deleted and replaced by a new one. 
+
+Client libraries detect this change and connect seamlessly to the new socket.
 
 **Note:** By design, UDS traffic is local to the host, which means the Datadog Agent must run on every host you will be sending metrics from.
 
@@ -40,7 +48,9 @@ Edit your `datadog.yaml` file to set the `dogstatsd_socket` option to the path w
 dogstatsd_socket: /var/run/datadog/dsd.socket
 ```
 
-Then [restart your Agent][1]. You can also set the socket path via the `DD_DOGSTATSD_SOCKET` environment variable.
+Then [restart your Agent][1]. 
+
+You can also set the socket path via the `DD_DOGSTATSD_SOCKET` environment variable.
 
 ### Client
 
@@ -57,11 +67,15 @@ The following DogStatsD client libraries natively support UDS traffic:
 
 Refer to the library's documentation on how to enable UDS traffic.
 
-**Note:** As with UDP, enabling client-side buffering is highly recommended to improve performance on heavy traffic. Refer to your client library's documentation for instructions.
+**Note:** As with UDP, enabling client-side buffering is highly recommended to improve performance on heavy traffic. 
+
+Refer to your client library's documentation for instructions.
 
 #### Using netcat
 
-To send metrics from shell scripts, or to test that DogStatsD is listening on the socket, you can use `netcat`. Most implementations of `netcat` (ex. `netcat-openbsd` on Debian or `nmap-ncat` on RHEL) support Unix Socket traffic via the `-U` flag:
+To send metrics from shell scripts, or to test that DogStatsD is listening on the socket, you can use `netcat`. 
+
+Most implementations of `netcat` (ex. `netcat-openbsd` on Debian or `nmap-ncat` on RHEL) support Unix Socket traffic via the `-U` flag:
 
 ```shell
 echo -n "custom.metric.name:1|c" | nc -U -u -w1 /var/run/datadog/dsd.socket
@@ -77,7 +91,9 @@ socat -s -u UDP-RECV:8125 UNIX-SENDTO:/var/run/datadog/dsd.socket
 
 ### Accessing the socket across containers
 
-When running in a containerized environment, the socket file needs to be accessible to the client containers. To achieve this, we recommend mounting a host directory on both sides (read-only in your client containers, read-write in the Agent container).
+When running in a containerized environment, the socket file needs to be accessible to the client containers. 
+
+To achieve this, we recommend mounting a host directory on both sides (read-only in your client containers, read-write in the Agent container).
 
 Mounting the parent folder instead of the individual socket enables socket communication to persist across DogStatsD restarts.
 
@@ -92,8 +108,8 @@ Mount the folder in your `datadog-agent` container:
 
 ```
 volumeMounts:
-  - name: dsdsocket
-    mountPath: /var/run/datadog
+  - name      : dsdsocket
+    mountPath : /var/run/datadog
 ...
 volumes:
 - hostPath:
@@ -105,9 +121,9 @@ Expose the same folder in your client containers:
 
 ```
 volumeMounts:
-  - name: dsdsocket
-    mountPath: /var/run/datadog
-    readOnly: true
+  - name      : dsdsocket
+    mountPath : /var/run/datadog
+    readOnly  : true
 ...
 volumes:
 - hostPath:
@@ -117,15 +133,23 @@ volumes:
 
 ## Using origin detection for container tagging
 
-Origin detection allows DogStatsD to detect where the container metrics come from, and tag metrics automatically. When this mode is enabled, all metrics received via UDS will be tagged by the same container tags as Autodiscovery metrics. **Note:** `container_id`, `container_name` and `pod_name` tags will not be added, to avoid creating too many custom metric contexts.
+Origin detection allows DogStatsD to detect where the container metrics come from, and tag metrics automatically. 
+
+When this mode is enabled, all metrics received via UDS will be tagged by the same container tags as Autodiscovery metrics. 
+
+**Note:** `container_id`, `container_name` and `pod_name` tags will not be added, to avoid creating too many custom metric contexts.
 
 To use origin detection, enable the `dogstatsd_origin_detection` option in your `datadog.yaml`, or set the environment variable `DD_DOGSTATSD_ORIGIN_DETECTION=true`, and [restart your Agent][1].
 
-When running inside a container, DogStatsd needs to run in the host PID namespace for origin detection to work reliably. You can enable this via the docker `--pid=host` flag.
+When running inside a container, DogStatsd needs to run in the host PID namespace for origin detection to work reliably. 
+
+You can enable this via the docker `--pid=host` flag.
 
 ## Client library implementation guidelines
 
-Adding UDS support to existing libraries can be easily achieved as the protocol is very close to UDP. Implementation guidelines and a testing checklist are available in the [datadog-agent wiki][7].
+Adding UDS support to existing libraries can be easily achieved as the protocol is very close to UDP. 
+
+Implementation guidelines and a testing checklist are available in the [datadog-agent wiki][7].
 
 ## Further reading
 

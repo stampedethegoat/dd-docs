@@ -1,5 +1,5 @@
 ---
-title: Writing a custom Prometheus Check
+title: Prometheus Checks
 kind: documentation
 further_reading:
 - link: "agent/prometheus"
@@ -15,11 +15,17 @@ further_reading:
 
 ## Overview
 
-This page dives into the `PrometheusCheck` interface for more advanced usage, including an example of a simple check that collects timing metrics and status events from [Kube DNS][1]. For information on configuring a basic Prometheus check, see the [Agent Documentation][6].
+This page dives into the `PrometheusCheck` interface for more advanced usage, including an example of a simple check that collects timing metrics and status events from [Kube DNS][1]. 
+
+For information on configuring a basic Prometheus check, see the [Agent Documentation][6].
 
 ## Advanced usage: Prometheus check interface
 
-If you have more advanced needs than the generic check (metrics preprocessing for example) you can write a custom `PrometheusCheck`. It's [the base class][2] of the generic check and it provides a structure and some helpers to collect metrics, events, and service checks exposed via Prometheus. Minimal configuration for checks based on this class include:
+If you have more advanced needs than the generic check (metrics preprocessing for example) you can write a custom `PrometheusCheck`. 
+
+It's [the base class][2] of the generic check and it provides a structure and some helpers to collect metrics, events, and service checks exposed via Prometheus. 
+
+Minimal configuration for checks based on this class include:
 
 - Overriding `self.NAMESPACE`
 - Overriding `self.metrics_mapper`
@@ -29,18 +35,20 @@ AND/OR
 
 ## Writing a custom Prometheus check
 
-This is a simple example of writing a kube DNS check to illustrate the `PrometheusCheck` class usage. The example below replicates the functionality of the following generic Prometheus check:
+This is a simple example of writing a kube DNS check to illustrate the `PrometheusCheck` class usage. 
+
+The example below replicates the functionality of the following generic Prometheus check:
 
 ```yaml
 instances:
   - prometheus_url: http://localhost:10055/metrics
     namespace: "kubedns"
     metrics:
-      - kubedns_kubedns_dns_response_size_bytes: response_size.bytes
-      - kubedns_kubedns_dns_request_duration_seconds: request_duration.seconds
-      - kubedns_kubedns_dns_request_count_total: request_count
-      - kubedns_kubedns_dns_error_count_total: error_count
-      - kubedns_kubedns_dns_cachemiss_count_total: cachemiss_count
+      - kubedns_kubedns_dns_response_size_bytes      : response_size.bytes
+      - kubedns_kubedns_dns_request_duration_seconds : request_duration.seconds
+      - kubedns_kubedns_dns_request_count_total      : request_count
+      - kubedns_kubedns_dns_error_count_total        : error_count
+      - kubedns_kubedns_dns_cachemiss_count_total    : cachemiss_count
 ```
 
 ### Configuration
@@ -49,7 +57,11 @@ instances:
 The names of the configuration and check files must match. If your check is called <code>mycheck.py</code> your configuration file <em>must</em> be named <code>mycheck.yaml</code>.
 </div>
 
-Configuration for a Prometheus check is almost the same as a regular [Agent check][3]. The main difference is to include the variable `prometheus_endpoint` in your `check.yaml` file. This goes into `conf.d/kube_dns.yaml`:
+Configuration for a Prometheus check is almost the same as a regular [Agent check][3]. 
+
+The main difference is to include the variable `prometheus_endpoint` in your `check.yaml` file. 
+
+This goes into `conf.d/kube_dns.yaml`:
 
 ```yaml
 init_config:
@@ -84,6 +96,7 @@ class KubeDNSCheck(PrometheusCheck):
 #### Overriding `self.metrics_mapper`
 
 `metrics_mapper` is a dictionary where the key is the metric to capture and the value is the corresponding metric name in Datadog.
+
 The reason for the override is so metrics reported by the Prometheus checks are not counted as [custom metric][4]:
 
 ```python
@@ -95,11 +108,11 @@ class KubeDNSCheck(PrometheusCheck):
         self.NAMESPACE = 'kubedns'
         self.metrics_mapper = {
             #metrics have been renamed to kubedns in kubernetes 1.6.0
-            'kubedns_kubedns_dns_response_size_bytes': 'response_size.bytes',
-            'kubedns_kubedns_dns_request_duration_seconds': 'request_duration.seconds',
-            'kubedns_kubedns_dns_request_count_total': 'request_count',
-            'kubedns_kubedns_dns_error_count_total': 'error_count',
-            'kubedns_kubedns_dns_cachemiss_count_total': 'cachemiss_count'
+            'kubedns_kubedns_dns_response_size_bytes'      : 'response_size.bytes',
+            'kubedns_kubedns_dns_request_duration_seconds' : 'request_duration.seconds',
+            'kubedns_kubedns_dns_request_count_total'      : 'request_count',
+            'kubedns_kubedns_dns_error_count_total'        : 'error_count',
+            'kubedns_kubedns_dns_cachemiss_count_total'    : 'cachemiss_count'
         }
 ```
 
@@ -114,7 +127,9 @@ def check(self, instance):
 
 ##### Exceptions
 
-If a check cannot run because of improper configuration, programming error, or because it could not collect any metrics, it should raise a meaningful exception. This exception is logged and is shown in the Agent [info command][5] for easy debugging. For example:
+If a check cannot run because of improper configuration, programming error, or because it could not collect any metrics, it should raise a meaningful exception. 
+
+This exception is logged and is shown in the Agent [info command][5] for easy debugging. For example:
 
     $ sudo /etc/init.d/datadog-agent info
 
@@ -171,11 +186,11 @@ class KubeDNSCheck(PrometheusCheck):
 
         self.metrics_mapper = {
             # metrics have been renamed to kubedns in kubernetes 1.6.0
-            'kubedns_kubedns_dns_response_size_bytes': 'response_size.bytes',
-            'kubedns_kubedns_dns_request_duration_seconds': 'request_duration.seconds',
-            'kubedns_kubedns_dns_request_count_total': 'request_count',
-            'kubedns_kubedns_dns_error_count_total': 'error_count',
-            'kubedns_kubedns_dns_cachemiss_count_total': 'cachemiss_count',
+            'kubedns_kubedns_dns_response_size_bytes'      : 'response_size.bytes',
+            'kubedns_kubedns_dns_request_duration_seconds' : 'request_duration.seconds',
+            'kubedns_kubedns_dns_request_count_total'      : 'request_count',
+            'kubedns_kubedns_dns_error_count_total'        : 'error_count',
+            'kubedns_kubedns_dns_cachemiss_count_total'    : 'cachemiss_count',
         }
 
     def check(self, instance):
@@ -199,7 +214,9 @@ You can improve your Prometheus check with the following methods:
 
 ### `self.ignore_metrics`
 
-Some metrics are ignored because they are duplicates or introduce a very high cardinality. Metrics included in this list will be silently skipped without a `Unable to handle metric` debug line in the logs.
+Some metrics are ignored because they are duplicates or introduce a very high cardinality. 
+
+Metrics included in this list will be silently skipped without a `Unable to handle metric` debug line in the logs.
 
 ### `self.labels_mapper`
 
@@ -207,11 +224,16 @@ If the `labels_mapper` dictionary is provided, the metrics labels in `labels_map
 
 ### `self.exclude_labels`
 
-`exclude_labels` is an array of labels to exclude. Those labels will not be added as tags when submitting the metric.
+`exclude_labels` is an array of labels to exclude. 
+
+Those labels will not be added as tags when submitting the metric.
 
 ### `self.type_overrides`
 
-`type_overrides` is a dictionary where the keys are Prometheus metric names and the values are a metric type (name as string) to use instead of the one listed in the payload. It can be used to force a type on untyped metrics.  
+`type_overrides` is a dictionary where the keys are Prometheus metric names and the values are a metric type (name as string) to use instead of the one listed in the payload. 
+
+It can be used to force a type on untyped metrics.  
+
 Available types are: `counter`, `gauge`, `summary`, `untyped`, and `histogram`.
 
 **Note**: it is empty in the base class but needs to be overloaded/hardcoded in the final check not to be counted as custom metric.
