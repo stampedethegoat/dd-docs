@@ -105,14 +105,6 @@ languages:
           weight     : 50
           parent     : menu_references_getting_started
 
-       # - identifier: customnav_getting_startednav_faq
-       #   name: "FAQ"
-       #   url: "getting_started/faq/"
-       #   weight: 90
-       #   parent: menu_references_getting_started
-        # GRAPHING - Subnav end
-
-
         # METRICS
         - identifier : menu_references_metrics
           name       : "1| Metrics"
@@ -525,12 +517,6 @@ languages:
           weight     : 470
           parent     : customnav_tracingnav_getting_further
 
-        #- identifier: customnav_tracingnav_faq
-        #  name: "FAQ"
-        #  url: "tracing/faq/"
-        #  weight: 100
-        #  parent: menu_references_tracing
-
         # LOGS
         - identifier : menu_references_logs
           name       : "4| Logs"
@@ -652,6 +638,7 @@ languages:
           url        : "logs/archives/s3"
           weight     : 810
           parent     : customnav_lognav_archives
+
         # MONITORS / ALERTS
         - identifier : menu_references_monitoring
           name       : "5| Monitors"
@@ -748,20 +735,6 @@ languages:
           url        : "monitors/downtimes/"
           weight     : 160
           parent     : menu_references_monitoring
-        #- identifier: customnav_monitornav_faq
-        #  name: "FAQ"
-        #  url: "monitors/faq/"
-        #  weight: 170
-        #  parent: menu_references_monitoring
-        # ALERTING - Subnav end
-
-
-        #- identifier: customnav_lognav_faq
-        #  name: "FAQ"
-        #  url: "logs/faq/"
-        #  weight: 90
-        #  parent: menu_references_logs
-
 
         # DEV TOOLS
         - identifier : menu_references_developers
@@ -819,12 +792,6 @@ languages:
           pre        : "nav_api"
           weight     : 100
 
-        - identifier : space
-          name       : " ----- "
-          url        : " "
-          pre        : " "
-          weight     : 105
-
         # ACCOUNT MANAGEMENT
         - identifier : menu_references_account_management
           name       : "9| Settings"
@@ -876,13 +843,6 @@ languages:
           url        : "account_management/saml/okta"
           weight     : 550
           parent     : customnav_accountmanagementnav_saml
-        #- identifier: customnav_accountmanagementnav_faq
-        #  name: "FAQ"
-        #  url: "account_management/faq/"
-        #  weight: 70
-        #  parent: menu_references_account_management
-        # ACCOUNT MANAGEMENT - Subnav end
-
 
           # SECURITY
         - identifier : menu_references_security
@@ -924,6 +884,43 @@ languages:
           url        : "glossary/"
           pre        : "nav_glossary"
           weight     : 120
+
+          # FAQ
+        - identifier : menu_references_faq
+          name       : "13| FAQ"
+          url        : "faq/"
+          pre        : "nav_faq"
+          weight     : 130
+        - identifier : menu_references_faq_getting_started
+          name       : "General"
+          url        : "faq/getting_started"
+          weight     : 200
+          parent     : menu_references_faq
+        - identifier : menu_references_faq_agent
+          name       : "Agent Related"
+          url        : "faq/agent"
+          weight     : 210
+          parent     : menu_references_faq
+        - identifier : menu_references_faq_tracing
+          name       : "APM"
+          url        : "faq/tracing"
+          weight     : 220
+          parent     : menu_references_faq
+        - identifier : menu_references_faq_logs
+          name       : "Logs"
+          url        : "faq/logs"
+          weight     : 230
+          parent     : menu_references_faq
+        - identifier : menu_references_faq_dev_tools
+          name       : "Dev Tools"
+          url        : "faq/developers"
+          weight     : 240
+          parent     : menu_references_faq
+        - identifier : menu_references_faq_account_management
+          name       : "Settings"
+          url        : "faq/account-management"
+          weight     : 250
+          parent     : menu_references_faq
 
   fr:
     disclaimer: "Cette page n'est pas encore disponible en Français, nous travaillons actuellement sur sa traduction.<br> Si vous avez des questions ou des retours sur ce projet de traduction, <a href=\"https://docs.datadoghq.com/fr/help/\">contactez-nous!</a>"

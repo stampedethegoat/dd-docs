@@ -1,7 +1,7 @@
 Big Picture
 ---------------
-[ ] Finish up sidebar, most importantly the overview tab.
-[ ] FAQ Placement
+[x] Finish up sidebar, most importantly the overview tab.
+[x] FAQ Placement
 [ ] Figure out best strategy for 10 header links
 [ ] Combining everything onto this webpage
 [ ] Understand github repos next
