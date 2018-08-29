@@ -1,23 +1,6 @@
 ---
 title: Query -> Graph
 kind: documentation
-aliases:
-  - /examples/
-  - /examples/aws-metrics/
-  - /examples/month_before/
-  - /examples/graphing-functions/
-  - /examples/day_before/
-  - /examples/json-editing/
-  - /examples/nginx-metrics/
-  - /examples/dashboards/
-  - /examples/hour_before/
-  - /examples/os-metrics/
-  - /examples/week_before/
-  - /examples/cassandra-metrics/
-  - /graphing/miscellaneous/functions
-  - /graphing/miscellaneous/
-  - /getting_started/from_the_query_to_the_graph
-  - /graphing/miscellaneous/from_the_query_to_the_graph
 ---
 
 [TLDR version of this article][1].

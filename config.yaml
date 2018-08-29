@@ -74,105 +74,38 @@ languages:
           url        : "getting_started/dashboards/widgets/"
           weight     : 140
           parent     : customnav_getting_startednav_dashboards
-        - identifier : customnav_getting_startednav_algorithms
-          name       : "Algorithms"
-          url        : "getting_started/dashboards/algorithms/"
-          weight     : 150
-          parent     : customnav_getting_startednav_dashboards
-        #- identifier : customnav_graphingnav_algorithms
-          #name       : "Anomalies and Outliers"
-          #url        : "getting_started/dashboards/algorithms/anomalies-outliers/"
-          #weight     : 610
-          #parent     : customnav_graphingnav__algorithms
-        #- identifier : customnav_graphingnav_arithmetic
-          #name       : "Arithmetic"
-          #url        : "getting_started/dashboards/algorithms/arithmetic/"
-          #weight     : 620
-          #parent     : customnav_graphingnav__algorithms
-        #- identifier : customnav_graphingnav_count
-          #name       : "Count"
-          #url        : "getting_started/dashboards/algorithms/count/"
-          #weight     : 630
-          #parent     : customnav_graphingnav__algorithms
-        #- identifier : customnav_graphingnav_interpolation
-          #name       : "Interpolation"
-          #url        : "getting_started/dashboards/algorithms/interpolation/"
-          #weight     : 640
-          #parent     : customnav_graphingnav__algorithms
-        #- identifier : customnav_graphingnav_rank
-          #name       : "Rank"
-          #url        : "getting_started/dashboards/algorithms/rank/"
-          #weight     : 650
-          #parent     : customnav_graphingnav__algorithms
-        #- identifier : customnav_graphingnav_rate
-          #name       : "Rate"
-          #url        : "getting_started/dashboards/algorithms/rate/"
-          #weight     : 660
-          #parent     : customnav_graphingnav__algorithms
-        #- identifier : customnav_graphingnav_regression
-          #name       : "Regression"
-          #url        : "getting_started/dashboards/algorithms/regression/"
-          #weight     : 670
-          #parent     : customnav_graphingnav__algorithms
-        #- identifier : customnav_graphingnav_rollup
-          #name       : "Rollup"
-          #url        : "getting_started/dashboards/algorithms/rollup/"
-          #weight     : 680
-          #parent     : customnav_graphingnav__algorithms
-        #- identifier : customnav_graphingnav_smoothing
-          #name       : "Smoothing"
-          #url        : "getting_started/dashboards/algorithms/smoothing/"
-          #weight     : 690
-          #parent     : customnav_graphingnav__algorithms
-        #- identifier : customnav_graphingnav_timeshift
-          #name       : "Timeshift"
-          #url        : "getting_started/dashboards/algorithms/timeshift/"
-          #weight     : 695
-          #parent     : customnav_graphingnav__algorithms
+        - identifier : customnav_getting_startednav_infrastructure
+          name       : "Infrastructure"
+          url        : "getting_started/infrastructure/"
+          weight     : 40
+          parent     : menu_references_getting_started
+        - identifier : customnav_infrastructurenav_hostmap
+          name       : "Host Map"
+          url        : "getting_started/infrastructure/hostmap/"
+          weight     : 510
+          parent     : customnav_getting_startednav_infrastructure
+        - identifier : customnav_infrastructurenav_containermap
+          name       : "Container Map"
+          url        : "getting_started/infrastructure/containermap/"
+          weight     : 520
+          parent     : customnav_getting_startednav_infrastructure
+        - identifier : customnav_infrastructurenav_livecontainers
+          name       : "Live Containers"
+          url        : "getting_started/infrastructure/livecontainers/"
+          weight     : 530
+          parent     : customnav_getting_startednav_infrastructure
+        - identifier : customnav_infrastructurenav_process
+          name       : "Live Processes"
+          url        : "getting_started/infrastructure/process/"
+          weight     : 540
+          parent     : customnav_getting_startednav_infrastructure
+        - identifier : customnav_getting_startednav_notebooks
+          name       : "Notebooks"
+          url        : "getting_started/notebooks/"
+          weight     : 50
+          parent     : menu_references_getting_started
 
-        #- identifier : customnav_graphingnav_infrastructure
-          #name       : "Infrastructure"
-          #url        : "getting_started/infrastructure/"
-          #weight     : 40
-          #parent     : menu_references_getting_started
-        #- identifier : customnav_infrastructurenav_hostmap
-          #name       : "Host Map"
-          #url        : "getting_started/infrastructure/hostmap/"
-          #weight     : 510
-          #parent     : customnav_graphingnav_infrastructure
-        #- identifier : customnav_infrastructurenav_containermap
-          #name       : "Container Map"
-          #url        : "getting_started/infrastructure/containermap/"
-          #weight     : 520
-          #parent     : customnav_graphingnav_infrastructure
-        #- identifier : customnav_infrastructurenav_livecontainers
-          #name       : "Live Containers"
-          #url        : "getting_started/infrastructure/livecontainers/"
-          #weight     : 530
-          #parent     : customnav_graphingnav_infrastructure
-        #- identifier : customnav_infrastructurenav_process
-          #name       : "Live Processes"
-          #url        : "getting_started/infrastructure/process/"
-          #weight     : 540
-          #parent     : customnav_graphingnav_infrastructure
-        #- identifier : customnav_getting_startednav_notebooks
-          #name       : "Notebooks"
-          #url        : "getting_started/notebooks/"
-          #weight     : 50
-          #parent     : menu_references_getting_started
-        #- identifier : customnav_getting_startednav_graphing
-          #name       : "Graphing"
-          #url        : "getting_started/graphing/"
-          #pre        : "nav_graphing"
-          #weight     : 60
-          #parent     : menu_references_getting_started
-        #- identifier : customnav_graphingnav_graphingjson
-          #name       : "JSON"
-          #url        : "getting_started/graphing_json/"
-          #weight     : 70
-          #parent     : menu_references_getting_started
-
-       # - identifier: customnav_graphingnav_faq
+       # - identifier: customnav_getting_startednav_faq
        #   name: "FAQ"
        #   url: "getting_started/faq/"
        #   weight: 90
@@ -186,40 +119,126 @@ languages:
           url        : "metrics/"
           pre        : "nav_metrics"
           weight     : 35
-        - identifier : menu_references_metrics_counts
+        - identifier : menu_references_metrics_tagging
+          name       : "Tagging"
+          url        : "metrics/tagging/"
+          weight     : 100
+          parent     : menu_references_metrics
+        - identifier : customnav_menu_references_metrics_tagging_assigning
+          name       : "Assign Tags"
+          url        : "metrics/tagging/assigning_tags"
+          weight     : 201
+          parent     : menu_references_metrics_tagging
+        - identifier : customnav_menu_references_metrics_tagging_using
+          name       : "Using Tags"
+          url        : "metrics/tagging/using_tags"
+          weight     : 202
+          parent     : menu_references_metrics_tagging
+        - identifier : menu_references_metrics_algorithms
+          name       : "Algorithms"
+          url        : "metrics/algorithms/"
+          weight     : 110
+          parent     : menu_references_metrics
+        - identifier : menu_references_metrics_algorithms_anomalies-outliers
+          name       : "Anomalies and Outliers"
+          url        : "metrics/algorithms/anomalies-outliers/"
+          weight     : 410
+          parent     : menu_references_metrics_algorithms
+        - identifier : menu_references_metrics_algorithms_arithmetic
+          name       : "Arithmetic"
+          url        : "metrics/algorithms/arithmetic/"
+          weight     : 420
+          parent     : menu_references_metrics_algorithms
+        - identifier : menu_references_metrics_algorithms_count
+          name       : "Count"
+          url        : "metrics/algorithms/count/"
+          weight     : 430
+          parent     : menu_references_metrics_algorithms
+        - identifier : menu_references_metrics_algorithms_interpolation
+          name       : "Interpolation"
+          url        : "metrics/algorithms/interpolation/"
+          weight     : 440
+          parent     : menu_references_metrics_algorithms
+        - identifier : menu_references_metrics_algorithms_rank
+          name       : "Rank"
+          url        : "metrics/algorithms/rank/"
+          weight     : 450
+          parent     : menu_references_metrics_algorithms
+        - identifier : menu_references_metrics_algorithms_rate
+          name       : "Rate"
+          url        : "metrics/algorithms/rate/"
+          weight     : 460
+          parent     : menu_references_metrics_algorithms
+        - identifier : menu_references_metrics_algorithms_regression
+          name       : "Regression"
+          url        : "metrics/algorithms/regression/"
+          weight     : 470
+          parent     : menu_references_metrics_algorithms
+        - identifier : menu_references_metrics_algorithms_rollup
+          name       : "Rollup"
+          url        : "metrics/algorithms/rollup/"
+          weight     : 480
+          parent     : menu_references_metrics_algorithms
+        - identifier : menu_references_metrics_algorithms_smoothing
+          name       : "Smoothing"
+          url        : "metrics/algorithms/smoothing/"
+          weight     : 490
+          parent     : menu_references_metrics_algorithms
+        - identifier : menu_references_metrics_algorithms_timeshift
+          name       : "Timeshift"
+          url        : "metrics/algorithms/timeshift/"
+          weight     : 495
+          parent     : menu_references_metrics_algorithms
+        - identifier : menu_references_metrics_functions
+          name       : "Functions"
+          url        : "metrics/functions/"
+          weight     : 120
+          parent     : menu_references_metrics
+        - identifier : customnav_menu_references_metrics_functions
           name       : "Counts"
-          url        : "metrics/counts"
-          weight     : 400
-          parent     : menu_references_metrics
-        - identifier : menu_references_metrics_distributions
+          url        : "metrics/functions/counts"
+          weight     : 301
+          parent     : menu_references_metrics_functions
+        - identifier : menu_references_metrics_functions_distributions
           name       : "Distributions"
-          url        : "metrics/distributions"
-          weight     : 401
-          parent     : menu_references_metrics
-        - identifier : menu_references_metrics_gauges
+          url        : "metrics/functions/distributions"
+          weight     : 302
+          parent     : menu_references_metrics_functions
+        - identifier : menu_references_metrics_functions_gauges
           name       : "Gauges"
-          url        : "metrics/gauges"
-          weight     : 402
-          parent     : menu_references_metrics
-        - identifier : menu_references_metrics_rates
+          url        : "metrics/functions/gauges"
+          weight     : 303
+          parent     : menu_references_metrics_functions
+        - identifier : menu_references_metrics_functions_rates
           name       : "Rates"
-          url        : "metrics/rates"
-          weight     : 403
-          parent     : menu_references_metrics
-        - identifier : menu_references_metrics_histograms
+          url        : "metrics/functions/rates"
+          weight     : 304
+          parent     : menu_references_metrics_functions
+        - identifier : menu_references_metrics_functions_histograms
           name       : "Histograms"
-          url        : "metrics/histograms"
-          weight     : 404
-          parent     : menu_references_metrics
+          url        : "metrics/functions/histograms"
+          weight     : 305
+          parent     : menu_references_metrics_functions
         - identifier : menu_references_metrics_sets
           name       : "Sets"
-          url        : "metrics/sets"
-          weight     : 405
+          url        : "metrics/functions/sets"
+          weight     : 306
+          parent     : menu_references_metrics_functions
+        - identifier : menu_references_metrics_functions_custom
+          name       : "Custom"
+          url        : "metrics/functions/custom_metrics/"
+          weight     : 307
+          parent     : menu_references_metrics_functions
+        - identifier : menu_references_graphing
+          name       : "Graphing"
+          url        : "metrics/graphing/"
+          pre        : "nav_graphing"
+          weight     : 130
           parent     : menu_references_metrics
-        - identifier : menu_references_metrics_custom
-          name       : "User-Defined"
-          url        : "metrics/custom_metrics/"
-          weight     : 406
+        - identifier : customnav_getting_startednav_graphingjson
+          name       : "JSON"
+          url        : "metrics/json/"
+          weight     : 140
           parent     : menu_references_metrics
 
         # AGENT
@@ -487,7 +506,7 @@ languages:
           parent     : customnav_tracingnav_getting_further
         - identifier : customnav_tracingnav_apm_widget
           name       : "APM in Dashboard"
-          url        : "getting_started/dashboards/widgets/#service-summary"
+          url        : "metrics/widgets/#service-summary"
           weight     : 440
           parent     : customnav_tracingnav_getting_further
         - identifier : customnav_tracingnav_metrics_namespace
@@ -633,14 +652,6 @@ languages:
           url        : "logs/archives/s3"
           weight     : 810
           parent     : customnav_lognav_archives
-
-# ---------------------------------------- #
-        - identifier : space1
-          name       : " ----- "
-          url        : " "
-          pre        : " "
-          weight     : 65
-
         # MONITORS / ALERTS
         - identifier : menu_references_monitoring
           name       : "5| Monitors"
@@ -752,26 +763,9 @@ languages:
         #  parent: menu_references_logs
 
 
-        # TAGGING
-        - identifier : menu_references_tagging
-          name       : "7| Tagging"
-          url        : "tagging/"
-          pre        : "nav_tagging"
-          weight     : 75
-        - identifier : customnav_getting_started_assigning_tags
-          name       : "Assign Tags"
-          url        : "tagging/assigning_tags"
-          weight     : 350
-          parent     : menu_references_tagging
-        - identifier : customnav_getting_started_using_tags
-          name       : "Using Tags"
-          url        : "tagging/using_tags"
-          weight     : 351
-          parent     : menu_references_tagging
-
         # DEV TOOLS
         - identifier : menu_references_developers
-          name       : "8| Dev Tools"
+          name       : "6| Dev Tools"
           url        : "developers/"
           pre        : "nav_developers"
           weight     : 90
@@ -813,19 +807,19 @@ languages:
 
         # INTEGRATIONS
         - identifier : menu_references_integrations
-          name       : "9| Integrations"
+          name       : "7| Integrations"
           url        : "integrations/"
           pre        : "nav_integrations"
           weight     : 95
 
         # API
         - identifier : menu_references_api
-          name       : "10| API"
+          name       : "8| API"
           url        : "api/"
           pre        : "nav_api"
           weight     : 100
 
-        - identifier : space3
+        - identifier : space
           name       : " ----- "
           url        : " "
           pre        : " "
@@ -833,7 +827,7 @@ languages:
 
         # ACCOUNT MANAGEMENT
         - identifier : menu_references_account_management
-          name       : "12| Settings"
+          name       : "9| Settings"
           url        : "account_management/"
           pre        : "nav_account"
           weight     : 105
@@ -892,7 +886,7 @@ languages:
 
           # SECURITY
         - identifier : menu_references_security
-          name       : "13| Security"
+          name       : "10| Security"
           url        : "security/"
           pre        : "nav_security"
           weight     : 110
@@ -919,14 +913,14 @@ languages:
 
           # VIDEOS
         - identifier : menu_references_videos
-          name       : "14| Videos"
+          name       : "11| Videos"
           url        : "videos/"
           pre        : "nav_videos"
           weight     : 115
 
           # GLOSSARY
         - identifier : menu_references_glossary
-          name       : "15| Glossary"
+          name       : "12| Glossary"
           url        : "glossary/"
           pre        : "nav_glossary"
           weight     : 120
